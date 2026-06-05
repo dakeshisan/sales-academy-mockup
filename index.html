@@ -146,6 +146,9 @@ body::after{
 .player .pmeta .d{background:rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.2); padding:4px 10px; border-radius:999px; font-size:12px; font-weight:700}
 .player .pcap{position:relative; margin-top:12px; font-size:12.5px; color:#bcd0e2; font-weight:600}
 .player .slot{position:absolute; top:14px; right:14px; font-size:10px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--gold-2); background:rgba(255,255,255,.1); border:1px dashed rgba(255,217,138,.5); padding:4px 9px; border-radius:999px}
+.vidwrap{position:relative}
+.vidwrap .vid{width:100%; aspect-ratio:16/9; border-radius:18px; display:block; background:#000; box-shadow:var(--shadow)}
+.pcap2{margin-top:10px; font-size:12.5px; color:var(--mut); font-weight:600}
 
 /* script card */
 .scriptbox{background:var(--navy); color:#dbe6ef; border-radius:14px; padding:15px 17px; margin:6px 0 0; font-size:14px; line-height:1.7}
@@ -362,11 +365,12 @@ body::after{
 /* ====== CONTENT ======
    Каждый модуль: lesson = массив шагов-карточек (cover/media/point/script/compare/key) + quiz.
    Шаги легко добавлять/менять без правки кода движка. */
+const VIDEO_DEMO='https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4'; // демо-заглушка; заменить на реальные ролики Гребенюка
 const MODULES = [
  { id:'m0', ic:'🚀', title:'Добро пожаловать', badge:'Старт', xp:80,
    lesson:[
      {t:'cover', goal:'Понять, как ты влияешь на результат ещё до первого слова клиента.', learn:['Что мы на самом деле продаём','Правило №1 продавца','Позитивная лексика менеджера']},
-     {t:'media', title:'Настрой продавца — вступление', dur:'4 мин', cap:'Сюда подставим твой материал Гребенюка (видео или аудио).'},
+     {t:'media', title:'Настрой продавца — вступление', dur:'4 мин', src:VIDEO_DEMO, cap:'Демо-ролик (заглушка). Сюда встанет твоё видео Гребенюка.'},
      {t:'point', h:'Что мы продаём', b:'ATAMURA строит жилые комплексы в Алматы — Аура, Керуен, Атмосфера, Аксай. Но ты продаёшь не «квадратные метры», а <b>решение задачи клиента</b>.', ex:'<b>Пример:</b> семья ищет не «60 м²», а безопасный двор, школу рядом и спокойствие за детей.'},
      {t:'point', h:'Правило №1 — настрой важнее продукта', b:'Клиент покупает у людей, которые ему нравятся. Первые 10 секунд — тон, энергия, улыбка. <b>Улыбка слышна по телефону</b> — буквально.'},
      {t:'compare', h:'Позитивная лексика', bad:['«Дорого»','«Не знаю»','«Предоплата»','«Проблема»'], good:['«Стоимость», «инвестиция»','«Уточню для вас сейчас»','«Фиксация условий»','«Вопрос», «ситуация»']},
@@ -396,7 +400,7 @@ const MODULES = [
  { id:'m2', ic:'📞', title:'Первый контакт', badge:'Контакт', xp:100,
    lesson:[
      {t:'cover', goal:'Взять инициативу с первых секунд и снять сопротивление клиента.', learn:['Первые 10 секунд','Программирование разговора','Скорость и нормативы']},
-     {t:'media', title:'Установление контакта и программирование', dur:'6 мин', cap:'Сюда подставим фрагмент мастер-класса Гребенюка.'},
+     {t:'media', title:'Установление контакта и программирование', dur:'6 мин', src:VIDEO_DEMO, cap:'Демо-ролик (заглушка). Сюда встанет фрагмент мастер-класса Гребенюка.'},
      {t:'point', h:'Первые 10 секунд', b:'Тон, улыбка, энергия. Клиент решает «слушать ли» именно сейчас. Возьми инициативу с первой фразы.'},
      {t:'script', h:'Как это звучит — приветствие', s:'<span class="who">—</span> Добрый день, компания ATAMURA GROUP, меня зовут Алина. Как я могу к вам обращаться?'},
      {t:'point', h:'Программирование разговора', b:'Предупреди о структуре — и сопротивление падает. Квалификация пройдёт как помощь, а не «допрос».'},
@@ -429,7 +433,7 @@ const MODULES = [
  { id:'m4', ic:'🏡', title:'КЭВ — продаём показ', badge:'КЭВ', xp:120,
    lesson:[
      {t:'cover', goal:'Перестать «звать посмотреть» и начать продавать показ как ценность.', learn:['Что такое КЭВ','Почему показ, а не покупка','Оффер на показ']},
-     {t:'media', title:'КЭВ — закрытие на показ', dur:'5 мин', cap:'Сюда подставим фрагмент Гребенюка про ключевой этап воронки.'},
+     {t:'media', title:'КЭВ — закрытие на показ', dur:'5 мин', src:VIDEO_DEMO, cap:'Демо-ролик (заглушка). Сюда встанет фрагмент Гребенюка про КЭВ.'},
      {t:'point', h:'Что такое КЭВ', b:'<b>КЭВ — ключевой этап воронки.</b> По телефону мы не закрываем на покупку. Закрываем на <b>показ объекта</b> — промежуточную цель, которую легко принять. Цифра/звонок продаёт встречу, встреча продаёт квартиру.'},
      {t:'script', h:'Как это звучит — оффер на показ', s:'<span class="who">—</span> Судя по тому, что вы рассказали, у нас есть пара вариантов под вашу задачу. Чтобы оценить планировку и вид лично — организуем визит. Вам удобнее в будни или в выходные?'},
      {t:'compare', h:'Слышишь разницу?', bad:['«Приходите как-нибудь, посмотрите»','«Скину адрес в WhatsApp»','«Когда вам будет удобно?» (открыто)'], good:['«Организуем визит под вашу задачу»','«Подберу 2–3 варианта к показу»','«В будни или в выходные?» (выбор)']},
@@ -549,10 +553,10 @@ function cardHTML(step){
       <div class="lc-goal"><b>🎯 Цель:</b> ${step.goal}</div>
       <ul class="lc-learn">${step.learn.map(x=>`<li>${x}</li>`).join('')}</ul></div>`;
   if(step.t==='media') return `<div class="lc"><span class="lc-tag learn">▶ Видео-урок</span>
-      <div class="player"><span class="slot">слот под материал</span>
-        <div class="play">▶</div><div class="ptitle">${step.title}</div>
-        <div class="pmeta"><span class="d">⏱ ${step.dur}</span><span class="d">Гребенюк</span></div>
-        <div class="pcap">${step.cap}</div></div></div>`;
+      <div class="vidwrap"><div class="player" data-src="${step.src||''}" data-title="${step.title}"><span class="slot">слот под материал</span>
+        <div class="play" onclick="playVideo(this)">▶</div><div class="ptitle">${step.title}</div>
+        <div class="pmeta"><span class="d">⏱ ${step.dur}</span><span class="d">Гребенюк</span><span class="d">демо</span></div>
+        <div class="pcap">${step.cap}</div></div></div></div>`;
   if(step.t==='point') return `<div class="lc"><span class="lc-tag learn">📖 Разбор</span>
       <h3 class="ph">${step.h}</h3><p>${step.b}</p>${step.ex?`<div class="ex">${step.ex}</div>`:''}</div>`;
   if(step.t==='script') return `<div class="lc"><span class="lc-tag script">🗣 Скрипт · ${step.h}</span>
@@ -563,6 +567,11 @@ function cardHTML(step){
   if(step.t==='key') return `<div class="lc"><span class="lc-tag key">🧠 Конспект</span>
       <div class="lc-key"><h4>🧠 Запомни</h4><ul>${step.items.map(x=>`<li>${x}</li>`).join('')}</ul></div></div>`;
   return '';
+}
+function playVideo(btn){
+  const wrap=btn.closest('.vidwrap'); const p=btn.closest('.player');
+  const src=p.dataset.src, title=p.dataset.title; if(!src) return;
+  wrap.innerHTML='<video class="vid" controls autoplay playsinline src="'+src+'"></video><div class="pcap2">▶ '+title+' · демо-ролик — сюда встанет твоё видео Гребенюка</div>';
 }
 function renderLessonStep(){
   const {steps,i}=lessonState;
