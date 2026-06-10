@@ -48,6 +48,16 @@ h1,h2,h3,h4,h5{font-family:'EB Garamond',Georgia,serif; font-weight:600; letter-
 .ic{display:inline-block; flex:0 0 auto; background:currentColor; -webkit-mask-size:contain; mask-size:contain; -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat; -webkit-mask-position:center; mask-position:center}
 .ic.check{width:15px;height:15px; -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 8.4l3 3 7-7.4' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 8.4l3 3 7-7.4' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
 .ic.cross{width:13px;height:13px; -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 4l8 8M12 4l-8 8' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E"); mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 4l8 8M12 4l-8 8' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E")}
+.exch{display:flex; gap:8px; align-items:flex-start; font-size:12.5px; color:var(--ink-2); margin:10px 0 0; cursor:pointer}
+.exch input{accent-color:var(--teal-d); margin-top:2px}
+.cert .qual{margin:12px auto 2px; max-width:440px; font-size:13.5px; color:var(--ink-2)}
+.cert .qual b{font-size:16px; color:var(--navy)}
+.cert .qual .brk{font-size:11.5px; color:var(--mut); margin-top:4px}
+.ladder{margin-top:18px; border:1px solid #e4e0d2; border-radius:15px; padding:16px 18px; background:var(--card)}
+.ladder h4{margin:0 0 10px; font-size:15px; color:var(--navy)}
+.lrow{display:flex; gap:10px; margin-bottom:9px; font-size:13px; color:var(--ink-2); line-height:1.45}
+.lrow .tag{flex:0 0 78px; align-self:flex-start; text-align:center; font-size:10.5px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--teal-d); background:var(--teal-soft); border-radius:999px; padding:4px 0; margin-top:2px}
+.lnote{font-size:11.5px; color:var(--mut); font-style:italic}
 .mk{width:64%;height:64%;display:block;color:var(--navy-d)}
 .startcard .bk .mk{color:var(--gold-2)}
 .ic.lock{width:13px;height:14px; -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect x='3' y='7' width='10' height='7' rx='1.5' fill='%23000'/%3E%3Cpath d='M5 7V5a3 3 0 0 1 6 0v2' fill='none' stroke='%23000' stroke-width='1.6'/%3E%3C/svg%3E"); mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect x='3' y='7' width='10' height='7' rx='1.5' fill='%23000'/%3E%3Cpath d='M5 7V5a3 3 0 0 1 6 0v2' fill='none' stroke='%23000' stroke-width='1.6'/%3E%3C/svg%3E")}
@@ -397,7 +407,7 @@ h1,h2,h3,h4,h5{font-family:'EB Garamond',Georgia,serif; font-weight:600; letter-
       <div class="facts">
         <span class="fact"><b>~2–3 рабочих дня</b> · чистыми ~4–5 часов</span>
         <span class="fact">Старт + 7 тем · тест темы: <b>5 из банка ~10, порог 80%</b></span>
-        <span class="fact">Финал: <b>18 из банка 41, порог 90%</b> + разбор звонка → допуск</span>
+        <span class="fact">Финал: <b>20 из банка 41, порог 90%</b> + разбор звонка → допуск</span>
       </div>
       <div class="namecard"><label for="nameIn">Тебя зовут</label><input id="nameIn" type="text" placeholder="Имя для допуска" maxlength="32" autocomplete="off"></div>
     </div>
@@ -480,6 +490,13 @@ h1,h2,h3,h4,h5{font-family:'EB Garamond',Georgia,serif; font-weight:600; letter-
         <p style="margin:0 0 14px; font-size:14.5px; color:var(--ink-2)">Два замка. Первый — итоговый тест по всему треку. Второй — <b>разбор реального звонка с наставником</b>. Допуск открывает <b>человек</b> (РОП / наставник), а не тест автоматически.</p>
         <div class="gatename" id="gateNameWrap"><label for="nameIn2">Имя для допуска</label><input id="nameIn2" type="text" placeholder="Как впишем в сертификат" maxlength="32" autocomplete="off"></div>
         <div class="gate-grid" id="gateGrid"></div>
+        <div class="ladder">
+          <h4>Лестница уровней</h4>
+          <div class="lrow"><span class="tag">Академия</span><div><b>Уровень выпуска 1–9</b> — по результату первого прохождения: финал (100% → +3, 95–99% → +2, иначе +1), средний балл тем (+0…+3), пересдачи (+0…+2). До 8 — расчётом; <b>9-й даёт только наставник</b> за образцовый звонок — по рубрике, со второй подписью ОКК.</div></div>
+          <div class="lrow"><span class="tag">В работе</span><div><b>Грейды 10–100</b> — все начинают с 10; высокий уровень выпуска ускоряет первый пересмотр (7–8 → через 2 недели вместо месяца). Повышение — за подтверждённые факты: показы, брони и договоры, дисциплина CRM, оценки ОКК; каждый видит, чего не хватает до следующего грейда.</div></div>
+          <div class="lrow"><span class="tag">Оклад</span><div><b>Базовый оклад привязан к бэндам грейдов</b> (несколько грейдов = шаг оклада). Понижений нет — движение вверх; раз в год — ревью развития с человеком, без кадровых последствий. Суммы, шаги и оформление утверждают HR и юрист (ТК РК).</div></div>
+          <div class="lnote">Суммы и нормативы — плейсхолдеры до решения HR / юриста.</div>
+        </div>
       </div>
     </div>
   </section>
@@ -491,6 +508,7 @@ h1,h2,h3,h4,h5{font-family:'EB Garamond',Georgia,serif; font-weight:600; letter-
       <div class="ck">Допуск · ATAMŪRA</div><h2 tabindex="-1">Телемаркетолог</h2>
       <div class="who">Подтверждает, что<br><u id="cert-name">Менеджер</u></div>
       <div class="desc">освоил(а) трек «Телемаркетинг» Академии ATAMŪRA и <b>готов(а) к работе с клиентами под наставником</b>. Разбор звонка принят наставником; кадровое решение — за РОП / HR.</div>
+      <div class="qual" id="cert-qual"></div>
       <div class="badges" id="cert-badges"></div>
       <div class="stamped">● Печать поставлена наставником</div>
       <div class="foot"><span>Трек I · Телемаркетинг</span><span id="cert-date">2026</span></div>
@@ -534,7 +552,7 @@ const KEY='atamura_academy_redesign_v2';
 let S = load();
 let curMod=null, quizState=null, lessonState=null;
 function load(){ try{return Object.assign(fresh(), JSON.parse(localStorage.getItem(KEY))||{})}catch(e){return fresh()} }
-function fresh(){ return {name:'', done:[], badges:[], introDone:false, testPassed:false, mentorOK:false, certified:false} }
+function fresh(){ return {name:'', done:[], badges:[], q:{}, mentorBonus:false, introDone:false, testPassed:false, mentorOK:false, certified:false} }
 function save(){ localStorage.setItem(KEY, JSON.stringify(S)) }
 function resetAll(){ if(!confirm('Сбросить весь прогресс Академии? Действие необратимо.')) return; S=fresh(); save(); go('home'); renderAll(); var n=document.getElementById('nameIn'); if(n)n.value=''; }
 
@@ -730,7 +748,7 @@ function finishIntro(){ S.introDone=true; save(); renderAll(); go('home'); }
 
 /* ===== QUIZ ENGINE ===== */
 function sampleSet(bank,n){ const a=bank.slice(); for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a.slice(0,Math.min(n,a.length)); }
-function startQuiz(id){ curMod=id; const set = sampleSet(id==='final'? FINAL : MODULES.find(x=>x.id===id).quiz, id==='final'?18:5); quizState={id, set, i:0, correct:0}; go('quiz'); document.getElementById('qbanner').style.display = id==='final'?'none':'flex'; const qb=document.getElementById('quizBack'); if(id==='final'){ qb.textContent='← К допуску'; qb.onclick=()=>go('gate'); } else { qb.textContent='← К началу урока'; qb.onclick=()=>openModule(id); } renderQ(); }
+function startQuiz(id){ curMod=id; const set = sampleSet(id==='final'? FINAL : MODULES.find(x=>x.id===id).quiz, id==='final'?20:5); quizState={id, set, i:0, correct:0}; go('quiz'); document.getElementById('qbanner').style.display = id==='final'?'none':'flex'; const qb=document.getElementById('quizBack'); if(id==='final'){ qb.textContent='← К допуску'; qb.onclick=()=>go('gate'); } else { qb.textContent='← К началу урока'; qb.onclick=()=>openModule(id); } renderQ(); }
 function renderQ(){
   const {set,i}=quizState; const q=set[i];
   document.getElementById('q-n').textContent='Вопрос '+(i+1)+' / '+set.length;
@@ -771,13 +789,16 @@ function finishQuiz(){
   const {set,correct,id}=quizState; const pct=Math.round(correct/set.length*100);
   const isFinal = id==='final';
   const pass = isFinal ? pct>=90 : pct>=80; let rewards=[];
+  const rec = S.q[id] || (S.q[id]={best:0,tries:0,passed:false});
+  if(!rec.passed){ rec.tries++; if(pass){ rec.passed=true; rec.passScore=pct; } }
+  if(pct>rec.best) rec.best=pct;
   if(pass){
     if(isFinal){ if(!S.testPassed){ S.testPassed=true; } rewards=['Теория сдана']; }
     else if(!S.done.includes(id)){ const m=MODULES.find(x=>x.id===id); S.done.push(id); if(!S.badges.includes(m.skill))S.badges.push(m.skill); rewards=['Навык «'+m.skill+'» освоен']; const nr=nextRankNeed(); const before=doneCount()-1; if((doneCount()===2)||(doneCount()===5)) rewards.push('Новый ранг: '+RANKS[rankIdx()].t); }
     else { rewards=['Уже пройдено']; }
     save();
   }
-  renderAll(); go('result');
+  save(); renderAll(); go('result');
   // ring
   const arc=339, off=arc-arc*pct/100; const a=document.getElementById('r-arc');
   a.style.transition='none'; a.style.strokeDashoffset=arc;
@@ -811,7 +832,7 @@ function renderGate(){
   grid.innerHTML=`
     <div class="gatecard">
       <h4><span class="n ${l1?'ok':''}">${l1?'<span class="ic check"></span>':'1'}</span> Итоговый тест</h4>
-      <p style="margin:0; font-size:13.5px; color:var(--ink-2)">Каждая попытка — <b>18 случайных вопросов из банка 41</b>, пересдача — всегда новый набор. Порог <b>90%</b> — проверка на готовность к звонку, не «на галочку».</p>
+      <p style="margin:0; font-size:13.5px; color:var(--ink-2)">Каждая попытка — <b>20 случайных вопросов из банка 41</b>, пересдача — всегда новый набор. Порог <b>90%</b> — проверка на готовность к звонку, не «на галочку».</p>
       <div class="st ${l1?'ok':'wait'}">${l1?'Сдан':'Ещё не сдан'}</div>
       <button class="btn teal block" style="margin-top:12px" onclick="startQuiz('final')">${l1?'Пересдать тест':'Начать итоговый тест →'}</button>
     </div>
@@ -820,7 +841,7 @@ function renderGate(){
       <p style="margin:2px 0 6px; font-size:13.5px; color:var(--ink-2)">РОП / наставник слушает реальный звонок и подтверждает:</p>
       <ul><li>Контакт установлен, цель звонка названа</li><li>Квалификация ABC</li><li>Закрытие на показ (КЭВ)</li><li>Отработано возражение</li><li>Договорённость о следующем шаге</li></ul>
       <div class="st ${l2?'ok':'wait'}">${l2?'Принят наставником':(l1?'Ждёт разбора с наставником':'Сначала сдай тест')}</div>
-      <button class="btn ${l2?'ghost':'teal'} block" style="margin-top:12px" ${(!l1||l2)?'disabled':''} onclick="mentorConfirm()">${l2?'Подтверждено наставником ✓':'Наставник подтвердил разбор'}</button>
+      ${l2?'':`<label class="exch"><input type="checkbox" id="exemplary"> Звонок образцовый — наставник добавляет +1 к уровню</label>`}<button class="btn ${l2?'ghost':'teal'} block" style="margin-top:12px" ${(!l1||l2)?'disabled':''} onclick="mentorConfirm()">${l2?'Подтверждено наставником ✓':'Наставник подтвердил разбор'}</button>
       <div class="mentor-note">Демо: в реальной Академии эту отметку ставит РОП/наставник, не сам сотрудник. Допуск — решение человека по компетенции, не автомат.</div>
     </div>
     <div class="gatecard soon"><span class="tag">Скоро</span><h4>AI-тренажёр звонка</h4><p>Отыграешь звонок с виртуальным клиентом — система оценит по чек-листу Академии и даст разбор. Встанет рядом с разбором наставника без переделки Академии.</p></div>
@@ -828,8 +849,23 @@ function renderGate(){
 }
 function mentorConfirm(){
   if(!S.testPassed) return;
+  const ex=document.getElementById('exemplary'); const exOn=!!(ex&&ex.checked);
   if(!confirm('Демо-действие за наставника: подтвердить, что разбор звонка принят? В проде это делает РОП/наставник.')) return;
-  S.mentorOK=true; S.certified=true; if(!S.done.includes('final'))S.done.push('final'); save(); renderAll(); renderGate();
+  S.mentorOK=true; S.certified=true; S.mentorBonus=exOn; if(!S.done.includes('final'))S.done.push('final'); save(); renderAll(); renderGate();
+}
+
+/* ===== УРОВЕНЬ ВЫПУСКА (1–9) ===== */
+function qualLevel(){
+  if(!S.testPassed) return null;
+  const fr=S.q['final']||{}; const f=fr.passScore||fr.best||90;
+  const bs=MODULES.map(m=>{const r=S.q[m.id]||{}; return r.passScore||r.best||80;});
+  const avg=Math.round(bs.reduce((a,b)=>a+b,0)/bs.length);
+  const retries=Object.values(S.q).reduce((a,r)=>a+Math.max(0,(r.tries||1)-1),0);
+  const fp = f>=100?3 : f>=95?2 : 1;
+  const tp = avg>=97?3 : avg>=88?2 : avg>=82?1 : 0;
+  const dp = retries===0?2 : retries<=2?1 : 0;
+  const lvl=Math.min(9, Math.min(8, fp+tp+dp) + (S.mentorBonus?1:0));
+  return {lvl, f, avg, retries, fp, tp, dp, bonus:S.mentorBonus?1:0};
 }
 
 /* ===== CERT ===== */
@@ -837,6 +873,10 @@ function showCert(){
   if(!(S.testPassed&&S.mentorOK)){ go('gate'); renderGate(); return; }
   document.getElementById('cert-name').textContent = S.name || 'Менеджер';
   document.getElementById('cert-date').textContent = new Date().toLocaleDateString('ru-RU',{day:'2-digit',month:'long',year:'numeric'});
+  const ql=qualLevel(), qh=document.getElementById('cert-qual');
+  if(ql&&qh){ qh.innerHTML='Уровень выпуска: <b>'+ql.lvl+' / 9</b>'
+    +'<div class="brk">финал '+ql.f+'% (+'+ql.fp+') · темы в среднем '+ql.avg+'% (+'+ql.tp+') · '+(ql.retries===0?'без пересдач':'пересдач: '+ql.retries)+' (+'+ql.dp+')'+(ql.bonus?' · отметка наставника (+1)':'')+'</div>'
+    +'<div class="brk">Дальше уровень растёт в работе — грейды до 100; к уровню привязан базовый оклад (шкалу утверждают HR и юрист).</div>'; }
   const bh=document.getElementById('cert-badges'); bh.innerHTML='';
   S.badges.forEach(b=>{const d=document.createElement('span');d.className='b';d.innerHTML='<span class="d"></span>'+b;bh.appendChild(d);});
   const cl=document.getElementById('cheat-list'); cl.innerHTML='';
