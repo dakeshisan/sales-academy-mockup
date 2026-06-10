@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Академия ATAMURA — Путь продавца (концепт)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#e7eef4; --bg2:#eef3f7; --card:#fff; --ink:#16263a; --mut:#6b8095; --line:#e6ecf2;
+  --navy:#0e2a40; --navy2:#0a2235; --teal:#13a3a3; --teal-d:#0d7e7e; --teal-soft:#e7f6f6;
+  --gold:#d9a441; --gold-d:#b9892f; --gold-soft:#fdf2e1; --gold-2:#ffd98a;
+  --blue:#3f6fb0; --blue-d:#274a72; --blue-soft:#eaf1fa;
+  --bad:#d05a4a; --bad-soft:#fbeae7;
+  --shadow:0 8px 26px -12px rgba(14,42,64,.32);
+  --shadow-lg:0 28px 60px -24px rgba(14,42,64,.5);
+  --r:18px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; font-family:'Archivo',-apple-system,'Segoe UI',sans-serif;
+  color:var(--ink); background:var(--bg); line-height:1.5; -webkit-font-smoothing:antialiased; overflow-x:hidden;
+}
+body::before{
+  content:""; position:fixed; inset:0; z-index:-2;
+  background:
+    radial-gradient(900px 500px at 88% -8%, rgba(19,163,163,.16), transparent 60%),
+    radial-gradient(800px 520px at -10% 12%, rgba(217,164,65,.14), transparent 58%),
+    radial-gradient(900px 700px at 50% 120%, rgba(14,42,64,.10), transparent 60%),
+    var(--bg);
+}
+body::after{
+  content:""; position:fixed; inset:0; z-index:-1; opacity:.5; pointer-events:none;
+  background-image:radial-gradient(rgba(14,42,64,.05) 1px, transparent 1px); background-size:26px 26px;
+  -webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.7),transparent 80%); mask-image:linear-gradient(180deg,rgba(0,0,0,.7),transparent 80%);
+}
+.wrap{max-width:920px; margin:0 auto; padding:0 20px 90px}
+
+/* TOP BAR */
+.topbar{position:sticky; top:0; z-index:50; backdrop-filter:blur(10px); background:rgba(231,238,244,.78); border-bottom:1px solid var(--line)}
+.topbar .inner{max-width:920px; margin:0 auto; padding:11px 20px; display:flex; align-items:center; gap:14px}
+.brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.02em; font-size:15px}
+.brand .mark{width:30px; height:30px; border-radius:9px; display:grid; place-items:center; flex:0 0 auto; background:linear-gradient(150deg,var(--navy),var(--navy2)); color:var(--gold-2); font-weight:900; font-size:15px; box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
+.brand small{display:block; font-weight:600; font-size:10.5px; letter-spacing:.16em; color:var(--mut); text-transform:uppercase}
+.topbar .spacer{flex:1}
+.chip{display:inline-flex; align-items:center; gap:7px; padding:6px 11px; border-radius:999px; font-weight:700; font-size:12.5px; background:var(--card); border:1px solid var(--line); box-shadow:var(--shadow)}
+.chip.level{color:var(--navy)} .chip .dot{width:8px;height:8px;border-radius:50%;background:var(--teal)} .chip.streak{color:var(--gold-d)}
+.xpbar{flex:0 0 150px; max-width:150px}
+.xpbar .lab{display:flex; justify-content:space-between; font-size:10.5px; font-weight:700; color:var(--mut); margin-bottom:4px; letter-spacing:.03em}
+.xpbar .track{height:9px; border-radius:999px; background:#d4deea; overflow:hidden; box-shadow:inset 0 1px 2px rgba(14,42,64,.12)}
+.xpbar .fill{height:100%; width:0; border-radius:999px; background:linear-gradient(90deg,var(--teal),var(--gold)); transition:width .9s cubic-bezier(.22,1,.36,1)}
+@media(max-width:620px){ .xpbar{display:none} .brand small{display:none} }
+
+/* HERO */
+.hero{padding:40px 0 14px; text-align:center; animation:rise .7s both}
+.hero .kicker{display:inline-flex; align-items:center; gap:8px; font-size:11.5px; font-weight:800; letter-spacing:.18em; text-transform:uppercase; color:var(--teal-d); background:var(--teal-soft); padding:7px 14px; border-radius:999px; margin-bottom:18px}
+.hero h1{font-size:clamp(30px,5.4vw,50px); line-height:1.03; margin:0 0 12px; letter-spacing:-.02em; font-weight:900}
+.hero h1 .g{background:linear-gradient(100deg,var(--gold-d),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{max-width:560px; margin:0 auto; color:var(--mut); font-size:16px; font-weight:500}
+.hero .meta{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:22px}
+.tag{display:inline-flex; align-items:center; gap:7px; background:var(--card); border:1px solid var(--line); padding:8px 14px; border-radius:12px; font-size:13px; font-weight:600; box-shadow:var(--shadow)}
+.tag b{color:var(--navy)}
+.namecard{max-width:430px; margin:26px auto 6px; background:var(--card); border:1px solid var(--line); border-radius:16px; padding:14px 16px; display:flex; align-items:center; gap:12px; box-shadow:var(--shadow); animation:rise .7s .1s both}
+.namecard label{font-size:12px; font-weight:700; color:var(--mut); white-space:nowrap}
+.namecard input{flex:1; border:1px solid var(--line); background:var(--bg2); border-radius:10px; padding:9px 12px; font-family:inherit; font-size:14px; font-weight:600; color:var(--ink); min-width:0}
+.namecard input:focus{outline:2px solid var(--teal); outline-offset:1px; background:#fff}
+
+.section-h{display:flex; align-items:baseline; gap:12px; margin:38px 4px 8px}
+.section-h h2{font-size:21px; font-weight:800; letter-spacing:-.01em; margin:0}
+.section-h span{font-size:12.5px; color:var(--mut); font-weight:600}
+
+/* PATH */
+.path{position:relative; margin-top:18px; padding-left:8px}
+.path::before{content:""; position:absolute; left:32px; top:18px; bottom:34px; width:4px; border-radius:4px; background:linear-gradient(180deg,var(--teal),var(--blue) 55%,var(--gold)); opacity:.35}
+.station{position:relative; padding:0 0 22px 78px; min-height:64px; animation:rise .6s both}
+.node{position:absolute; left:10px; top:2px; width:48px; height:48px; border-radius:15px; z-index:2; display:grid; place-items:center; font-weight:900; font-size:18px; color:#fff; background:#c3cedd; box-shadow:var(--shadow); border:3px solid var(--bg)}
+.station.done .node{background:linear-gradient(150deg,var(--teal),var(--teal-d)); color:var(--gold-2)}
+.station.current .node{background:linear-gradient(150deg,var(--navy),var(--navy2)); color:var(--gold-2); border-color:#fff; box-shadow:0 0 0 4px rgba(19,163,163,.28), var(--shadow); animation:pulse 2.2s infinite}
+.station.locked .node{background:#c3cedd; color:#fff}
+.scard{background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:15px 17px; box-shadow:var(--shadow); display:flex; align-items:center; gap:14px; transition:transform .18s ease, box-shadow .18s ease, border-color .18s}
+.station:not(.locked) .scard{cursor:pointer}
+.station:not(.locked) .scard:hover{transform:translateY(-3px); box-shadow:var(--shadow-lg); border-color:#cdd9e6}
+.station.current .scard{border-color:rgba(19,163,163,.5); box-shadow:0 0 0 3px rgba(19,163,163,.12), var(--shadow)}
+.station.locked .scard{opacity:.62; filter:saturate(.6)}
+.scard .ic{font-size:24px; width:30px; text-align:center; flex:0 0 auto}
+.scard .body{flex:1; min-width:0}
+.scard .body h3{margin:0 0 3px; font-size:16px; font-weight:800; letter-spacing:-.01em}
+.scard .body .sub{font-size:12.5px; color:var(--mut); font-weight:600; display:flex; gap:10px; flex-wrap:wrap}
+.scard .body .sub .rew{color:var(--gold-d)} .scard .body .sub .les{color:var(--teal-d)} .scard .body .sub .vid{color:var(--blue-d)}
+.scard .go{flex:0 0 auto; font-weight:800; font-size:13px; color:var(--teal-d); display:flex; align-items:center; gap:5px}
+.scard .lockico{color:var(--mut); font-size:18px}
+.pill-done{font-size:10.5px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--teal-d); background:var(--teal-soft); padding:3px 9px; border-radius:999px}
+.station.final .scard{background:linear-gradient(120deg,#fff, var(--gold-soft)); border-color:#f0dcae}
+.station.final .node{border-radius:50%}
+
+/* VIEWS */
+.view{display:none} .view.active{display:block; animation:rise .45s both}
+.backbtn{display:inline-flex; align-items:center; gap:7px; margin:24px 0 6px; background:none; border:none; font-family:inherit; font-weight:700; font-size:13.5px; color:var(--mut); cursor:pointer; padding:6px 4px}
+.backbtn:hover{color:var(--navy)}
+.panel{background:var(--card); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow-lg); overflow:hidden}
+.panel-head{padding:20px 26px; background:linear-gradient(120deg,var(--navy),var(--navy2)); color:#fff; position:relative}
+.panel-head::after{content:""; position:absolute; inset:0; background:radial-gradient(380px 160px at 88% -30%, rgba(217,164,65,.32), transparent 70%)}
+.panel-head .ix{position:relative; display:flex; align-items:center; gap:14px}
+.panel-head .ic{font-size:28px}
+.panel-head .lab{font-size:11px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; color:var(--gold-2); opacity:.95; display:flex; align-items:center; gap:8px}
+.panel-head h2{margin:2px 0 0; font-size:22px; font-weight:800; letter-spacing:-.01em}
+.panel-head .stepcount{position:relative; margin-left:auto; font-size:12px; font-weight:700; color:#bcd0e2; background:rgba(255,255,255,.1); padding:5px 11px; border-radius:999px; align-self:center}
+.panel-body{padding:22px 26px}
+
+/* LESSON STEPPER */
+.lstep-bar{height:7px; border-radius:999px; background:#e0e8f0; overflow:hidden; margin-bottom:20px}
+.lstep-bar i{display:block; height:100%; background:linear-gradient(90deg,var(--teal),var(--gold)); transition:width .45s cubic-bezier(.22,1,.36,1); border-radius:999px}
+#lstep-host{min-height:230px; animation:rise .35s both}
+.lnav{display:flex; gap:12px; margin-top:22px}
+.lnav .bigbtn{margin:0}
+.lnav #lprev{flex:0 0 130px}
+
+/* lesson cards */
+.lc-tag{display:inline-flex; align-items:center; gap:7px; font-size:11px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; padding:5px 11px; border-radius:999px; margin-bottom:14px}
+.lc-tag.learn{color:var(--teal-d); background:var(--teal-soft)}
+.lc-tag.script{color:var(--blue-d); background:var(--blue-soft)}
+.lc-tag.compare{color:var(--gold-d); background:var(--gold-soft)}
+.lc-tag.key{color:#6a4ea0; background:#efeaf8}
+.lc-cover h3{font-size:25px; font-weight:900; letter-spacing:-.01em; margin:4px 0 14px}
+.lc-cover .cic{font-size:42px; margin-bottom:4px}
+.lc-goal{background:var(--teal-soft); border-left:4px solid var(--teal); border-radius:0 12px 12px 0; padding:12px 15px; font-size:14.5px; margin-bottom:16px}
+.lc-goal b{color:var(--teal-d)}
+.lc-learn{list-style:none; padding:0; margin:0}
+.lc-learn li{position:relative; padding:7px 0 7px 30px; font-size:14.5px; font-weight:500; color:#33485e}
+.lc-learn li::before{content:"✓"; position:absolute; left:2px; top:6px; width:20px; height:20px; border-radius:50%; background:var(--teal); color:#fff; font-size:12px; font-weight:900; display:grid; place-items:center}
+.lc h3.ph{font-size:20px; font-weight:800; letter-spacing:-.01em; margin:2px 0 12px}
+.lc p{font-size:15px; color:#33485e; margin:0 0 12px; line-height:1.6}
+.lc .ex{background:var(--bg2); border:1px solid var(--line); border-radius:12px; padding:12px 15px; font-size:13.5px; color:#33485e; margin-top:6px}
+.lc .ex b{color:var(--navy)}
+
+/* media player slot */
+.player{position:relative; border-radius:18px; overflow:hidden; background:linear-gradient(135deg,var(--navy),var(--navy2)); color:#fff; padding:26px 24px; min-height:200px; display:flex; flex-direction:column; justify-content:flex-end}
+.player::before{content:""; position:absolute; inset:0; background:radial-gradient(420px 200px at 78% 12%, rgba(19,163,163,.4), transparent 65%), radial-gradient(360px 200px at 12% 90%, rgba(217,164,65,.28), transparent 60%)}
+.player .play{position:relative; width:66px; height:66px; border-radius:50%; background:var(--gold); color:var(--navy); display:grid; place-items:center; font-size:24px; margin:0 0 16px; box-shadow:0 12px 28px -8px rgba(217,164,65,.7); cursor:pointer; transition:transform .15s}
+.player .play:hover{transform:scale(1.06)}
+.player .ptitle{position:relative; font-size:18px; font-weight:800; margin-bottom:6px}
+.player .pmeta{position:relative; display:flex; gap:10px; flex-wrap:wrap; align-items:center}
+.player .pmeta .d{background:rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.2); padding:4px 10px; border-radius:999px; font-size:12px; font-weight:700}
+.player .pcap{position:relative; margin-top:12px; font-size:12.5px; color:#bcd0e2; font-weight:600}
+.player .slot{position:absolute; top:14px; right:14px; font-size:10px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--gold-2); background:rgba(255,255,255,.1); border:1px dashed rgba(255,217,138,.5); padding:4px 9px; border-radius:999px}
+.vidwrap{position:relative}
+.vidwrap .vid{width:100%; aspect-ratio:16/9; border-radius:18px; display:block; background:#000; box-shadow:var(--shadow)}
+.pcap2{margin-top:10px; font-size:12.5px; color:var(--mut); font-weight:600}
+
+/* script card */
+.scriptbox{background:var(--navy); color:#dbe6ef; border-radius:14px; padding:15px 17px; margin:6px 0 0; font-size:14px; line-height:1.7}
+.scriptbox .who{color:var(--gold-2); font-weight:700}
+
+/* compare */
+.cmp{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:6px}
+.cmp .col{border-radius:14px; padding:14px 15px}
+.cmp .bad{background:var(--bad-soft); border:1px solid #f1cfc9}
+.cmp .good{background:var(--teal-soft); border:1px solid #c2e6e6}
+.cmp h5{margin:0 0 10px; font-size:13px; font-weight:800; display:flex; align-items:center; gap:7px}
+.cmp .bad h5{color:var(--bad)} .cmp .good h5{color:var(--teal-d)}
+.cmp ul{margin:0; padding:0; list-style:none}
+.cmp li{font-size:13.5px; font-weight:600; padding:5px 0; color:#33485e}
+@media(max-width:560px){ .cmp{grid-template-columns:1fr} }
+
+/* key */
+.lc-key{background:linear-gradient(120deg,#f6f2fc,#fff); border:1px solid #e6def4; border-radius:16px; padding:18px 20px}
+.lc-key h4{margin:0 0 12px; font-size:16px; font-weight:800; color:#5a3fa0; display:flex; align-items:center; gap:9px}
+.lc-key ul{margin:0; padding:0; list-style:none}
+.lc-key li{position:relative; padding:7px 0 7px 28px; font-size:14.5px; font-weight:600; color:#33485e}
+.lc-key li::before{content:""; position:absolute; left:4px; top:13px; width:9px; height:9px; border-radius:50%; background:var(--gold)}
+
+.bigbtn{display:block; width:100%; padding:15px; border:none; border-radius:14px; cursor:pointer; font-family:inherit; font-weight:800; font-size:15.5px; color:#fff; letter-spacing:.01em; background:linear-gradient(120deg,var(--teal),var(--teal-d)); box-shadow:0 12px 22px -10px rgba(13,126,126,.7); transition:transform .15s, box-shadow .15s}
+.bigbtn:hover{transform:translateY(-2px); box-shadow:0 18px 30px -12px rgba(13,126,126,.8)}
+.bigbtn.gold{background:linear-gradient(120deg,var(--gold),var(--gold-d)); box-shadow:0 12px 22px -10px rgba(185,137,47,.75); color:#3a2c05}
+.bigbtn.ghost{background:var(--bg2); color:var(--navy); box-shadow:none; border:1px solid var(--line)}
+.bigbtn:disabled{opacity:.4; cursor:default; transform:none; box-shadow:none}
+
+/* QUIZ */
+.qmeta{display:flex; align-items:center; justify-content:space-between; margin-bottom:14px}
+.qmeta .qn{font-size:12.5px; font-weight:800; color:var(--mut); letter-spacing:.04em}
+.qprog{flex:1; height:7px; margin:0 14px; background:#d9e2ec; border-radius:999px; overflow:hidden}
+.qprog i{display:block; height:100%; background:linear-gradient(90deg,var(--teal),var(--gold)); transition:width .4s}
+.qtype{font-size:11px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--blue-d); background:var(--blue-soft); padding:4px 10px; border-radius:999px}
+.checkbanner{display:flex; align-items:center; gap:10px; background:var(--gold-soft); border:1px solid #f0dcae; border-radius:12px; padding:10px 14px; margin-bottom:16px; font-size:13px; font-weight:700; color:var(--gold-d)}
+.qtext{font-size:18px; font-weight:800; letter-spacing:-.01em; margin:6px 0 18px; line-height:1.35}
+.opts{display:flex; flex-direction:column; gap:10px}
+.opt{text-align:left; padding:14px 16px; border:1.5px solid var(--line); border-radius:13px; background:var(--card); font-family:inherit; font-size:14.5px; font-weight:600; color:var(--ink); cursor:pointer; display:flex; align-items:center; gap:12px; transition:border-color .15s, background .15s, transform .12s}
+.opt:hover:not(:disabled){border-color:var(--teal); transform:translateX(3px)}
+.opt .key{width:26px; height:26px; flex:0 0 auto; border-radius:8px; background:var(--bg2); display:grid; place-items:center; font-weight:800; font-size:13px; color:var(--mut)}
+.opt.correct{border-color:var(--teal); background:var(--teal-soft)} .opt.correct .key{background:var(--teal); color:#fff}
+.opt.wrong{border-color:var(--bad); background:var(--bad-soft)} .opt.wrong .key{background:var(--bad); color:#fff}
+.opt:disabled{cursor:default}
+.explain{margin-top:14px; padding:13px 15px; border-radius:12px; font-size:13.5px; font-weight:500; display:none}
+.explain.show{display:block; animation:rise .3s both}
+.explain.good{background:var(--teal-soft); color:var(--teal-d)} .explain.bad{background:var(--gold-soft); color:var(--gold-d)}
+.explain b{font-weight:800}
+.cl-item{font-size:16px; font-weight:800; text-align:center; padding:16px; background:var(--bg2); border-radius:13px; margin-bottom:14px}
+.cl-buckets{display:grid; grid-template-columns:repeat(3,1fr); gap:10px}
+.cl-b{padding:14px 8px; border:1.5px solid var(--line); border-radius:13px; background:var(--card); cursor:pointer; font-family:inherit; text-align:center; transition:transform .12s, border-color .15s}
+.cl-b:hover:not(:disabled){border-color:var(--teal); transform:translateY(-2px)}
+.cl-b .L{font-size:24px; font-weight:900; color:var(--navy)} .cl-b .d{font-size:11px; color:var(--mut); font-weight:600; margin-top:2px}
+.cl-b.correct{border-color:var(--teal); background:var(--teal-soft)} .cl-b.correct .L{color:var(--teal-d)}
+.cl-b.wrong{border-color:var(--bad); background:var(--bad-soft)} .cl-b.wrong .L{color:var(--bad)}
+
+/* result */
+.result{text-align:center; padding:8px 4px}
+.result .ring{width:120px; height:120px; margin:6px auto 16px; border-radius:50%; display:grid; place-items:center; position:relative}
+.result .ring svg{position:absolute; inset:0; transform:rotate(-90deg)}
+.result .ring .pct{font-size:30px; font-weight:900; color:var(--navy)}
+.result h3{font-size:22px; font-weight:900; margin:0 0 6px} .result p{color:var(--mut); font-weight:600; margin:0 0 4px}
+.rewardrow{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin:18px 0 4px}
+.rb{background:var(--gold-soft); border:1px solid #f0dcae; color:var(--gold-d); padding:9px 15px; border-radius:12px; font-weight:800; font-size:13.5px; display:flex; align-items:center; gap:8px; animation:pop .5s both}
+.emb{width:30px;height:30px;border-radius:50%;background:linear-gradient(150deg,var(--gold),var(--gold-d));display:grid;place-items:center;color:#3a2c05;font-size:15px;box-shadow:0 4px 10px -3px rgba(185,137,47,.7)}
+
+/* FINAL gate */
+.gate-grid{display:grid; gap:14px; margin-top:6px}
+.gatecard{border:1px solid var(--line); border-radius:16px; padding:16px 18px; background:var(--card)}
+.gatecard h4{margin:0 0 6px; font-size:15px; font-weight:800; display:flex; align-items:center; gap:9px}
+.gatecard ul{margin:6px 0 0; padding-left:20px; font-size:13.5px; color:#33485e} .gatecard li{margin:4px 0}
+.soon{position:relative; border-style:dashed; border-color:#c9d4e1; background:repeating-linear-gradient(135deg,#fff,#fff 12px,#f6f9fc 12px,#f6f9fc 24px)}
+.soon .tagsoon{position:absolute; top:14px; right:16px; font-size:10.5px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--blue-d); background:var(--blue-soft); padding:4px 10px; border-radius:999px}
+.soon h4{color:var(--navy)} .soon p{font-size:13.5px; color:var(--mut); margin:4px 0 0}
+
+/* CERT */
+.cert{position:relative; background:linear-gradient(135deg,#fffdf7,#fff7e9); border:2px solid var(--gold); border-radius:22px; padding:34px 30px; text-align:center; box-shadow:var(--shadow-lg); overflow:hidden}
+.cert::before{content:""; position:absolute; inset:8px; border:1px solid rgba(217,164,65,.45); border-radius:16px; pointer-events:none}
+.cert .seal{width:74px;height:74px;margin:0 auto 12px;border-radius:50%;display:grid;place-items:center; background:linear-gradient(150deg,var(--navy),var(--navy2)); color:var(--gold-2); font-weight:900; font-size:26px; box-shadow:0 10px 24px -8px rgba(14,42,64,.6); position:relative; z-index:1}
+.cert .ck{font-size:11px; font-weight:800; letter-spacing:.26em; text-transform:uppercase; color:var(--gold-d); position:relative; z-index:1}
+.cert h2{font-size:27px; font-weight:900; margin:6px 0 2px; letter-spacing:-.01em; position:relative; z-index:1}
+.cert .who{font-size:20px; font-weight:800; color:var(--navy); margin:14px 0 4px; position:relative; z-index:1}
+.cert .who u{text-decoration-color:var(--gold); text-underline-offset:5px}
+.cert .desc{color:var(--mut); font-weight:600; font-size:14px; max-width:430px; margin:0 auto; position:relative; z-index:1}
+.cert .badges{display:flex; gap:9px; justify-content:center; flex-wrap:wrap; margin:18px 0 6px; position:relative; z-index:1}
+.cert .badges .b{display:flex; align-items:center; gap:7px; background:#fff; border:1px solid #f0dcae; padding:6px 11px; border-radius:999px; font-size:12px; font-weight:700; color:var(--gold-d)}
+.cert .foot{display:flex; justify-content:space-between; margin-top:20px; font-size:11.5px; color:var(--mut); font-weight:700; position:relative; z-index:1}
+.handoff{margin-top:18px; background:var(--card); border:1px solid var(--line); border-radius:18px; padding:18px 20px; box-shadow:var(--shadow); text-align:center}
+.handoff p{margin:0 0 14px; font-size:14.5px; color:#33485e; font-weight:600} .handoff a{text-decoration:none}
+.confetti{position:absolute; top:-10px; width:9px; height:14px; opacity:.9; animation:fall linear forwards}
+
+.foot-note{margin-top:40px; text-align:center; font-size:12px; color:var(--mut); font-weight:600}
+.foot-note button{background:none;border:none;color:var(--blue-d);font-weight:700;cursor:pointer;font-family:inherit;text-decoration:underline;font-size:12px}
+
+@keyframes rise{from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:none}}
+@keyframes pop{from{opacity:0; transform:scale(.8)} to{opacity:1; transform:none}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 4px rgba(19,163,163,.28), var(--shadow)} 50%{box-shadow:0 0 0 9px rgba(19,163,163,.05), var(--shadow)}}
+@keyframes fall{to{transform:translateY(360px) rotate(540deg); opacity:0}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="inner">
+  <div class="brand"><span class="mark">A</span><div>АКАДЕМИЯ<small>ATAMURA GROUP</small></div></div>
+  <div class="spacer"></div>
+  <div class="chip level"><span class="dot"></span><span id="lvlLabel">Новичок</span></div>
+  <div class="chip streak" title="Дни подряд">🔥 <span id="streakN">3</span></div>
+  <div class="xpbar"><div class="lab"><span>XP</span><span id="xpNum">0 / 1000</span></div><div class="track"><div class="fill" id="xpFill"></div></div></div>
+</div></div>
+
+<div class="wrap">
+
+  <!-- HOME -->
+  <section class="view active" id="view-home">
+    <div class="hero">
+      <span class="kicker">● Трек 1 · Телемаркетинг / входящий контакт</span>
+      <h1>Путь продавца <span class="g">ATAMURA</span></h1>
+      <p>7 миссий по методу Гребенюка — от первого «Алло» до показа. Каждая миссия: <b>видео-урок + разбор + скрипты</b>, потом мини-проверка. В конце — сертификат и доступ к рабочему кабинету.</p>
+      <div class="meta">
+        <span class="tag">🎬 <b>Видео</b> из материалов Аномалии</span>
+        <span class="tag">🎯 Метод <b>Гребенюка</b></span>
+        <span class="tag">🏅 <b>Сертификат</b> = допуск к лидам</span>
+      </div>
+      <div class="namecard"><label for="nameIn">Тебя зовут</label><input id="nameIn" type="text" placeholder="Имя для сертификата" maxlength="32" autocomplete="off"></div>
+    </div>
+    <div class="section-h"><h2>Карта пути</h2><span id="doneCount">0 из 7 миссий пройдено</span></div>
+    <div class="path" id="path"></div>
+  </section>
+
+  <!-- LESSON -->
+  <section class="view" id="view-lesson">
+    <button class="backbtn" onclick="go('home')">← На карту пути</button>
+    <div class="panel">
+      <div class="panel-head"><div class="ix">
+        <div class="ic" id="le-ic">🏠</div>
+        <div><div class="lab">📚 Урок · <span id="le-lab">Миссия</span></div><h2 id="le-title">Заголовок</h2></div>
+        <div class="stepcount" id="le-step">1 / 5</div>
+      </div></div>
+      <div class="panel-body">
+        <div class="lstep-bar"><i id="lstep-prog"></i></div>
+        <div id="lstep-host"></div>
+        <div class="lnav">
+          <button id="lprev" class="bigbtn ghost" onclick="lessonPrev()">← Назад</button>
+          <button id="lnext" class="bigbtn" onclick="lessonNext()">Далее →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section class="view" id="view-quiz">
+    <button class="backbtn" onclick="openModule(curMod)">← К уроку</button>
+    <div class="panel"><div class="panel-body">
+      <div class="checkbanner">✅ Урок пройден — закрепим за 3 вопроса</div>
+      <div class="qmeta"><span class="qn" id="q-n">Вопрос 1/3</span><div class="qprog"><i id="q-prog"></i></div><span class="qtype" id="q-type">Выбор</span></div>
+      <div id="q-host"></div>
+    </div></div>
+  </section>
+
+  <!-- RESULT -->
+  <section class="view" id="view-result">
+    <div class="panel"><div class="panel-body"><div class="result">
+      <div class="ring">
+        <svg width="120" height="120"><circle cx="60" cy="60" r="52" fill="none" stroke="#e6ecf2" stroke-width="10"/>
+          <circle id="r-arc" cx="60" cy="60" r="52" fill="none" stroke="url(#rg)" stroke-width="10" stroke-linecap="round" stroke-dasharray="327" stroke-dashoffset="327"/>
+          <defs><linearGradient id="rg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#13a3a3"/><stop offset="1" stop-color="#d9a441"/></linearGradient></defs>
+        </svg><span class="pct" id="r-pct">0%</span>
+      </div>
+      <h3 id="r-title">Готово!</h3><p id="r-sub">Миссия пройдена</p>
+      <div class="rewardrow" id="r-rewards"></div>
+      <button class="bigbtn" id="r-next" onclick="go('home')">Вернуться на карту пути →</button>
+      <button class="bigbtn ghost" id="r-retry" style="display:none" onclick="startQuiz(curMod)">Пересдать</button>
+    </div></div></div>
+  </section>
+
+  <!-- FINAL GATE -->
+  <section class="view" id="view-gate">
+    <button class="backbtn" onclick="go('home')">← На карту пути</button>
+    <div class="panel">
+      <div class="panel-head"><div class="ix"><div class="ic">🎓</div><div><div class="lab">Финальный гейт</div><h2>Сертификация продавца</h2></div></div></div>
+      <div class="panel-body">
+        <p style="margin:0 0 14px; font-size:14.5px; color:#33485e">Два слоя проверки. Первый — итоговый тест по всему треку. Второй — практика: отработанный звонок.</p>
+        <div class="gate-grid">
+          <div class="gatecard"><h4>🧠 Слой 1 — Итоговый тест</h4><p style="margin:0; font-size:13.5px; color:#33485e">5 вопросов из всех миссий. Нужно ≥80% (4 из 5).</p><button class="bigbtn" style="margin-top:14px" id="gate-start">Начать итоговый тест →</button></div>
+          <div class="gatecard"><h4>🎧 Слой 2 — Чек-лист звонка</h4><p style="margin:2px 0 6px; font-size:13.5px; color:#33485e">Наставник / РОП слушает твой звонок и отмечает:</p><ul><li>Установлен контакт + рамка разговора</li><li>Проведена квалификация ABC</li><li>Закрытие на показ (КЭВ)</li><li>Отработано хотя бы одно возражение</li><li>Договорённость о следующем шаге</li></ul></div>
+          <div class="gatecard soon"><span class="tagsoon">Скоро</span><h4>🤖 AI-тренажёр звонка</h4><p>Отыграешь звонок с виртуальным клиентом — система оценит по чек-листу Гребенюка и даст разбор. Встанет на место ручной проверки без переделки академии.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERT -->
+  <section class="view" id="view-cert">
+    <div class="cert" id="certCard">
+      <div class="seal">A</div>
+      <div class="ck">Сертификат · ATAMURA GROUP</div><h2>Продавец-консультант</h2>
+      <div class="who">Настоящим подтверждается, что<br><u id="cert-name">Менеджер</u></div>
+      <div class="desc">прошёл(ла) трек «Входящий контакт» Академии ATAMURA по методу Гребенюка и допущен(а) к работе с клиентами.</div>
+      <div class="badges" id="cert-badges"></div>
+      <div class="foot"><span>Трек 1 · Телемаркетинг</span><span id="cert-date">2026</span></div>
+    </div>
+    <div class="handoff">
+      <p>🚀 Доступ открыт. Дальше — твой рабочий кабинет: мой день, очередь звонков, калькулятор бонуса и KPI.</p>
+      <a href="https://dakeshisan.github.io/sales-companion-mockup/" target="_blank" rel="noopener"><button class="bigbtn gold">Перейти в рабочий кабинет →</button></a>
+    </div>
+    <div class="foot-note" style="margin-top:22px">Концепт-прототип · данные демонстрационные · <button onclick="resetAll()">сбросить прогресс</button></div>
+  </section>
+
+  <div class="foot-note" id="globalReset">Концепт-прототип Академии ATAMURA · v1 · трек телемаркетинга · контент по корпусу «Аномалии» · <button onclick="resetAll()">сбросить прогресс</button></div>
+</div>
+
+<script>
+/* ===== ВИДЕО =====
+   Реальные ролики из корпуса «Аномалии» (projects/anomaly_analysis/videos).
+   Публиковать их на публичном сайте нельзя — поэтому src берётся с приватного VPS.
+   Когда дашь адрес VPS — впиши его в VPS_BASE, и плеер начнёт играть настоящие видео.
+   Пока VPS_BASE пустой — играет нейтральный демо-ролик (заглушка). */
+const VPS_BASE = ''; // напр. 'https://<твой-vps>/anomaly/videos/'
+const VIDEO_DEMO = 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4';
+function vid(file){ return VPS_BASE ? VPS_BASE + encodeURIComponent(file) : VIDEO_DEMO; }
+
+/* ===== КОНТЕНТ (по корпусу «Аномалии») =====
+   Шаги урока: cover / media / point / script / compare / key — легко добавлять/менять. */
+const MODULES = [
+ { id:'m0', ic:'🚀', title:'Добро пожаловать', badge:'Старт', xp:80,
+   lesson:[
+     {t:'cover', goal:'Понять, как твой настрой влияет на результат ещё до первого слова клиента.', learn:['Настрой решает больше, чем продукт','Язык формирует результат','Зачем сначала просто копировать стандарт']},
+     {t:'media', title:'Победа без цепи: про несдачу', file:'2025-11-14_Михаил_Гребенюк_7039.mp4', cap:'Ролик из корпуса «Аномалии». Сейчас демо-заглушка — заменится на видео с твоего VPS.'},
+     {t:'point', h:'Настрой решает больше, чем продукт', b:'В одинаковых условиях один менеджер ноет «рынок плохой, лиды холодные», другой берёт и доводит до сделки. Разница — в голове, а не в прайсе.', ex:'<b>Пример (Гребенюк):</b> гонщик Арон Гвин выиграл заезд, когда на старте слетела цепь — «победа на чистой воле».'},
+     {t:'point', h:'Язык формирует результат', b:'Кто весь день проговаривает «всё плохо, спроса нет» — так и работает. С клиентом то же: уверенная, позитивная лексика продаёт лучше виноватой. Гребенюк противопоставляет «нытьё» и «думать и действовать».'},
+     {t:'compare', h:'Позитивная лексика', bad:['«Дорого»','«Не знаю»','«Предоплата»','«Проблема»'], good:['«Стоимость», «инвестиция»','«Уточню для вас сейчас»','«Фиксация условий»','«Вопрос», «ситуация»']},
+     {t:'key', items:['Настрой важнее продукта и скрипта','Уверенный язык продаёт, нытьё — отталкивает','Сначала копируем стандарт — понимание придёт в работе']}
+   ],
+   quiz:[
+     {type:'tf', q:'По Гребенюку, при равных условиях результат больше зависит от настроя менеджера, чем от продукта?', a:true, e:'Он противопоставляет тех, кто «думает и действует», тем, кто ноет на рынок при тех же вводных.'},
+     {type:'single', q:'Какой вывод делает Гребенюк из истории гонщика, у которого слетела цепь?', o:['Надо беречь технику','Побеждает тот, кто не сдаётся даже при сбое','Без оборудования побеждать нельзя','Везение решает всё'], a:1, e:'«Победа без цепи, на чистой воле» — метафора про несдачу.'},
+     {type:'single', q:'Как Гребенюк советует относиться к новым приёмам в начале обучения?', o:['Сразу спорить','Сначала копировать — понимание придёт позже','Внедрять только то, что понятно','Ждать идеального момента'], a:1, e:'«Не всё лежит на поверхности» — сначала отрабатываем стандарт.'}
+   ]},
+
+ { id:'m1', ic:'🎯', title:'Наш клиент и «5 единичек»', badge:'Знаю ЦА', xp:100,
+   lesson:[
+     {t:'cover', goal:'Научиться видеть, кто перед тобой, и сфокусироваться на одном клиенте.', learn:['Что такое «5 единичек»','Почему фокус = прибыль','Отказ от лишних аудиторий']},
+     {t:'media', title:'«Выбор Миши»: фокус и рычаги роста', file:'2026-05-08_Михаил_Гребенюк_7461.mp4', cap:'Ролик из корпуса «Аномалии». Демо-заглушка — заменится на видео с VPS.'},
+     {t:'point', h:'5 единичек = один фокус', b:'<b>1 ЦА · 1 боль · 1 продукт/сценарий · 1 источник трафика · 1 конвертер.</b> Кто угождает всем — «размазывает продукт, он становится беззубым» (Гребенюк).'},
+     {t:'point', h:'Чтобы привлечь одних — откажись от других', b:'Дословно: «чтобы стать очень привлекательным для одних — нужно полностью отказаться от других». Один чёткий портрет покупателя ЖК — и под него скрипт и оффер.'},
+     {t:'point', h:'Нет фокуса — нет большой прибыли', b:'Почти все, кто пробил 1 млн+ чистыми в месяц, сделали это на узком фокусе. Кто делает 200–300к — «пытается урвать все аудитории».', ex:'<b>Пример:</b> Вячеслав, протезы — 1 ЦА (стоматологи из регионов), 1 боль, 1 продукт под ключ → 3,5 млн/мес.'},
+     {t:'key', items:['Фокус: 1 ЦА / боль / сценарий / источник / конвертер','Привлекателен для одних = осознанно отказался от других','Большая прибыль — из узкого фокуса, а не «всем подряд»']}
+   ],
+   quiz:[
+     {type:'single', q:'Сколько «единичек» в технике фокуса по Гребенюку?', o:['3','5','7','9'], a:1, e:'1 ЦА, 1 боль, 1 продукт, 1 источник трафика, 1 конвертер.'},
+     {type:'tf', q:'По Гребенюку, чтобы стать привлекательным для одной аудитории, нужно отказаться от других?', a:true, e:'Прямая цитата: «чтобы стать привлекательным для одних — нужно полностью отказаться от других».'},
+     {type:'single', q:'Что объединяет компании, пробившие 1 млн+ чистой прибыли в месяц?', o:['Большой рекламный бюджет','Узкий фокус в «5 единичек»','Много менеджеров','Низкие цены'], a:1, e:'Наблюдение Гребенюка: почти все вышли на 1 млн+ через узкий фокус.'}
+   ]},
+
+ { id:'m2', ic:'📞', title:'Первый контакт', badge:'Контакт', xp:100,
+   lesson:[
+     {t:'cover', goal:'Взять инициативу и не опускать руки после первого молчания клиента.', learn:['Лид — начало воронки, не конец','Настойчивость как навык','Скорость, попытки, следующий шаг']},
+     {t:'media', title:'Сотрудник банка и клиент-«кря» (Точка Банк)', file:'2025-09-26_Михаил_Гребенюк_6736.mp4', cap:'Ролик из корпуса «Аномалии». Демо-заглушка — заменится на видео с VPS.'},
+     {t:'point', h:'Лид — это начало воронки', b:'Путь клиента: источник → заявка → квалификация → показ → бронь → договор. Один звонок ≠ продажа. Задача каждого контакта — довести до следующего шага.'},
+     {t:'point', h:'Не сдавайся после «странного» ответа', b:'Клиент отвечал на все вопросы только «кря» — а сотрудник Точка Банка всё равно довёл его до открытия счёта. Гребенюк: «а ты даже смс отправить откладываешь, и если не отвечают сразу — руки опускаешь».', ex:'<b>Контекст:</b> Точка Банк выросла до 50 млрд выручки именно на культуре «дожима».'},
+     {t:'point', h:'Скорость и количество попыток', b:'Стандарт работы: первый контакт за <b>≤5 минут</b>, минимум <b>5 попыток</b> связи, разные каналы — звонок + WhatsApp + SMS. После каждого контакта — конкретный следующий шаг с датой.'},
+     {t:'script', h:'Закрытие контакта на следующий шаг', s:'<span class="who">—</span> Предлагаю так: отправлю 2–3 подходящих варианта в WhatsApp, и в среду в 18:00 покажу двор и квартиру вживую. Договорились?'},
+     {t:'key', items:['Продажа = доведение до следующего шага','Не опускать руки после первого молчания («кря»)','≤5 мин, ≥5 попыток, всегда — следующий шаг']}
+   ],
+   quiz:[
+     {type:'single', q:'Чем закончилась история сотрудника Точка Банка и клиента, отвечавшего «кря»?', o:['Менеджер сдался','Менеджер всё равно открыл клиенту счёт','Клиент пожаловался','Звонок прервался'], a:1, e:'Сотрудник довёл абсурдный диалог до открытия счёта — образец несдачи.'},
+     {type:'tf', q:'Если клиент не ответил с первого раза — по логике Гребенюка нормально опустить руки?', a:false, e:'Он прямо высмеивает тех, кто «если не отвечают сразу — руки опускает».'},
+     {type:'single', q:'Что обязательно должно остаться после каждого контакта с лидом?', o:['Скидка','Назначенный следующий шаг','Договор','Жалоба'], a:1, e:'Стандарт обработки лида: обязательный следующий шаг в CRM.'}
+   ]},
+
+ { id:'m3', ic:'🔤', title:'Квалификация ABC', badge:'ABC', xp:120,
+   lesson:[
+     {t:'cover', goal:'Понять, кто перед тобой, и не тратить силы одинаково на всех.', learn:['Качество лида важнее цены','2–3 проверочных вопроса','A / B / C — кто это']},
+     {t:'point', h:'Качество лида важнее его цены', b:'Рекламу оценивают не по дешевизне заявки (CPL), а по тому, доходит ли лид до брони. Дешёвый, но мёртвый лид дороже дорогого, но горячего.'},
+     {t:'point', h:'Квалифицируй до того, как тратить время', b:'Сильный продавец быстро задаёт несколько проверочных вопросов и понимает, с кем имеет дело — а не презентует всем одинаково.'},
+     {t:'point', h:'A / B / C — кто перед тобой', b:'<b>A (горячий):</b> бюджет + близкие сроки + выбирает сейчас → на показ немедленно. <b>B (тёплый):</b> интерес есть, решение отложено → греем, держим в воронке. <b>C (холодный):</b> только смотрит / нет бюджета → недорогой контакт и follow-up.'},
+     {t:'script', h:'Быстрая квалификация в первом разговоре', s:'<span class="who">—</span> Чтобы подобрать точно: вы рассматриваете покупку в ближайшие месяцы или присматриваетесь на перспективу? Для себя или как инвестицию? Какой бюджет ориентировочно держите?'},
+     {t:'key', items:['Качество лида важнее цены (не гнаться за дешёвым CPL)','2–3 вопроса решают, сколько вложить сил','A — на показ, B — греть, C — недорогой контакт']}
+   ],
+   quiz:[
+     {type:'classify', q:'Определи категорию клиента', item:'«Бюджет есть, сроки близкие, выбираю квартиру прямо сейчас»', a:'A', e:'Горячий лид с деньгами и сроками двигается на показ немедленно.'},
+     {type:'single', q:'По чему правильнее оценивать рекламу?', o:['По цене заявки (CPL)','По качеству лида и движению до брони','По числу показов','По кликам'], a:1, e:'Рекламу мерят по качеству лида и продвижению в CRM, не по дешевизне CPL.'},
+     {type:'tf', q:'Квалификация нужна, чтобы понять, сколько усилий вложить, а не просто «отсеять»?', a:true, e:'Это управленческая диагностика, а не наказание/отсев.'}
+   ]},
+
+ { id:'m4', ic:'🏡', title:'КЭВ — продаём показ', badge:'КЭВ', xp:120,
+   lesson:[
+     {t:'cover', goal:'Перестать «звать посмотреть» и продавать показ как опыт.', learn:['Дать прожить опыт, а не описать','Дегустация → покупка','Показ под боль клиента']},
+     {t:'media', title:'Разведка в Simple Wine: дегустация как воронка', file:'2025-10-10_Михаил_Гребенюк_6823.mp4', cap:'Ролик из корпуса «Аномалии». Демо-заглушка — заменится на видео с VPS.'},
+     {t:'point', h:'Дать прожить опыт, а не показать товар', b:'Клиенту мало рассказать про продукт — нужно его прожить. В Simple Wine консультант прямо называет дегустацию «мощнейшим помощником» продаж.'},
+     {t:'point', h:'Дегустация ведёт к покупке', b:'Механика из видео: человек пробует → понимает, что нравится → возвращается покупать осознанно.', ex:'<b>В недвижимости:</b> дегустация = показ. Её роль играют экскурсия, двор, район, сценарий жизни в квартире.'},
+     {t:'script', h:'Оффер на показ для семьи', s:'<span class="who">—</span> Лучше один раз увидеть, чем десять раз обсудить по телефону. Приходите на экскурсию — покажу двор, площадку и школу в двух минутах, и вы почувствуете, как тут будет жить семья. Когда удобнее — в будни вечером или в выходной?'},
+     {t:'compare', h:'Слышишь разницу?', bad:['«Приходите как-нибудь, посмотрите»','«Скину адрес в WhatsApp»','«Когда вам удобно?» (открыто)'], good:['«Организуем визит под вашу задачу»','«Подберу 2–3 варианта к показу»','«В будни или в выходные?» (выбор)']},
+     {t:'key', items:['Клиенту нужно прожить опыт, а не выслушать','Цель контакта — продать показ, а не квартиру','Показ = дегустация: маршрут под боль клиента']}
+   ],
+   quiz:[
+     {type:'single', q:'Какую роль играет дегустация в воронке Simple Wine?', o:['Развлечение без продаж','Способ дать клиенту прожить опыт и привести к покупке','Скидочная акция','Обучение сомелье'], a:1, e:'Консультант называет дегустацию «мощнейшим помощником» продаж.'},
+     {type:'single', q:'Что в недвижимости играет роль «дегустации» по аналогии Гребенюка?', o:['Рекламный баннер','Показ-экскурсия (двор, район, сценарий жизни)','Прайс-лист','Холодный звонок'], a:1, e:'Программа прямо переносит дегустацию на показ/экскурсию.'},
+     {type:'tf', q:'Главная цель первого звонка телемаркетолога — продать квартиру прямо по телефону?', a:false, e:'Цель — довести до показа (КЭВ), как дегустация доводит до покупки.'}
+   ]},
+
+ { id:'m5', ic:'🛡️', title:'Работа с возражениями', badge:'Возражения', xp:140,
+   lesson:[
+     {t:'cover', goal:'Спокойно отрабатывать возражения и возвращать клиента к следующему шагу.', learn:['Возражение — сигнал продолжать','4 шага','«Дорого» и «я подумаю»']},
+     {t:'point', h:'Возражение — не отказ, а сигнал', b:'Ключевая установка корпуса — не опускать руки после первого «нет»/сомнения (кейс «кря»). Возражение значит, что человек ещё в диалоге.'},
+     {t:'point', h:'4 шага на любое возражение', b:'<b>Принять → уточнить → локализовать → вернуть к следующему шагу.</b> Сначала согласись с правом клиента так думать, потом разберись, что стоит за фразой.'},
+     {t:'script', h:'«Дорого»', s:'<span class="who">—</span> Понимаю. Дорого по сравнению с каким вариантом? Давайте честно сравним: в эту цену входит закрытый двор, школа рядом и сдача в срок — и будет видно, где вы выигрываете.'},
+     {t:'script', h:'«Я подумаю»', s:'<span class="who">—</span> Это правильно, решение серьёзное. Что важно ещё взвесить — планировку, оплату или сроки? Подготовлю расчёт, и в четверг в 18:00 встретимся на объекте — вживую решать проще.'},
+     {t:'key', items:['Возражение = «я ещё в диалоге», а не «нет»','Принять → уточнить → локализовать → вернуть к шагу','«Дорого» — ценностью; «подумаю» — конкретной датой']}
+   ],
+   quiz:[
+     {type:'single', q:'Какой первый шаг в работе с возражением?', o:['Сразу спорить','Принять право клиента так думать','Дать скидку','Положить трубку'], a:1, e:'Схема начинается с принятия, потом — уточнение и локализация.'},
+     {type:'single', q:'Как правильно реагировать на «я подумаю»?', o:['Согласиться и отпустить без даты','Уточнить, что взвесить, и назначить конкретный следующий шаг','Сразу сбросить цену','Перестать звонить'], a:1, e:'Правило «обязательный следующий шаг» не даёт лиду раствориться.'},
+     {type:'tf', q:'По духу корпуса, первое возражение клиента — повод закончить разговор?', a:false, e:'Культура несдачи (кейс «кря») — не сдаваться после первого сомнения.'}
+   ]},
+
+ { id:'m6', ic:'🔁', title:'Follow-up и дисциплина CRM', badge:'Дисциплина', xp:140,
+   lesson:[
+     {t:'cover', goal:'Доводить клиента до сделки касаниями и держать порядок в CRM.', learn:['Вся воронка, а не один звонок','Доводить до финала','5 попыток + следующий шаг в CRM']},
+     {t:'point', h:'Знай всю воронку', b:'Источник → заявка → квалификация → показ → бронь → договор. Менеджер ведёт клиента по всей цепочке, а не «отзвонился и забыл».'},
+     {t:'point', h:'Главный навык — доводить до конца', b:'Гребенюк: ценнее всего те, кто «доводят принятые решения до финала: получил проблему — ушёл, сделал, пришёл, показал». В продажах это и есть follow-up.'},
+     {t:'point', h:'5 попыток и фиксация в CRM', b:'Минимум 5 попыток связи разными каналами; после каждого контакта — следующий шаг с датой в CRM. Без записи в системе клиент теряется.'},
+     {t:'point', h:'Не будь «справочной службой»', b:'Менеджер не просто отвечает на вопросы и ждёт — он сам ведёт к следующему шагу. Пассивная «справка» = потерянный лид.'},
+     {t:'key', items:['Ведём по всей воронке: заявка → показ → бронь → договор','Ценно — доводить до финала: «ушёл, сделал, пришёл, показал»','5 попыток + следующий шаг в CRM; не быть пассивной справкой']}
+   ],
+   quiz:[
+     {type:'single', q:'Кого, по словам Гребенюка, он двигает в карьере?', o:['Самых опытных','Тех, кто умеет дожимать и доводить до финала','Самых умных','Самых громких'], a:1, e:'«В карьере двигаю тех, кто умеет дожимать».'},
+     {type:'single', q:'Сколько минимум попыток связи задаёт стандарт обработки лида?', o:['1','2','5','10'], a:2, e:'Стандарт: минимум 5 попыток разными каналами.'},
+     {type:'tf', q:'Хороший менеджер просто отвечает на вопросы клиента и ждёт его решения?', a:false, e:'Нельзя быть «справочной службой» — менеджер сам ведёт к следующему шагу.'}
+   ]}
+];
+
+const FINAL = [
+  {type:'single', q:'Сколько «единичек» в технике фокуса?', o:['3','5','7','9'], a:1, e:'1 ЦА / боль / продукт / источник / конвертер.'},
+  {type:'single', q:'Чем закончилась история клиента-«кря» в Точка Банке?', o:['Менеджер сдался','Менеджер всё равно довёл до открытия счёта','Клиент ушёл','Звонок сорвался'], a:1, e:'Образец несдачи: довёл абсурдный диалог до результата.'},
+  {type:'single', q:'Что в недвижимости играет роль «дегустации»?', o:['Прайс-лист','Показ-экскурсия','Баннер','Холодный звонок'], a:1, e:'Показ = дегустация (Simple Wine → экскурсия).'},
+  {type:'tf', q:'Первое возражение клиента — повод закончить разговор?', a:false, e:'Нет — принять, уточнить и вернуть к следующему шагу.'},
+  {type:'single', q:'Минимум попыток связи по стандарту?', o:['1','2','5','10'], a:2, e:'Минимум 5 попыток разными каналами.'}
+];
+
+/* ===== STATE ===== */
+const KEY='atamura_academy_v3';
+let S = load();
+let curMod=null, quizState=null, lessonState=null;
+function load(){ try{return JSON.parse(localStorage.getItem(KEY))||fresh()}catch(e){return fresh()} }
+function fresh(){ return {name:'', done:[], xp:0, badges:[], certified:false, streak:3} }
+function save(){ localStorage.setItem(KEY, JSON.stringify(S)) }
+function resetAll(){ S=fresh(); save(); go('home'); renderHeader(); renderPath(); document.getElementById('nameIn').value=''; }
+const TOTAL_XP = MODULES.reduce((s,m)=>s+m.xp,0)+200;
+function levelOf(){ if(S.certified) return 'Сертифицирован'; const n=S.done.filter(d=>d!=='final').length; if(n>=5) return 'Боец'; if(n>=2) return 'Стажёр'; return 'Новичок'; }
+
+/* ===== HEADER / PATH ===== */
+function renderHeader(){
+  document.getElementById('lvlLabel').textContent=levelOf();
+  document.getElementById('streakN').textContent=S.streak;
+  document.getElementById('xpNum').textContent=S.xp+' / '+TOTAL_XP;
+  document.getElementById('xpFill').style.width=Math.min(100,Math.round(S.xp/TOTAL_XP*100))+'%';
+}
+function isUnlocked(i){ return i===0 || S.done.includes(MODULES[i-1].id); }
+function hasVideo(m){ return m.lesson.some(s=>s.t==='media'); }
+function renderPath(){
+  const host=document.getElementById('path'); host.innerHTML='';
+  MODULES.forEach((m,i)=>{
+    const done=S.done.includes(m.id), unlocked=isUnlocked(i), current=!done&&unlocked;
+    const st=document.createElement('div');
+    st.className='station '+(done?'done':current?'current':'locked'); st.style.animationDelay=(i*0.06)+'s';
+    st.innerHTML=`
+      <div class="node">${done?'✓':(i+1)}</div>
+      <div class="scard" ${unlocked?`onclick="openModule('${m.id}')"`:''}>
+        <div class="ic">${m.ic}</div>
+        <div class="body"><h3>${m.title}</h3>
+          <div class="sub">${hasVideo(m)?'<span class="vid">🎬 видео</span>':''}<span class="les">📚 ${m.lesson.length} шагов</span><span class="rew">＋${m.xp} XP</span></div></div>
+        ${done?'<span class="pill-done">Пройдено</span>':unlocked?'<span class="go">Начать →</span>':'<span class="lockico">🔒</span>'}
+      </div>`;
+    host.appendChild(st);
+  });
+  const allDone = MODULES.every(m=>S.done.includes(m.id));
+  const fst=document.createElement('div'); const fdone=S.certified;
+  fst.className='station final '+(fdone?'done':allDone?'current':'locked'); fst.style.animationDelay=(MODULES.length*0.06)+'s';
+  fst.innerHTML=`
+    <div class="node">${fdone?'★':'🎓'}</div>
+    <div class="scard" ${allDone?`onclick="go('gate')"`:''}>
+      <div class="ic">🏅</div>
+      <div class="body"><h3>Сертификация продавца</h3><div class="sub"><span>Итоговый тест ≥80%</span><span class="rew">＋200 XP</span><span>🎓 Сертификат</span></div></div>
+      ${fdone?'<span class="pill-done">Получен</span>':allDone?'<span class="go">Сдать →</span>':'<span class="lockico">🔒</span>'}
+    </div>`;
+  host.appendChild(fst);
+  document.getElementById('doneCount').textContent=S.done.filter(d=>d!=='final').length+' из '+MODULES.length+' миссий пройдено';
+  document.getElementById('globalReset').style.display = S.certified?'none':'block';
+}
+function go(v){ document.querySelectorAll('.view').forEach(s=>s.classList.remove('active')); document.getElementById('view-'+v).classList.add('active'); window.scrollTo({top:0,behavior:'smooth'}); }
+
+/* ===== LESSON STEPPER ===== */
+function openModule(id){
+  curMod=id; const m=MODULES.find(x=>x.id===id);
+  document.getElementById('le-ic').textContent=m.ic;
+  document.getElementById('le-lab').textContent='Миссия '+(MODULES.indexOf(m)+1);
+  document.getElementById('le-title').textContent=m.title;
+  lessonState={id, steps:m.lesson, i:0};
+  go('lesson'); renderLessonStep();
+}
+function cardHTML(step){
+  if(step.t==='cover') return `<div class="lc lc-cover">
+      <div class="cic">${MODULES.find(x=>x.id===lessonState.id).ic}</div>
+      <span class="lc-tag learn">📚 Урок</span>
+      <h3>${MODULES.find(x=>x.id===lessonState.id).title}</h3>
+      <div class="lc-goal"><b>🎯 Цель:</b> ${step.goal}</div>
+      <ul class="lc-learn">${step.learn.map(x=>`<li>${x}</li>`).join('')}</ul></div>`;
+  if(step.t==='media') return `<div class="lc"><span class="lc-tag learn">▶ Видео-урок</span>
+      <div class="vidwrap"><div class="player" data-src="${vid(step.file)}" data-title="${step.title}"><span class="slot">слот под материал</span>
+        <div class="play" onclick="playVideo(this)">▶</div><div class="ptitle">${step.title}</div>
+        <div class="pmeta"><span class="d">🎬 Гребенюк · Аномалия</span><span class="d">демо</span></div>
+        <div class="pcap">${step.cap}</div></div></div></div>`;
+  if(step.t==='point') return `<div class="lc"><span class="lc-tag learn">📖 Разбор</span>
+      <h3 class="ph">${step.h}</h3><p>${step.b}</p>${step.ex?`<div class="ex">${step.ex}</div>`:''}</div>`;
+  if(step.t==='script') return `<div class="lc"><span class="lc-tag script">🗣 Скрипт · ${step.h}</span>
+      <div class="scriptbox">${step.s}</div></div>`;
+  if(step.t==='compare') return `<div class="lc"><span class="lc-tag compare">⚖ ${step.h}</span>
+      <div class="cmp"><div class="col bad"><h5>❌ Не так</h5><ul>${step.bad.map(x=>`<li>${x}</li>`).join('')}</ul></div>
+      <div class="col good"><h5>✅ А так</h5><ul>${step.good.map(x=>`<li>${x}</li>`).join('')}</ul></div></div></div>`;
+  if(step.t==='key') return `<div class="lc"><span class="lc-tag key">🧠 Конспект</span>
+      <div class="lc-key"><h4>🧠 Запомни</h4><ul>${step.items.map(x=>`<li>${x}</li>`).join('')}</ul></div></div>`;
+  return '';
+}
+function playVideo(btn){
+  const wrap=btn.closest('.vidwrap'); const p=btn.closest('.player');
+  const src=p.dataset.src, title=p.dataset.title; if(!src) return;
+  wrap.innerHTML='<video class="vid" controls autoplay playsinline src="'+src+'"></video><div class="pcap2">▶ '+title+' · '+(VPS_BASE?'видео из корпуса «Аномалии»':'демо-ролик — реальное видео подключится с VPS')+'</div>';
+}
+function renderLessonStep(){
+  const {steps,i}=lessonState;
+  document.getElementById('lstep-host').innerHTML=cardHTML(steps[i]);
+  document.getElementById('lstep-host').style.animation='none'; void document.getElementById('lstep-host').offsetWidth; document.getElementById('lstep-host').style.animation='rise .35s both';
+  document.getElementById('lstep-prog').style.width=Math.round((i+1)/steps.length*100)+'%';
+  document.getElementById('le-step').textContent=(i+1)+' / '+steps.length;
+  document.getElementById('lprev').disabled = i===0;
+  document.getElementById('lnext').textContent = (i+1<steps.length)?'Далее →':'К проверке →';
+}
+function lessonNext(){ if(lessonState.i+1<lessonState.steps.length){ lessonState.i++; renderLessonStep(); } else { startQuiz(lessonState.id); } }
+function lessonPrev(){ if(lessonState.i>0){ lessonState.i--; renderLessonStep(); } }
+
+/* ===== QUIZ ENGINE ===== */
+function startQuiz(id){ curMod=id; const set = id==='final'? FINAL : MODULES.find(x=>x.id===id).quiz; quizState={id, set, i:0, correct:0}; go('quiz'); document.querySelector('#view-quiz .checkbanner').style.display = id==='final'?'none':'flex'; renderQ(); }
+function renderQ(){
+  const {set,i}=quizState; const q=set[i];
+  document.getElementById('q-n').textContent='Вопрос '+(i+1)+'/'+set.length;
+  document.getElementById('q-prog').style.width=Math.round(i/set.length*100)+'%';
+  const types={single:'Выбор', tf:'Верно / Неверно', classify:'Классификация'};
+  document.getElementById('q-type').textContent=types[q.type]||'Выбор';
+  const host=document.getElementById('q-host');
+  if(q.type==='classify'){
+    host.innerHTML=`<div class="qtext">${q.q}</div><div class="cl-item">${q.item}</div>
+      <div class="cl-buckets">${['A','B','C'].map(L=>`<button class="cl-b" data-l="${L}" onclick="answerClassify('${L}')"><div class="L">${L}</div><div class="d">${L==='A'?'горячий':L==='B'?'тёплый':'холодный'}</div></button>`).join('')}</div>
+      <div class="explain" id="explain"></div>`;
+  } else {
+    const opts = q.type==='tf' ? ['Верно','Неверно'] : q.o;
+    host.innerHTML=`<div class="qtext">${q.q}</div><div class="opts">${opts.map((o,idx)=>`<button class="opt" data-i="${idx}" onclick="answer(${idx})"><span class="key">${q.type==='tf'?(idx===0?'✓':'✕'):String.fromCharCode(65+idx)}</span><span>${o}</span></button>`).join('')}</div><div class="explain" id="explain"></div>`;
+  }
+}
+function lockOpts(sel){ document.querySelectorAll(sel).forEach(b=>b.disabled=true); }
+function showExplain(ok,text){
+  const ex=document.getElementById('explain'); ex.className='explain show '+(ok?'good':'bad');
+  ex.innerHTML=(ok?'<b>Верно. </b>':'<b>Почти. </b>')+text+`<div style="margin-top:12px"><button class="bigbtn" style="margin:0" onclick="nextQ()">${quizState.i+1<quizState.set.length?'Дальше →':'Завершить →'}</button></div>`;
+}
+function answer(idx){
+  const q=quizState.set[quizState.i]; const correct = q.type==='tf' ? ((idx===0)===q.a) : (idx===q.a);
+  const ai = q.type==='tf' ? (q.a?0:1) : q.a; lockOpts('.opt');
+  document.querySelectorAll('.opt').forEach(b=>{ const bi=+b.dataset.i; if(bi===ai)b.classList.add('correct'); if(bi===idx&&!correct)b.classList.add('wrong'); });
+  if(correct)quizState.correct++; showExplain(correct,q.e);
+}
+function answerClassify(L){
+  const q=quizState.set[quizState.i]; const correct=(L===q.a); lockOpts('.cl-b');
+  document.querySelectorAll('.cl-b').forEach(b=>{ if(b.dataset.l===q.a)b.classList.add('correct'); if(b.dataset.l===L&&!correct)b.classList.add('wrong'); });
+  if(correct)quizState.correct++; showExplain(correct,q.e);
+}
+function nextQ(){ if(quizState.i+1<quizState.set.length){ quizState.i++; renderQ(); } else finishQuiz(); }
+
+/* ===== RESULT / AWARD ===== */
+function finishQuiz(){
+  const {set,correct,id}=quizState; const pct=Math.round(correct/set.length*100);
+  const pass = id==='final' ? pct>=80 : pct>=60; let rewards=[];
+  if(pass){
+    if(id==='final'){ if(!S.certified){ S.certified=true; S.xp+=200; if(!S.done.includes('final'))S.done.push('final'); } rewards=['＋200 XP','🎓 Сертификат получен']; }
+    else if(!S.done.includes(id)){ const m=MODULES.find(x=>x.id===id); S.done.push(id); S.xp+=m.xp; if(!S.badges.includes(m.badge))S.badges.push(m.badge); rewards=['＋'+m.xp+' XP','🏅 Бейдж «'+m.badge+'»']; if(S.done.length===2||S.done.length===5) rewards.push('⬆ Уровень: '+levelOf()); }
+    else { rewards=['Уже пройдено ✓']; }
+    save();
+  }
+  renderHeader(); renderPath(); go('result');
+  const arc=327, off=arc-arc*pct/100; const a=document.getElementById('r-arc');
+  a.style.transition='none'; a.style.strokeDashoffset=arc;
+  setTimeout(()=>{a.style.transition='stroke-dashoffset 1s cubic-bezier(.22,1,.36,1)'; a.style.strokeDashoffset=off;},60);
+  let cnt=0; const t=setInterval(()=>{cnt+=Math.ceil(pct/24)||1; if(cnt>=pct){cnt=pct;clearInterval(t)} document.getElementById('r-pct').textContent=cnt+'%';},35);
+  document.getElementById('r-title').textContent = pass?(id==='final'?'Сертификация пройдена!':'Миссия пройдена!'):'Чуть-чуть не хватило';
+  document.getElementById('r-sub').textContent = pass? (correct+' из '+set.length+' верно') : ('Нужно '+(id==='final'?'80%':'60%')+'. У тебя '+pct+'% — вернись к уроку и попробуй ещё');
+  const rr=document.getElementById('r-rewards'); rr.innerHTML='';
+  if(pass) rewards.forEach((r,k)=>{const d=document.createElement('div');d.className='rb';d.style.animationDelay=(k*.12)+'s';d.textContent=r;rr.appendChild(d);});
+  const nextBtn=document.getElementById('r-next'), retry=document.getElementById('r-retry');
+  if(pass){ retry.style.display='none'; nextBtn.style.display='block';
+    if(id==='final'){ nextBtn.textContent='Получить сертификат →'; nextBtn.onclick=showCert; } else { nextBtn.textContent='Вернуться на карту пути →'; nextBtn.onclick=()=>go('home'); } }
+  else { nextBtn.style.display='none'; retry.style.display='block'; retry.onclick=()=> id==='final'?startQuiz('final'):openModule(id); retry.textContent = id==='final'?'Пересдать':'Вернуться к уроку'; }
+}
+
+/* ===== CERT ===== */
+function showCert(){
+  document.getElementById('cert-name').textContent = S.name || (document.getElementById('nameIn').value.trim()) || 'Менеджер';
+  document.getElementById('cert-date').textContent = new Date().toLocaleDateString('ru-RU',{day:'2-digit',month:'long',year:'numeric'});
+  const bh=document.getElementById('cert-badges'); bh.innerHTML='';
+  S.badges.forEach(b=>{const d=document.createElement('span');d.className='b';d.innerHTML='<span class="emb">★</span>'+b;bh.appendChild(d);});
+  go('cert'); confetti();
+}
+function confetti(){
+  const card=document.getElementById('certCard'); const cols=['#13a3a3','#d9a441','#0e2a40','#ffd98a','#3f6fb0'];
+  for(let k=0;k<40;k++){const c=document.createElement('div');c.className='confetti';c.style.left=Math.random()*100+'%';c.style.background=cols[k%cols.length];c.style.animationDuration=(1.6+Math.random()*1.6)+'s';c.style.animationDelay=(Math.random()*0.5)+'s';c.style.transform='rotate('+Math.random()*360+'deg)';card.appendChild(c);setTimeout(()=>c.remove(),3600);}
+}
+
+/* ===== WIRES ===== */
+document.getElementById('nameIn').addEventListener('input',e=>{S.name=e.target.value.trim();save();});
+document.getElementById('gate-start').onclick=()=>startQuiz('final');
+(function(){ if(S.name)document.getElementById('nameIn').value=S.name; renderHeader(); renderPath(); })();
+</script>
+</body>
+</html>

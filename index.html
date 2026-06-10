@@ -3,261 +3,383 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Академия ATAMURA — Путь продавца (концепт)</title>
+<title>Академия продаж ATAMŪRA — новая структура и путь (демо)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@500;600;700&family=EB+Garamond:wght@400;500;600;700&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#e7eef4; --bg2:#eef3f7; --card:#fff; --ink:#16263a; --mut:#6b8095; --line:#e6ecf2;
-  --navy:#0e2a40; --navy2:#0a2235; --teal:#13a3a3; --teal-d:#0d7e7e; --teal-soft:#e7f6f6;
-  --gold:#d9a441; --gold-d:#b9892f; --gold-soft:#fdf2e1; --gold-2:#ffd98a;
-  --blue:#3f6fb0; --blue-d:#274a72; --blue-soft:#eaf1fa;
-  --bad:#d05a4a; --bad-soft:#fbeae7;
-  --shadow:0 8px 26px -12px rgba(14,42,64,.32);
-  --shadow-lg:0 28px 60px -24px rgba(14,42,64,.5);
-  --r:18px;
+  /* ATAMŪRA brandbook */
+  --paper:#F7F5EE; --paper-2:#F1EDE0; --card:#FFFDF8; --card-2:#FBF8EF;
+  --ink:#284157; --ink-2:#3a4f60; --mut:#5f6b78; --faint:#9aa3ad; /* faint = decorative only */
+  --navy:#284157; --navy-d:#1d3142;
+  --teal:#007484; --teal-d:#005c69; --teal-soft:#e3eef0;
+  --gold:#CFB372; --gold-d:#a8884a; --gold-soft:#f3ead4; --gold-2:#e6d09a; /* gold-2 = only on dark */
+  --gold-ink:#7a5c1f; /* gold-ish text that passes on cream (~5.3:1) */
+  --bad:#a8472f; --bad-soft:#f4e3dc;
+  --line:#e6ddc8; --line-2:#efe8d6;
+  --sh:0 8px 28px -16px rgba(40,65,87,.34);
+  --sh-lg:0 28px 60px -28px rgba(40,65,87,.5);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
-  margin:0; font-family:'Archivo',-apple-system,'Segoe UI',sans-serif;
-  color:var(--ink); background:var(--bg); line-height:1.5; -webkit-font-smoothing:antialiased; overflow-x:hidden;
+  margin:0; font-family:'Jost','Noto Sans',-apple-system,'Segoe UI',sans-serif;
+  color:var(--ink); background:var(--paper); line-height:1.55; -webkit-font-smoothing:antialiased; overflow-x:hidden;
 }
 body::before{
   content:""; position:fixed; inset:0; z-index:-2;
   background:
-    radial-gradient(900px 500px at 88% -8%, rgba(19,163,163,.16), transparent 60%),
-    radial-gradient(800px 520px at -10% 12%, rgba(217,164,65,.14), transparent 58%),
-    radial-gradient(900px 700px at 50% 120%, rgba(14,42,64,.10), transparent 60%),
-    var(--bg);
+    radial-gradient(820px 460px at 86% -10%, rgba(0,116,132,.09), transparent 60%),
+    radial-gradient(760px 480px at -8% 8%, rgba(207,179,114,.09), transparent 58%),
+    radial-gradient(900px 700px at 50% 116%, rgba(40,65,87,.06), transparent 60%),
+    var(--paper);
 }
-body::after{
-  content:""; position:fixed; inset:0; z-index:-1; opacity:.5; pointer-events:none;
-  background-image:radial-gradient(rgba(14,42,64,.05) 1px, transparent 1px); background-size:26px 26px;
-  -webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.7),transparent 80%); mask-image:linear-gradient(180deg,rgba(0,0,0,.7),transparent 80%);
+body::after{ content:""; position:fixed; inset:0; z-index:-1; opacity:.4; pointer-events:none;
+  background-image:radial-gradient(rgba(40,65,87,.05) 1px, transparent 1px); background-size:24px 24px;
+  -webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.55),transparent 75%); mask-image:linear-gradient(180deg,rgba(0,0,0,.55),transparent 75%);
 }
-.wrap{max-width:920px; margin:0 auto; padding:0 20px 90px}
+h1,h2,h3,h4,h5{font-family:'EB Garamond',Georgia,serif; font-weight:600; letter-spacing:.005em}
+.num{font-family:'Cormorant',Georgia,serif; font-weight:600; font-variant-numeric:lining-nums; letter-spacing:.01em} /* numbers/latin only */
+.wrap{max-width:880px; margin:0 auto; padding:0 20px 90px}
+:focus-visible{outline:2.5px solid var(--teal); outline-offset:2px; border-radius:4px}
 
-/* TOP BAR */
-.topbar{position:sticky; top:0; z-index:50; backdrop-filter:blur(10px); background:rgba(231,238,244,.78); border-bottom:1px solid var(--line)}
-.topbar .inner{max-width:920px; margin:0 auto; padding:11px 20px; display:flex; align-items:center; gap:14px}
-.brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.02em; font-size:15px}
-.brand .mark{width:30px; height:30px; border-radius:9px; display:grid; place-items:center; flex:0 0 auto; background:linear-gradient(150deg,var(--navy),var(--navy2)); color:var(--gold-2); font-weight:900; font-size:15px; box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
-.brand small{display:block; font-weight:600; font-size:10.5px; letter-spacing:.16em; color:var(--mut); text-transform:uppercase}
+/* reusable icon marks (SVG mask — no emoji) */
+.ic{display:inline-block; flex:0 0 auto; background:currentColor; -webkit-mask-size:contain; mask-size:contain; -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat; -webkit-mask-position:center; mask-position:center}
+.ic.check{width:15px;height:15px; -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 8.4l3 3 7-7.4' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 8.4l3 3 7-7.4' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+.ic.cross{width:13px;height:13px; -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 4l8 8M12 4l-8 8' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E"); mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 4l8 8M12 4l-8 8' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E")}
+.ic.lock{width:13px;height:14px; -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect x='3' y='7' width='10' height='7' rx='1.5' fill='%23000'/%3E%3Cpath d='M5 7V5a3 3 0 0 1 6 0v2' fill='none' stroke='%23000' stroke-width='1.6'/%3E%3C/svg%3E"); mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect x='3' y='7' width='10' height='7' rx='1.5' fill='%23000'/%3E%3Cpath d='M5 7V5a3 3 0 0 1 6 0v2' fill='none' stroke='%23000' stroke-width='1.6'/%3E%3C/svg%3E")}
+.tri{width:0;height:0;border-style:solid;border-width:9px 0 9px 15px;border-color:transparent transparent transparent currentColor;margin-left:3px}
+
+/* ===== REVIEW BANNER ===== */
+.review{font-size:12.5px; text-align:center; color:var(--navy); background:linear-gradient(180deg,var(--gold-soft),transparent); border-bottom:1px solid var(--line)}
+.review .in{max-width:880px; margin:0 auto; padding:8px 20px; display:flex; gap:10px; align-items:center; justify-content:center; flex-wrap:wrap}
+.review b{font-weight:700}
+.review .x{margin-left:6px; cursor:pointer; border:none; background:none; color:var(--mut); font-size:18px; line-height:1; font-family:inherit; padding:6px 10px; min-height:36px}
+.review .x:hover{color:var(--navy)}
+
+/* ===== TOP BAR ===== */
+.topbar{position:sticky; top:0; z-index:50; backdrop-filter:blur(9px); background:rgba(247,245,238,.84); border-bottom:1px solid var(--line)}
+.topbar .inner{max-width:880px; margin:0 auto; padding:11px 20px; display:flex; align-items:center; gap:14px}
+.brand{display:flex; align-items:center; gap:11px; min-width:0}
+.brand .seal{width:34px; height:34px; border-radius:50%; flex:0 0 auto; display:grid; place-items:center;
+  background:radial-gradient(circle at 32% 28%, #f0dca0, var(--gold) 46%, var(--gold-d)); color:var(--navy-d);
+  font-family:'Cormorant',serif; font-weight:700; font-size:19px; box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.4), inset 0 -3px 6px rgba(120,90,30,.35), 0 4px 10px -4px rgba(168,136,74,.6)}
+.brand .wm{font-family:'Cormorant',serif; font-weight:700; font-size:20px; letter-spacing:.14em; color:var(--navy); line-height:1; white-space:nowrap}
+.brand .wm small{display:block; font-family:'Jost',sans-serif; font-weight:600; font-size:9.5px; letter-spacing:.32em; color:var(--teal-d); margin-top:3px}
 .topbar .spacer{flex:1}
-.chip{display:inline-flex; align-items:center; gap:7px; padding:6px 11px; border-radius:999px; font-weight:700; font-size:12.5px; background:var(--card); border:1px solid var(--line); box-shadow:var(--shadow)}
-.chip.level{color:var(--navy)} .chip .dot{width:8px;height:8px;border-radius:50%;background:var(--teal)} .chip.streak{color:var(--gold-d)}
-.xpbar{flex:0 0 150px; max-width:150px}
-.xpbar .lab{display:flex; justify-content:space-between; font-size:10.5px; font-weight:700; color:var(--mut); margin-bottom:4px; letter-spacing:.03em}
-.xpbar .track{height:9px; border-radius:999px; background:#d4deea; overflow:hidden; box-shadow:inset 0 1px 2px rgba(14,42,64,.12)}
-.xpbar .fill{height:100%; width:0; border-radius:999px; background:linear-gradient(90deg,var(--teal),var(--gold)); transition:width .9s cubic-bezier(.22,1,.36,1)}
-@media(max-width:620px){ .xpbar{display:none} .brand small{display:none} }
+.lvl{display:inline-flex; align-items:center; gap:8px; padding:6px 12px 6px 7px; border-radius:999px; background:var(--card); border:1px solid var(--line); box-shadow:var(--sh); font-size:12.5px; font-weight:600; color:var(--navy); white-space:nowrap}
+.lvl .rk{width:21px;height:21px;border-radius:50%;display:grid;place-items:center;background:var(--navy);color:var(--gold-2);font-family:'Cormorant',serif;font-weight:700;font-size:12px}
+.lvl .pn{font-family:'Cormorant',serif;font-weight:700;color:var(--teal-d);font-size:14px}
+.mastery{flex:0 0 150px; max-width:150px}
+.mastery .lab{display:flex; justify-content:space-between; font-size:10px; font-weight:600; color:var(--mut); margin-bottom:5px; letter-spacing:.05em; text-transform:uppercase}
+.mastery .lab b{color:var(--teal-d); font-weight:700}
+.mastery .track{height:7px; border-radius:999px; background:var(--line); overflow:hidden; box-shadow:inset 0 1px 2px rgba(40,65,87,.14)}
+.mastery .fill{height:100%; width:0; border-radius:999px; background:linear-gradient(90deg,var(--teal),var(--gold)); transition:width .9s cubic-bezier(.22,1,.36,1)}
+@media(max-width:640px){ .mastery{display:none} .brand .wm small{display:none} }
+.lvl .pn{display:none}
+@media(max-width:640px){ .lvl .pn{display:inline} } /* keep progress number visible on mobile */
 
-/* HERO */
-.hero{padding:40px 0 14px; text-align:center; animation:rise .7s both}
-.hero .kicker{display:inline-flex; align-items:center; gap:8px; font-size:11.5px; font-weight:800; letter-spacing:.18em; text-transform:uppercase; color:var(--teal-d); background:var(--teal-soft); padding:7px 14px; border-radius:999px; margin-bottom:18px}
-.hero h1{font-size:clamp(30px,5.4vw,50px); line-height:1.03; margin:0 0 12px; letter-spacing:-.02em; font-weight:900}
-.hero h1 .g{background:linear-gradient(100deg,var(--gold-d),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero p{max-width:560px; margin:0 auto; color:var(--mut); font-size:16px; font-weight:500}
-.hero .meta{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:22px}
-.tag{display:inline-flex; align-items:center; gap:7px; background:var(--card); border:1px solid var(--line); padding:8px 14px; border-radius:12px; font-size:13px; font-weight:600; box-shadow:var(--shadow)}
-.tag b{color:var(--navy)}
-.namecard{max-width:430px; margin:26px auto 6px; background:var(--card); border:1px solid var(--line); border-radius:16px; padding:14px 16px; display:flex; align-items:center; gap:12px; box-shadow:var(--shadow); animation:rise .7s .1s both}
-.namecard label{font-size:12px; font-weight:700; color:var(--mut); white-space:nowrap}
-.namecard input{flex:1; border:1px solid var(--line); background:var(--bg2); border-radius:10px; padding:9px 12px; font-family:inherit; font-size:14px; font-weight:600; color:var(--ink); min-width:0}
+/* ===== HERO ===== */
+.hero{padding:36px 0 8px; animation:rise .7s both}
+.kicker{display:inline-flex; align-items:center; gap:9px; font-size:11px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--teal-d)}
+.kicker::before{content:""; width:26px; height:1px; background:var(--gold)}
+.hero h1{font-size:clamp(34px,6vw,56px); line-height:1.02; margin:14px 0 12px; font-weight:600}
+.hero h1 em{font-style:normal; color:var(--teal-d)}
+.hero .lead{max-width:560px; color:var(--ink-2); font-size:16px; font-weight:400}
+.hero .lead b{font-weight:600; color:var(--navy)}
+.hero .facts{display:flex; gap:8px; flex-wrap:wrap; margin-top:16px}
+.fact{display:inline-flex; align-items:center; gap:7px; background:var(--card); border:1px solid var(--line); padding:7px 13px; border-radius:12px; font-size:12.5px; font-weight:500; color:var(--ink-2); box-shadow:var(--sh)}
+.fact b{font-weight:600; color:var(--navy)}
+.namecard{max-width:430px; margin:20px 0 4px; background:var(--card); border:1px solid var(--line); border-radius:14px; padding:13px 15px; display:flex; align-items:center; gap:12px; box-shadow:var(--sh)}
+.namecard label{font-size:12px; font-weight:600; color:var(--mut); white-space:nowrap}
+.namecard input{flex:1; border:1px solid var(--line); background:var(--paper); border-radius:10px; padding:9px 12px; font-family:inherit; font-size:14px; font-weight:500; color:var(--ink); min-width:0}
 .namecard input:focus{outline:2px solid var(--teal); outline-offset:1px; background:#fff}
 
-.section-h{display:flex; align-items:baseline; gap:12px; margin:38px 4px 8px}
-.section-h h2{font-size:21px; font-weight:800; letter-spacing:-.01em; margin:0}
-.section-h span{font-size:12.5px; color:var(--mut); font-weight:600}
+/* ===== TRACK SWITCHER ===== */
+.tracks{margin:24px 0 4px}
+.trk-main{border:1px solid var(--teal); border-radius:16px; padding:15px 17px; background:linear-gradient(180deg,var(--teal-soft),var(--card)); box-shadow:0 0 0 3px rgba(0,116,132,.08), var(--sh); display:flex; align-items:center; gap:14px}
+.trk-main .tk{font-size:10px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--teal-d)}
+.trk-main h4{margin:4px 0 2px; font-size:18px; font-weight:600}
+.trk-main p{margin:0; font-size:12.5px; color:var(--mut); font-weight:500}
+.trk-main .badge{margin-left:auto; flex:0 0 auto; align-self:flex-start; font-size:9.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#fff; background:var(--teal); padding:4px 10px; border-radius:999px}
+.trk-soon{margin:10px 2px 0; font-size:12px; color:var(--mut); font-weight:500; display:flex; align-items:center; gap:8px}
+.trk-soon b{font-weight:600; color:var(--ink-2)}
+.trk-soon .pip{font-size:9px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--gold-ink); background:var(--gold-soft); border:1px solid var(--gold); padding:2px 8px; border-radius:999px}
 
-/* PATH */
-.path{position:relative; margin-top:18px; padding-left:8px}
-.path::before{content:""; position:absolute; left:32px; top:18px; bottom:34px; width:4px; border-radius:4px; background:linear-gradient(180deg,var(--teal),var(--blue) 55%,var(--gold)); opacity:.35}
-.station{position:relative; padding:0 0 22px 78px; min-height:64px; animation:rise .6s both}
-.node{position:absolute; left:10px; top:2px; width:48px; height:48px; border-radius:15px; z-index:2; display:grid; place-items:center; font-weight:900; font-size:18px; color:#fff; background:#c3cedd; box-shadow:var(--shadow); border:3px solid var(--bg)}
-.station.done .node{background:linear-gradient(150deg,var(--teal),var(--teal-d)); color:var(--gold-2)}
-.station.current .node{background:linear-gradient(150deg,var(--navy),var(--navy2)); color:var(--gold-2); border-color:#fff; box-shadow:0 0 0 4px rgba(19,163,163,.28), var(--shadow); animation:pulse 2.2s infinite}
-.station.locked .node{background:#c3cedd; color:#fff}
-.scard{background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:15px 17px; box-shadow:var(--shadow); display:flex; align-items:center; gap:14px; transition:transform .18s ease, box-shadow .18s ease, border-color .18s}
-.station:not(.locked) .scard{cursor:pointer}
-.station:not(.locked) .scard:hover{transform:translateY(-3px); box-shadow:var(--shadow-lg); border-color:#cdd9e6}
-.station.current .scard{border-color:rgba(19,163,163,.5); box-shadow:0 0 0 3px rgba(19,163,163,.12), var(--shadow)}
-.station.locked .scard{opacity:.62; filter:saturate(.6)}
-.scard .ic{font-size:24px; width:30px; text-align:center; flex:0 0 auto}
-.scard .body{flex:1; min-width:0}
-.scard .body h3{margin:0 0 3px; font-size:16px; font-weight:800; letter-spacing:-.01em}
-.scard .body .sub{font-size:12.5px; color:var(--mut); font-weight:600; display:flex; gap:10px; flex-wrap:wrap}
-.scard .body .sub .rew{color:var(--gold-d)} .scard .body .sub .les{color:var(--teal-d)} .scard .body .sub .vid{color:var(--blue-d)}
-.scard .go{flex:0 0 auto; font-weight:800; font-size:13px; color:var(--teal-d); display:flex; align-items:center; gap:5px}
-.scard .lockico{color:var(--mut); font-size:18px}
-.pill-done{font-size:10.5px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--teal-d); background:var(--teal-soft); padding:3px 9px; border-radius:999px}
-.station.final .scard{background:linear-gradient(120deg,#fff, var(--gold-soft)); border-color:#f0dcae}
-.station.final .node{border-radius:50%}
+/* ===== "СЕГОДНЯ" CTA ===== */
+.today{margin:22px 0 8px; border-radius:20px; padding:22px 24px; color:#f4f0e6; position:relative; overflow:hidden;
+  background:linear-gradient(125deg,var(--navy),var(--navy-d)); box-shadow:var(--sh-lg); animation:rise .7s .08s both}
+.today::after{content:""; position:absolute; inset:0; background:radial-gradient(420px 200px at 90% -20%, rgba(207,179,114,.3), transparent 66%), radial-gradient(360px 220px at 6% 120%, rgba(0,116,132,.38), transparent 60%)}
+.today .ix{position:relative; display:flex; align-items:center; gap:18px; flex-wrap:wrap}
+.today .med{width:56px; height:56px; flex:0 0 auto; border-radius:50%; display:grid; place-items:center; font-family:'Cormorant',serif; font-weight:700; font-size:25px; color:var(--navy-d);
+  background:radial-gradient(circle at 34% 28%, #f3e1ad, var(--gold) 50%, var(--gold-d)); box-shadow:inset 0 0 0 2px rgba(255,255,255,.35), 0 8px 18px -8px rgba(207,179,114,.7)}
+.today .med .ic{color:var(--navy-d)}
+.today .tx{flex:1; min-width:170px}
+.today .tx .k{font-size:10.5px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--gold-2)}
+.today .tx h3{margin:3px 0 4px; font-size:23px; font-weight:600; color:#fffdf6}
+.today .tx p{margin:0; font-size:13.5px; color:#cbd8e1; font-weight:400}
+.today .cta{flex:0 0 auto}
+.btn{display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:13px 22px; border:none; border-radius:12px; cursor:pointer; font-family:'Jost',sans-serif; font-weight:600; font-size:15px; color:var(--navy-d); letter-spacing:.01em;
+  background:linear-gradient(120deg,var(--gold-2),var(--gold)); box-shadow:0 12px 24px -10px rgba(207,179,114,.7); transition:transform .15s, box-shadow .15s; min-height:46px}
+.btn:hover{transform:translateY(-2px); box-shadow:0 18px 30px -12px rgba(207,179,114,.85)}
+.btn.teal{color:#fff; background:linear-gradient(120deg,var(--teal),var(--teal-d)); box-shadow:0 12px 24px -10px rgba(0,92,105,.6)}
+.btn.ghost{color:var(--navy); background:var(--card); border:1px solid var(--line); box-shadow:none}
+.btn.block{display:flex; width:100%; padding:14px}
+.btn:disabled{opacity:.42; cursor:default; transform:none; box-shadow:none}
+@media(max-width:560px){ .today .cta{width:100%} .today .cta .btn{width:100%} }
 
-/* VIEWS */
+/* ===== СТАРТ card ===== */
+.startcard{margin:18px 0 4px; border:1px solid var(--line); border-radius:14px; background:var(--card); box-shadow:var(--sh); padding:14px 16px; display:flex; align-items:center; gap:13px; cursor:pointer; transition:transform .17s, box-shadow .17s, border-color .17s}
+.startcard:hover{transform:translateY(-2px); box-shadow:var(--sh-lg); border-color:var(--teal)}
+.startcard .bk{width:38px;height:38px;flex:0 0 auto;border-radius:11px;display:grid;place-items:center;background:linear-gradient(150deg,var(--navy),var(--navy-d));color:var(--gold-2);font-family:'Cormorant',serif;font-weight:700;font-size:18px}
+.startcard .body{flex:1;min-width:0}
+.startcard .body .lab{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--teal-d)}
+.startcard .body h4{margin:2px 0 1px;font-size:16px;font-weight:600}
+.startcard .body p{margin:0;font-size:12.5px;color:var(--mut);font-weight:500}
+.startcard .end{flex:0 0 auto;font-weight:600;font-size:13px;color:var(--teal-d);display:flex;align-items:center;gap:6px}
+
+/* ===== JOURNEY ===== */
+.jhead{display:flex; align-items:baseline; gap:12px; margin:34px 2px 4px}
+.jhead h2{font-size:24px; font-weight:600; margin:0}
+.jhead span{font-size:12.5px; color:var(--mut); font-weight:500}
+
+.section{margin-top:22px; animation:rise .6s both}
+.sec-h{display:flex; align-items:center; gap:13px; margin:0 2px 12px}
+.sec-h .dot{width:11px;height:11px;flex:0 0 auto;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px var(--gold-soft)}
+.sec-h .st{flex:1; min-width:0}
+.sec-h .st .lab{font-size:10.5px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--teal-d)}
+.sec-h .st h3{margin:1px 0 0; font-size:19px; font-weight:600}
+.sec-h .pr{flex:0 0 auto; font-size:11.5px; font-weight:600; color:var(--mut); font-family:'Cormorant',serif; letter-spacing:.04em}
+.sec-h .pr.full{color:var(--teal-d)}
+
+.mlist{position:relative; padding-left:21px}
+.mlist::before{content:""; position:absolute; left:20px; top:6px; bottom:14px; width:2px; background:linear-gradient(180deg,var(--gold),var(--line)); opacity:.5}
+.mrow{position:relative; padding:0 0 12px 40px; min-height:54px}
+.mrow .node{position:absolute; left:4px; top:4px; width:34px; height:34px; border-radius:50%; z-index:2; display:grid; place-items:center; font-family:'Cormorant',serif; font-weight:700; font-size:16px; color:#fff; background:var(--faint); border:3px solid var(--paper); box-shadow:var(--sh)}
+.mrow .node .ic{color:#fff}
+.mrow.done .node{background:linear-gradient(150deg,var(--teal),var(--teal-d))}
+.mrow.current .node{background:linear-gradient(150deg,var(--navy),var(--navy-d)); color:var(--gold-2); border-color:#fff; box-shadow:0 0 0 4px rgba(0,116,132,.2), var(--sh); animation:pulse 2.3s infinite}
+.mcard{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:12px 16px; box-shadow:var(--sh); display:flex; align-items:center; gap:13px; transition:transform .17s, box-shadow .17s, border-color .17s}
+.mrow:not(.locked) .mcard{cursor:pointer}
+.mrow:not(.locked) .mcard:hover{transform:translateY(-2px); box-shadow:var(--sh-lg); border-color:var(--teal)}
+.mrow.current .mcard{border-color:rgba(0,116,132,.45); box-shadow:0 0 0 3px rgba(0,116,132,.1), var(--sh)}
+.mrow.locked .mcard{opacity:.6}
+.mcard .body{flex:1; min-width:0}
+.mcard .body h4{margin:0 0 2px; font-size:16px; font-weight:600}
+.mcard .body .sub{font-size:12px; color:var(--mut); font-weight:500; line-height:1.4}
+.mcard .body .proof{font-size:11.5px; color:var(--teal-d); font-weight:500; margin-top:3px}
+.mcard .end{flex:0 0 auto; display:flex; align-items:center; gap:10px}
+.mcard .skill{font-size:10px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; color:var(--teal-d); background:var(--teal-soft); padding:3px 9px; border-radius:999px; white-space:nowrap}
+.mcard .go{font-weight:600; font-size:13px; color:var(--teal-d); white-space:nowrap}
+.mcard .lk{color:var(--mut); display:inline-flex; align-items:center; gap:5px; font-size:11.5px; font-weight:500}
+.mcard .dn{color:var(--teal-d); display:inline-flex; align-items:center; gap:5px; font-weight:600; font-size:13px}
+@media(max-width:560px){ .mcard .skill{display:none} .mcard .body .proof{display:none} }
+
+/* finale */
+.finale{margin-top:24px; animation:rise .6s both}
+.fcard{position:relative; overflow:hidden; border:1px solid var(--gold); border-radius:18px; padding:18px 22px; background:linear-gradient(120deg,#fff,var(--gold-soft)); box-shadow:var(--sh)}
+.fcard.locked{opacity:.64}
+.fcard .ftop{display:flex; align-items:center; gap:16px}
+.fcard:not(.locked) .ftop{cursor:pointer}
+.fcard .fs{width:50px;height:50px;flex:0 0 auto;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 34% 28%, #f3e1ad, var(--gold) 50%, var(--gold-d));color:var(--navy-d);font-family:'Cormorant',serif;font-weight:700;font-size:23px;box-shadow:inset 0 0 0 2px rgba(255,255,255,.35)}
+.fcard .body{flex:1; min-width:0}
+.fcard .body .lab{font-size:10.5px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--teal-d)}
+.fcard .body h3{margin:2px 0 3px; font-size:20px; font-weight:600}
+.fcard .body p{margin:0; font-size:12.5px; color:var(--ink-2); font-weight:500}
+.fcard .end{flex:0 0 auto; font-weight:600; font-size:13.5px; color:var(--gold-ink)}
+.fcard .end.lk{color:var(--mut); display:inline-flex; align-items:center; gap:5px}
+.fcard .locks{display:flex; gap:10px; margin-top:14px; flex-wrap:wrap}
+.flock{flex:1 1 200px; display:flex; align-items:center; gap:9px; background:rgba(255,255,255,.65); border:1px solid var(--line); border-radius:11px; padding:9px 12px; font-size:12.5px; font-weight:500; color:var(--ink-2)}
+.flock .b{width:22px;height:22px;flex:0 0 auto;border-radius:50%;display:grid;place-items:center;font-family:'Cormorant',serif;font-weight:700;font-size:12px;color:#fff;background:var(--faint)}
+.flock.ok .b{background:var(--teal)} .flock.ok{color:var(--navy)}
+.flock .who{font-weight:600;color:var(--navy)}
+
+/* ===== VIEWS ===== */
 .view{display:none} .view.active{display:block; animation:rise .45s both}
-.backbtn{display:inline-flex; align-items:center; gap:7px; margin:24px 0 6px; background:none; border:none; font-family:inherit; font-weight:700; font-size:13.5px; color:var(--mut); cursor:pointer; padding:6px 4px}
+.backbtn{display:inline-flex; align-items:center; gap:7px; margin:20px 0 4px; background:none; border:none; font-family:inherit; font-weight:600; font-size:13.5px; color:var(--mut); cursor:pointer; padding:10px 6px; min-height:44px}
 .backbtn:hover{color:var(--navy)}
-.panel{background:var(--card); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow-lg); overflow:hidden}
-.panel-head{padding:20px 26px; background:linear-gradient(120deg,var(--navy),var(--navy2)); color:#fff; position:relative}
-.panel-head::after{content:""; position:absolute; inset:0; background:radial-gradient(380px 160px at 88% -30%, rgba(217,164,65,.32), transparent 70%)}
-.panel-head .ix{position:relative; display:flex; align-items:center; gap:14px}
-.panel-head .ic{font-size:28px}
-.panel-head .lab{font-size:11px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; color:var(--gold-2); opacity:.95; display:flex; align-items:center; gap:8px}
-.panel-head h2{margin:2px 0 0; font-size:22px; font-weight:800; letter-spacing:-.01em}
-.panel-head .stepcount{position:relative; margin-left:auto; font-size:12px; font-weight:700; color:#bcd0e2; background:rgba(255,255,255,.1); padding:5px 11px; border-radius:999px; align-self:center}
-.panel-body{padding:22px 26px}
+.panel{background:var(--card); border:1px solid var(--line); border-radius:20px; box-shadow:var(--sh-lg); overflow:hidden}
+.phead{padding:20px 26px; background:linear-gradient(120deg,var(--navy),var(--navy-d)); color:#fff; position:relative}
+.phead::after{content:""; position:absolute; inset:0; background:radial-gradient(360px 150px at 90% -30%, rgba(207,179,114,.3), transparent 70%)}
+.phead .ix{position:relative; display:flex; align-items:center; gap:15px}
+.phead .med{width:46px;height:46px;flex:0 0 auto;border-radius:50%;display:grid;place-items:center;font-family:'Cormorant',serif;font-weight:700;font-size:22px;color:var(--navy-d);background:radial-gradient(circle at 34% 28%, #f3e1ad, var(--gold) 50%, var(--gold-d))}
+.phead .lab{font-size:10.5px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--gold-2)}
+.phead h2{margin:3px 0 0; font-size:23px; font-weight:600; color:#fffdf6} .phead h2:focus{outline:none}
+.phead .step{position:relative; margin-left:auto; align-self:center; font-size:13px; font-weight:600; color:#cbd8e1; background:rgba(255,255,255,.1); padding:5px 11px; border-radius:999px; font-family:'Cormorant',serif; letter-spacing:.06em}
+.pbody{padding:22px 26px}
 
-/* LESSON STEPPER */
-.lstep-bar{height:7px; border-radius:999px; background:#e0e8f0; overflow:hidden; margin-bottom:20px}
-.lstep-bar i{display:block; height:100%; background:linear-gradient(90deg,var(--teal),var(--gold)); transition:width .45s cubic-bezier(.22,1,.36,1); border-radius:999px}
-#lstep-host{min-height:230px; animation:rise .35s both}
+/* lesson stepper */
+.lbar{height:6px; border-radius:999px; background:var(--line); overflow:hidden; margin-bottom:20px}
+.lbar i{display:block; height:100%; background:linear-gradient(90deg,var(--teal),var(--gold)); transition:width .45s cubic-bezier(.22,1,.36,1); border-radius:999px}
+#lhost{min-height:230px; animation:rise .35s both}
 .lnav{display:flex; gap:12px; margin-top:22px}
-.lnav .bigbtn{margin:0}
 .lnav #lprev{flex:0 0 130px}
 
-/* lesson cards */
-.lc-tag{display:inline-flex; align-items:center; gap:7px; font-size:11px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; padding:5px 11px; border-radius:999px; margin-bottom:14px}
-.lc-tag.learn{color:var(--teal-d); background:var(--teal-soft)}
-.lc-tag.script{color:var(--blue-d); background:var(--blue-soft)}
-.lc-tag.compare{color:var(--gold-d); background:var(--gold-soft)}
-.lc-tag.key{color:#6a4ea0; background:#efeaf8}
-.lc-cover h3{font-size:25px; font-weight:900; letter-spacing:-.01em; margin:4px 0 14px}
-.lc-cover .cic{font-size:42px; margin-bottom:4px}
-.lc-goal{background:var(--teal-soft); border-left:4px solid var(--teal); border-radius:0 12px 12px 0; padding:12px 15px; font-size:14.5px; margin-bottom:16px}
-.lc-goal b{color:var(--teal-d)}
-.lc-learn{list-style:none; padding:0; margin:0}
-.lc-learn li{position:relative; padding:7px 0 7px 30px; font-size:14.5px; font-weight:500; color:#33485e}
-.lc-learn li::before{content:"✓"; position:absolute; left:2px; top:6px; width:20px; height:20px; border-radius:50%; background:var(--teal); color:#fff; font-size:12px; font-weight:900; display:grid; place-items:center}
-.lc h3.ph{font-size:20px; font-weight:800; letter-spacing:-.01em; margin:2px 0 12px}
-.lc p{font-size:15px; color:#33485e; margin:0 0 12px; line-height:1.6}
-.lc .ex{background:var(--bg2); border:1px solid var(--line); border-radius:12px; padding:12px 15px; font-size:13.5px; color:#33485e; margin-top:6px}
-.lc .ex b{color:var(--navy)}
+.lct{display:inline-flex; align-items:center; gap:7px; font-size:10.5px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; padding:5px 12px; border-radius:999px; margin-bottom:14px}
+.lct.learn{color:var(--teal-d); background:var(--teal-soft)}
+.lct.script{color:var(--navy); background:var(--card-2); border:1px solid var(--line)}
+.lct.compare{color:var(--bad); background:var(--bad-soft)}
+.lct.key{color:var(--navy); background:#e7ecf0}
+.lct.practice{color:#fff; background:var(--teal)}
+.practicebox{background:var(--teal-soft); border:1px solid #c3e0e4; border-radius:15px; padding:18px 20px}
+.practicebox h4{margin:0 0 8px; font-size:17px; font-weight:600; color:var(--navy)}
+.practicebox .task{font-family:'EB Garamond',serif; font-size:16.5px; color:var(--ink); margin:0 0 12px; line-height:1.5}
+.practicebox .chk{font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--teal-d); margin-bottom:6px}
+.practicebox .note{font-size:12px; color:var(--mut); font-style:italic; margin-top:10px}
+.lcover h3{font-size:27px; font-weight:600; margin:2px 0 14px}
+.lcover .cn{font-family:'Cormorant',serif; font-size:40px; font-weight:700; color:var(--navy); line-height:1; margin-bottom:6px}
+.goal{background:var(--teal-soft); border-left:3px solid var(--teal); border-radius:0 12px 12px 0; padding:12px 15px; font-size:14.5px; margin-bottom:16px; color:var(--ink-2)}
+.goal b{color:var(--teal-d); font-weight:600}
+.learnl{list-style:none; padding:0; margin:0}
+.learnl li{position:relative; padding:7px 0 7px 30px; font-size:14.5px; font-weight:500; color:var(--ink-2)}
+.learnl li::before{content:""; position:absolute; left:3px; top:11px; width:16px; height:16px; border-radius:50%; background:var(--teal);
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 8.5l2.8 2.8 6-6.4' fill='none' stroke='%23fff' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px no-repeat;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 8.5l2.8 2.8 6-6.4' fill='none' stroke='%23fff' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px no-repeat}
+.lc h3.ph{font-size:21px; font-weight:600; margin:2px 0 12px}
+.lc p{font-size:15px; color:var(--ink-2); margin:0 0 12px; line-height:1.62}
+.lc .ex{background:var(--card-2); border:1px solid var(--line); border-radius:12px; padding:12px 15px; font-size:13.5px; color:var(--ink-2); margin-top:6px}
+.lc .ex b{color:var(--navy); font-weight:600}
+.lc .norm{font-size:12px; color:var(--mut); font-style:italic; margin-top:8px}
 
-/* media player slot */
-.player{position:relative; border-radius:18px; overflow:hidden; background:linear-gradient(135deg,var(--navy),var(--navy2)); color:#fff; padding:26px 24px; min-height:200px; display:flex; flex-direction:column; justify-content:flex-end}
-.player::before{content:""; position:absolute; inset:0; background:radial-gradient(420px 200px at 78% 12%, rgba(19,163,163,.4), transparent 65%), radial-gradient(360px 200px at 12% 90%, rgba(217,164,65,.28), transparent 60%)}
-.player .play{position:relative; width:66px; height:66px; border-radius:50%; background:var(--gold); color:var(--navy); display:grid; place-items:center; font-size:24px; margin:0 0 16px; box-shadow:0 12px 28px -8px rgba(217,164,65,.7); cursor:pointer; transition:transform .15s}
+.player{position:relative; border-radius:16px; overflow:hidden; background:linear-gradient(135deg,var(--navy),var(--navy-d)); color:#fff; padding:26px 24px; min-height:196px; display:flex; flex-direction:column; justify-content:flex-end}
+.player::before{content:""; position:absolute; inset:0; background:radial-gradient(400px 190px at 80% 12%, rgba(0,116,132,.4), transparent 64%), radial-gradient(340px 190px at 12% 92%, rgba(207,179,114,.26), transparent 60%)}
+.player .play{position:relative; width:60px; height:60px; border-radius:50%; background:linear-gradient(120deg,var(--gold-2),var(--gold)); color:var(--navy-d); display:grid; place-items:center; margin:0 0 16px; box-shadow:0 12px 26px -8px rgba(207,179,114,.7); cursor:pointer; transition:transform .15s; border:none}
 .player .play:hover{transform:scale(1.06)}
-.player .ptitle{position:relative; font-size:18px; font-weight:800; margin-bottom:6px}
-.player .pmeta{position:relative; display:flex; gap:10px; flex-wrap:wrap; align-items:center}
-.player .pmeta .d{background:rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.2); padding:4px 10px; border-radius:999px; font-size:12px; font-weight:700}
-.player .pcap{position:relative; margin-top:12px; font-size:12.5px; color:#bcd0e2; font-weight:600}
-.player .slot{position:absolute; top:14px; right:14px; font-size:10px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--gold-2); background:rgba(255,255,255,.1); border:1px dashed rgba(255,217,138,.5); padding:4px 9px; border-radius:999px}
-.vidwrap{position:relative}
-.vidwrap .vid{width:100%; aspect-ratio:16/9; border-radius:18px; display:block; background:#000; box-shadow:var(--shadow)}
-.pcap2{margin-top:10px; font-size:12.5px; color:var(--mut); font-weight:600}
+.player .ptitle{position:relative; font-size:18px; font-weight:600; font-family:'EB Garamond',serif; margin-bottom:6px}
+.player .pmeta{position:relative; display:flex; gap:9px; flex-wrap:wrap}
+.player .pmeta .d{background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.2); padding:4px 10px; border-radius:999px; font-size:11.5px; font-weight:600}
+.player .pcap{position:relative; margin-top:12px; font-size:12px; color:#cbd8e1; font-weight:400}
+.player .slot{position:absolute; top:14px; right:14px; font-size:9.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--gold-2); background:rgba(255,255,255,.1); border:1px dashed rgba(230,208,154,.5); padding:4px 9px; border-radius:999px}
+.vidwrap .vid{width:100%; aspect-ratio:16/9; border-radius:16px; display:block; background:#000; box-shadow:var(--sh)}
+.pcap2{margin-top:10px; font-size:12px; color:var(--mut); font-weight:500}
 
-/* script card */
-.scriptbox{background:var(--navy); color:#dbe6ef; border-radius:14px; padding:15px 17px; margin:6px 0 0; font-size:14px; line-height:1.7}
-.scriptbox .who{color:var(--gold-2); font-weight:700}
+.scriptbox{background:var(--navy); color:#e2ebf1; border-radius:13px; padding:15px 17px; font-size:14.5px; line-height:1.7; font-family:'EB Garamond',serif}
+.scriptbox .who{color:var(--gold-2); font-weight:600}
 
-/* compare */
-.cmp{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:6px}
-.cmp .col{border-radius:14px; padding:14px 15px}
-.cmp .bad{background:var(--bad-soft); border:1px solid #f1cfc9}
-.cmp .good{background:var(--teal-soft); border:1px solid #c2e6e6}
-.cmp h5{margin:0 0 10px; font-size:13px; font-weight:800; display:flex; align-items:center; gap:7px}
+.cmp{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+.cmp .col{border-radius:13px; padding:14px 15px}
+.cmp .bad{background:var(--bad-soft); border:1px solid #e8cfc5}
+.cmp .good{background:var(--teal-soft); border:1px solid #c3e0e4}
+.cmp h5{margin:0 0 10px; font-size:13px; font-weight:700; display:flex; align-items:center; gap:7px}
 .cmp .bad h5{color:var(--bad)} .cmp .good h5{color:var(--teal-d)}
 .cmp ul{margin:0; padding:0; list-style:none}
-.cmp li{font-size:13.5px; font-weight:600; padding:5px 0; color:#33485e}
-@media(max-width:560px){ .cmp{grid-template-columns:1fr} }
+.cmp li{font-size:13.5px; font-weight:500; padding:5px 0; color:var(--ink-2)}
+@media(max-width:540px){ .cmp{grid-template-columns:1fr} }
 
-/* key */
-.lc-key{background:linear-gradient(120deg,#f6f2fc,#fff); border:1px solid #e6def4; border-radius:16px; padding:18px 20px}
-.lc-key h4{margin:0 0 12px; font-size:16px; font-weight:800; color:#5a3fa0; display:flex; align-items:center; gap:9px}
-.lc-key ul{margin:0; padding:0; list-style:none}
-.lc-key li{position:relative; padding:7px 0 7px 28px; font-size:14.5px; font-weight:600; color:#33485e}
-.lc-key li::before{content:""; position:absolute; left:4px; top:13px; width:9px; height:9px; border-radius:50%; background:var(--gold)}
+.keybox{background:linear-gradient(120deg,var(--card-2),#fff); border:1px solid var(--line); border-radius:15px; padding:18px 20px}
+.keybox h4{margin:0 0 12px; font-size:17px; font-weight:600; color:var(--navy)}
+.keybox ul{margin:0; padding:0; list-style:none}
+.keybox li{position:relative; padding:7px 0 7px 24px; font-size:14.5px; font-weight:500; color:var(--ink-2)}
+.keybox li::before{content:""; position:absolute; left:3px; top:13px; width:8px; height:8px; border-radius:50%; background:var(--gold)}
 
-.bigbtn{display:block; width:100%; padding:15px; border:none; border-radius:14px; cursor:pointer; font-family:inherit; font-weight:800; font-size:15.5px; color:#fff; letter-spacing:.01em; background:linear-gradient(120deg,var(--teal),var(--teal-d)); box-shadow:0 12px 22px -10px rgba(13,126,126,.7); transition:transform .15s, box-shadow .15s}
-.bigbtn:hover{transform:translateY(-2px); box-shadow:0 18px 30px -12px rgba(13,126,126,.8)}
-.bigbtn.gold{background:linear-gradient(120deg,var(--gold),var(--gold-d)); box-shadow:0 12px 22px -10px rgba(185,137,47,.75); color:#3a2c05}
-.bigbtn.ghost{background:var(--bg2); color:var(--navy); box-shadow:none; border:1px solid var(--line)}
-.bigbtn:disabled{opacity:.4; cursor:default; transform:none; box-shadow:none}
-
-/* QUIZ */
+/* quiz */
+.qbanner{display:flex; align-items:center; gap:10px; background:var(--teal-soft); border:1px solid #c3e0e4; border-radius:12px; padding:10px 14px; margin-bottom:16px; font-size:13px; font-weight:600; color:var(--teal-d)}
 .qmeta{display:flex; align-items:center; justify-content:space-between; margin-bottom:14px}
-.qmeta .qn{font-size:12.5px; font-weight:800; color:var(--mut); letter-spacing:.04em}
-.qprog{flex:1; height:7px; margin:0 14px; background:#d9e2ec; border-radius:999px; overflow:hidden}
+.qmeta .qn{font-size:13px; font-weight:600; color:var(--mut); font-family:'Cormorant',serif; letter-spacing:.04em}
+.qprog{flex:1; height:6px; margin:0 14px; background:var(--line); border-radius:999px; overflow:hidden}
 .qprog i{display:block; height:100%; background:linear-gradient(90deg,var(--teal),var(--gold)); transition:width .4s}
-.qtype{font-size:11px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--blue-d); background:var(--blue-soft); padding:4px 10px; border-radius:999px}
-.checkbanner{display:flex; align-items:center; gap:10px; background:var(--gold-soft); border:1px solid #f0dcae; border-radius:12px; padding:10px 14px; margin-bottom:16px; font-size:13px; font-weight:700; color:var(--gold-d)}
-.qtext{font-size:18px; font-weight:800; letter-spacing:-.01em; margin:6px 0 18px; line-height:1.35}
+.qtype{font-size:10.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--teal-d); background:var(--teal-soft); padding:4px 10px; border-radius:999px}
+.qtext{font-size:18.5px; font-weight:600; font-family:'EB Garamond',serif; margin:6px 0 18px; line-height:1.4}
 .opts{display:flex; flex-direction:column; gap:10px}
-.opt{text-align:left; padding:14px 16px; border:1.5px solid var(--line); border-radius:13px; background:var(--card); font-family:inherit; font-size:14.5px; font-weight:600; color:var(--ink); cursor:pointer; display:flex; align-items:center; gap:12px; transition:border-color .15s, background .15s, transform .12s}
+.opt{text-align:left; padding:14px 16px; border:1.5px solid var(--line); border-radius:13px; background:var(--card); font-family:inherit; font-size:14.5px; font-weight:500; color:var(--ink); cursor:pointer; display:flex; align-items:center; gap:12px; transition:border-color .15s, background .15s, transform .12s}
 .opt:hover:not(:disabled){border-color:var(--teal); transform:translateX(3px)}
-.opt .key{width:26px; height:26px; flex:0 0 auto; border-radius:8px; background:var(--bg2); display:grid; place-items:center; font-weight:800; font-size:13px; color:var(--mut)}
+.opt .key{width:26px; height:26px; flex:0 0 auto; border-radius:8px; background:var(--paper-2); display:grid; place-items:center; font-family:'Cormorant',serif; font-weight:700; font-size:14px; color:var(--ink-2)}
 .opt.correct{border-color:var(--teal); background:var(--teal-soft)} .opt.correct .key{background:var(--teal); color:#fff}
 .opt.wrong{border-color:var(--bad); background:var(--bad-soft)} .opt.wrong .key{background:var(--bad); color:#fff}
 .opt:disabled{cursor:default}
-.explain{margin-top:14px; padding:13px 15px; border-radius:12px; font-size:13.5px; font-weight:500; display:none}
+.explain{margin-top:14px; padding:13px 15px; border-radius:12px; font-size:13.5px; font-weight:400; display:none}
 .explain.show{display:block; animation:rise .3s both}
-.explain.good{background:var(--teal-soft); color:var(--teal-d)} .explain.bad{background:var(--gold-soft); color:var(--gold-d)}
-.explain b{font-weight:800}
-.cl-item{font-size:16px; font-weight:800; text-align:center; padding:16px; background:var(--bg2); border-radius:13px; margin-bottom:14px}
+.explain.good{background:var(--teal-soft); color:var(--teal-d)} .explain.bad{background:var(--card-2); border:1px solid var(--line); color:var(--ink-2)}
+.explain b{font-weight:700}
+.cl-item{font-size:16px; font-weight:600; font-family:'EB Garamond',serif; text-align:center; padding:16px; background:var(--card-2); border:1px solid var(--line); border-radius:13px; margin-bottom:14px}
 .cl-buckets{display:grid; grid-template-columns:repeat(3,1fr); gap:10px}
 .cl-b{padding:14px 8px; border:1.5px solid var(--line); border-radius:13px; background:var(--card); cursor:pointer; font-family:inherit; text-align:center; transition:transform .12s, border-color .15s}
 .cl-b:hover:not(:disabled){border-color:var(--teal); transform:translateY(-2px)}
-.cl-b .L{font-size:24px; font-weight:900; color:var(--navy)} .cl-b .d{font-size:11px; color:var(--mut); font-weight:600; margin-top:2px}
+.cl-b .L{font-family:'Cormorant',serif; font-size:25px; font-weight:700; color:var(--navy)} .cl-b .d{font-size:11px; color:var(--mut); font-weight:500; margin-top:2px}
 .cl-b.correct{border-color:var(--teal); background:var(--teal-soft)} .cl-b.correct .L{color:var(--teal-d)}
 .cl-b.wrong{border-color:var(--bad); background:var(--bad-soft)} .cl-b.wrong .L{color:var(--bad)}
 
 /* result */
 .result{text-align:center; padding:8px 4px}
-.result .ring{width:120px; height:120px; margin:6px auto 16px; border-radius:50%; display:grid; place-items:center; position:relative}
-.result .ring svg{position:absolute; inset:0; transform:rotate(-90deg)}
-.result .ring .pct{font-size:30px; font-weight:900; color:var(--navy)}
-.result h3{font-size:22px; font-weight:900; margin:0 0 6px} .result p{color:var(--mut); font-weight:600; margin:0 0 4px}
-.rewardrow{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin:18px 0 4px}
-.rb{background:var(--gold-soft); border:1px solid #f0dcae; color:var(--gold-d); padding:9px 15px; border-radius:12px; font-weight:800; font-size:13.5px; display:flex; align-items:center; gap:8px; animation:pop .5s both}
-.emb{width:30px;height:30px;border-radius:50%;background:linear-gradient(150deg,var(--gold),var(--gold-d));display:grid;place-items:center;color:#3a2c05;font-size:15px;box-shadow:0 4px 10px -3px rgba(185,137,47,.7)}
+.ring{width:124px; height:124px; margin:6px auto 16px; position:relative; display:grid; place-items:center}
+.ring svg{position:absolute; inset:0; transform:rotate(-90deg)}
+.ring .pct{font-family:'Cormorant',serif; font-size:34px; font-weight:700; color:var(--navy)}
+.result h3{font-size:24px; font-weight:600; margin:0 0 6px} .result h3:focus{outline:none} .result p{color:var(--mut); font-weight:500; margin:0 0 4px}
+.recap{max-width:380px;margin:14px auto 0;text-align:left;background:var(--card-2);border:1px solid var(--line);border-radius:13px;padding:14px 16px}
+.recap .rt{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-d);margin-bottom:8px}
+.recap ul{margin:0;padding:0;list-style:none}
+.recap li{position:relative;padding:5px 0 5px 24px;font-size:13.5px;font-weight:500;color:var(--ink-2)}
+.recap li .ic{position:absolute;left:2px;top:8px;color:var(--teal)}
+.rewards{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin:16px 0 6px}
+.rb{background:var(--gold-soft); border:1px solid var(--gold); color:var(--navy); padding:9px 15px; border-radius:12px; font-weight:600; font-size:13.5px; display:flex; align-items:center; gap:8px; animation:pop .5s both}
+.rb .em{width:22px;height:22px;border-radius:50%;background:radial-gradient(circle at 34% 28%, #f3e1ad, var(--gold) 50%, var(--gold-d));display:grid;place-items:center;color:var(--navy-d)}
 
-/* FINAL gate */
-.gate-grid{display:grid; gap:14px; margin-top:6px}
-.gatecard{border:1px solid var(--line); border-radius:16px; padding:16px 18px; background:var(--card)}
-.gatecard h4{margin:0 0 6px; font-size:15px; font-weight:800; display:flex; align-items:center; gap:9px}
-.gatecard ul{margin:6px 0 0; padding-left:20px; font-size:13.5px; color:#33485e} .gatecard li{margin:4px 0}
-.soon{position:relative; border-style:dashed; border-color:#c9d4e1; background:repeating-linear-gradient(135deg,#fff,#fff 12px,#f6f9fc 12px,#f6f9fc 24px)}
-.soon .tagsoon{position:absolute; top:14px; right:16px; font-size:10.5px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--blue-d); background:var(--blue-soft); padding:4px 10px; border-radius:999px}
-.soon h4{color:var(--navy)} .soon p{font-size:13.5px; color:var(--mut); margin:4px 0 0}
+/* gate */
+.gate-grid{display:grid; gap:14px}
+.gatecard{border:1px solid var(--line); border-radius:15px; padding:16px 18px; background:var(--card)}
+.gatecard h4{margin:0 0 6px; font-size:16px; font-weight:600; display:flex; align-items:center; gap:9px}
+.gatecard .n{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-family:'Cormorant',serif;font-weight:700;color:#fff;background:var(--navy);font-size:15px}
+.gatecard .n.ok{background:var(--teal)}
+.gatecard ul{margin:6px 0 0; padding-left:20px; font-size:13.5px; color:var(--ink-2)} .gatecard li{margin:4px 0}
+.gatecard .st{font-size:12.5px;font-weight:600;margin-top:8px;display:inline-flex;align-items:center;gap:6px}
+.gatecard .st.ok{color:var(--teal-d)} .gatecard .st.wait{color:var(--mut)}
+.gatecard.soon{border-style:dashed; border-color:var(--gold); background:repeating-linear-gradient(135deg,#fff,#fff 12px,var(--gold-soft) 12px,var(--gold-soft) 24px)}
+.gatecard.soon .tag{float:right; font-size:10px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--gold-ink); background:#fff; border:1px solid var(--gold); padding:4px 10px; border-radius:999px}
+.gatecard.soon p{font-size:13.5px; color:var(--mut); margin:6px 0 0}
+.mentor-note{font-size:12px;color:var(--mut);margin-top:10px;font-style:italic}
+.gatename{display:flex;gap:10px;align-items:center;background:var(--card-2);border:1px solid var(--line);border-radius:12px;padding:11px 14px;margin-bottom:16px}
+.gatename label{font-size:12px;font-weight:600;color:var(--mut);white-space:nowrap}
+.gatename input{flex:1;border:1px solid var(--line);background:#fff;border-radius:9px;padding:8px 11px;font-family:inherit;font-size:14px;font-weight:500;color:var(--ink);min-width:0}
 
-/* CERT */
-.cert{position:relative; background:linear-gradient(135deg,#fffdf7,#fff7e9); border:2px solid var(--gold); border-radius:22px; padding:34px 30px; text-align:center; box-shadow:var(--shadow-lg); overflow:hidden}
-.cert::before{content:""; position:absolute; inset:8px; border:1px solid rgba(217,164,65,.45); border-radius:16px; pointer-events:none}
-.cert .seal{width:74px;height:74px;margin:0 auto 12px;border-radius:50%;display:grid;place-items:center; background:linear-gradient(150deg,var(--navy),var(--navy2)); color:var(--gold-2); font-weight:900; font-size:26px; box-shadow:0 10px 24px -8px rgba(14,42,64,.6); position:relative; z-index:1}
-.cert .ck{font-size:11px; font-weight:800; letter-spacing:.26em; text-transform:uppercase; color:var(--gold-d); position:relative; z-index:1}
-.cert h2{font-size:27px; font-weight:900; margin:6px 0 2px; letter-spacing:-.01em; position:relative; z-index:1}
-.cert .who{font-size:20px; font-weight:800; color:var(--navy); margin:14px 0 4px; position:relative; z-index:1}
-.cert .who u{text-decoration-color:var(--gold); text-underline-offset:5px}
-.cert .desc{color:var(--mut); font-weight:600; font-size:14px; max-width:430px; margin:0 auto; position:relative; z-index:1}
+/* cert */
+.cert{position:relative; background:linear-gradient(135deg,#fffdf6,#fbf3e0); border:2px solid var(--gold); border-radius:20px; padding:36px 30px; text-align:center; box-shadow:var(--sh-lg); overflow:hidden}
+.cert::before{content:""; position:absolute; inset:9px; border:1px solid rgba(207,179,114,.5); border-radius:14px; pointer-events:none}
+.cert .seal{width:78px;height:78px;margin:0 auto 12px;border-radius:50%;display:grid;place-items:center;position:relative;z-index:1; animation:pop .6s both;
+  background:radial-gradient(circle at 34% 28%, #f3e1ad, var(--gold) 48%, var(--gold-d)); color:var(--navy-d); font-family:'Cormorant',serif; font-weight:700; font-size:32px; box-shadow:inset 0 0 0 2.5px rgba(255,255,255,.4), 0 10px 24px -8px rgba(168,136,74,.7)}
+.cert .ck{font-size:11px; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:var(--gold-ink); position:relative; z-index:1}
+.cert h2{font-size:29px; font-weight:600; margin:8px 0 2px; position:relative; z-index:1}
+.cert .who{font-size:15px; color:var(--ink-2); font-weight:500; margin:14px 0 4px; position:relative; z-index:1}
+.cert .who u{font-family:'EB Garamond',serif; font-size:21px; font-weight:600; color:var(--navy); text-decoration-color:var(--gold); text-underline-offset:5px}
+.cert .desc{color:var(--mut); font-weight:500; font-size:13.5px; max-width:450px; margin:8px auto 0; position:relative; z-index:1}
+.cert .desc b{color:var(--ink-2);font-weight:600}
 .cert .badges{display:flex; gap:9px; justify-content:center; flex-wrap:wrap; margin:18px 0 6px; position:relative; z-index:1}
-.cert .badges .b{display:flex; align-items:center; gap:7px; background:#fff; border:1px solid #f0dcae; padding:6px 11px; border-radius:999px; font-size:12px; font-weight:700; color:var(--gold-d)}
-.cert .foot{display:flex; justify-content:space-between; margin-top:20px; font-size:11.5px; color:var(--mut); font-weight:700; position:relative; z-index:1}
-.handoff{margin-top:18px; background:var(--card); border:1px solid var(--line); border-radius:18px; padding:18px 20px; box-shadow:var(--shadow); text-align:center}
-.handoff p{margin:0 0 14px; font-size:14.5px; color:#33485e; font-weight:600} .handoff a{text-decoration:none}
-.confetti{position:absolute; top:-10px; width:9px; height:14px; opacity:.9; animation:fall linear forwards}
+.cert .badges .b{display:flex; align-items:center; gap:7px; background:#fff; border:1px solid var(--gold); padding:6px 11px; border-radius:999px; font-size:12px; font-weight:600; color:var(--navy)}
+.cert .badges .b .d{width:7px;height:7px;border-radius:50%;background:var(--gold)}
+.cert .foot{display:flex; justify-content:space-between; margin-top:20px; font-size:11.5px; color:var(--mut); font-weight:600; position:relative; z-index:1; font-family:'Cormorant',serif; letter-spacing:.04em}
+.stamped{position:relative;z-index:1;margin-top:12px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-d)}
+.cheat{margin-top:18px; background:var(--card); border:1px solid var(--line); border-radius:16px; padding:18px 20px; box-shadow:var(--sh)}
+.cheat h4{margin:0 0 10px;font-size:15px;font-weight:600;color:var(--navy)}
+.cheat ul{margin:0;padding:0;list-style:none}
+.cheat li{position:relative;padding:6px 0 6px 24px;font-size:13.5px;font-weight:500;color:var(--ink-2)}
+.cheat li .ic{position:absolute;left:2px;top:9px;color:var(--teal)}
+.handoff{margin-top:14px; background:linear-gradient(120deg,var(--navy),var(--navy-d)); border-radius:16px; padding:18px 20px; text-align:center; color:#eaf0f4}
+.handoff p{margin:0 0 14px; font-size:14.5px; font-weight:500} .handoff a{text-decoration:none}
 
-.foot-note{margin-top:40px; text-align:center; font-size:12px; color:var(--mut); font-weight:600}
-.foot-note button{background:none;border:none;color:var(--blue-d);font-weight:700;cursor:pointer;font-family:inherit;text-decoration:underline;font-size:12px}
+.note{margin-top:36px; text-align:center; font-size:12px; color:var(--mut); font-weight:500}
+.note button{background:none;border:none;color:var(--teal-d);font-weight:600;cursor:pointer;font-family:inherit;text-decoration:underline;font-size:12px;padding:6px}
 
-@keyframes rise{from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:none}}
+@keyframes rise{from{opacity:0; transform:translateY(13px)} to{opacity:1; transform:none}}
 @keyframes pop{from{opacity:0; transform:scale(.8)} to{opacity:1; transform:none}}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 4px rgba(19,163,163,.28), var(--shadow)} 50%{box-shadow:0 0 0 9px rgba(19,163,163,.05), var(--shadow)}}
-@keyframes fall{to{transform:translateY(360px) rotate(540deg); opacity:0}}
-@media(prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 4px rgba(0,116,132,.2), var(--sh)} 50%{box-shadow:0 0 0 9px rgba(0,116,132,.03), var(--sh)}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important} html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
 
+<div class="review" id="reviewBanner"><div class="in">
+  <span><b>Демо новой Академии ATAMŪRA</b> · структура <b>Трек → раздел → урок → допуск</b> · трек «Телемаркетинг» · данные демонстрационные; цифры и условия — плейсхолдеры до сверки с РОП</span>
+  <button class="x" onclick="document.getElementById('reviewBanner').remove()" title="Скрыть" aria-label="Скрыть баннер">×</button>
+</div></div>
+
 <div class="topbar"><div class="inner">
-  <div class="brand"><span class="mark">A</span><div>АКАДЕМИЯ<small>ATAMURA GROUP</small></div></div>
+  <div class="brand">
+    <span class="seal" aria-hidden="true">A</span>
+    <span class="wm">ATAMŪRA<small>АКАДЕМИЯ ПРОДАЖ</small></span>
+  </div>
   <div class="spacer"></div>
-  <div class="chip level"><span class="dot"></span><span id="lvlLabel">Новичок</span></div>
-  <div class="chip streak" title="Дни подряд">🔥 <span id="streakN">3</span></div>
-  <div class="xpbar"><div class="lab"><span>XP</span><span id="xpNum">0 / 1000</span></div><div class="track"><div class="fill" id="xpFill"></div></div></div>
+  <div class="lvl" title="Ранг растёт за пройденные разделы"><span class="rk num" id="rk">I</span><span id="lvlLabel">Ученик</span><span class="pn" id="pnMob">· 0/7</span></div>
+  <div class="mastery"><div class="lab"><span>Прогресс трека</span><b id="mNum">0 / 7</b></div><div class="track"><div class="fill" id="mFill"></div></div></div>
 </div></div>
 
 <div class="wrap">
@@ -265,35 +387,53 @@ body::after{
   <!-- HOME -->
   <section class="view active" id="view-home">
     <div class="hero">
-      <span class="kicker">● Трек 1 · Телемаркетинг / входящий контакт</span>
-      <h1>Путь продавца <span class="g">ATAMURA</span></h1>
-      <p>7 миссий по методу Гребенюка — от первого «Алло» до показа. Каждая миссия: <b>видео-урок + разбор + скрипты</b>, потом мини-проверка. В конце — сертификат и доступ к рабочему кабинету.</p>
-      <div class="meta">
-        <span class="tag">🎬 <b>Видео</b> из материалов Аномалии</span>
-        <span class="tag">🎯 Метод <b>Гребенюка</b></span>
-        <span class="tag">🏅 <b>Сертификат</b> = допуск к лидам</span>
+      <span class="kicker">Трек I · Телемаркетинг · первый контакт</span>
+      <h1 tabindex="-1">Путь продавца <em>ATAMŪRA</em></h1>
+      <p class="lead">Семь тем по методу Гребенюка — от первого «Алло» до показа. Внутри — <b>видео-уроки, разборы, скрипты и тренировки вслух</b>; после каждой темы проверка. В финале — <b>допуск к клиентам</b> и переход в рабочий кабинет.</p>
+      <div class="facts">
+        <span class="fact"><b>~2–3 рабочих дня</b> на трек</span>
+        <span class="fact">7 тем + старт «о компании»</span>
+        <span class="fact">Итог: <b>допуск к звонкам</b></span>
       </div>
-      <div class="namecard"><label for="nameIn">Тебя зовут</label><input id="nameIn" type="text" placeholder="Имя для сертификата" maxlength="32" autocomplete="off"></div>
+      <div class="namecard"><label for="nameIn">Тебя зовут</label><input id="nameIn" type="text" placeholder="Имя для допуска" maxlength="32" autocomplete="off"></div>
     </div>
-    <div class="section-h"><h2>Карта пути</h2><span id="doneCount">0 из 7 миссий пройдено</span></div>
-    <div class="path" id="path"></div>
+
+    <div class="tracks">
+      <div class="trk-main">
+        <div><div class="tk">Трек I · открыт</div><h4>Телемаркетинг</h4><p>Первый контакт и доведение до показа</p></div>
+        <span class="badge">Сейчас здесь</span>
+      </div>
+      <div class="trk-soon"><span class="pip">Скоро</span> Дальше в Академии: <b>Отдел продаж</b> · <b>Агенты</b></div>
+    </div>
+
+    <!-- СЕГОДНЯ -->
+    <div class="today" id="today"></div>
+
+    <!-- СТАРТ (О компании) -->
+    <div id="startSlot"></div>
+
+    <div class="jhead"><h2>Твой маршрут</h2><span id="doneCount">0 из 7 тем пройдено</span></div>
+    <div id="journey"></div>
+    <div class="finale" id="finale"></div>
+
+    <div class="note" id="globalReset">Демо-прототип Академии ATAMŪRA · редизайн структуры и UX · контент по методу Гребенюка · <button onclick="resetAll()">сбросить прогресс</button></div>
   </section>
 
   <!-- LESSON -->
   <section class="view" id="view-lesson">
-    <button class="backbtn" onclick="go('home')">← На карту пути</button>
+    <button class="backbtn" onclick="go('home')">← К маршруту</button>
     <div class="panel">
-      <div class="panel-head"><div class="ix">
-        <div class="ic" id="le-ic">🏠</div>
-        <div><div class="lab">📚 Урок · <span id="le-lab">Миссия</span></div><h2 id="le-title">Заголовок</h2></div>
-        <div class="stepcount" id="le-step">1 / 5</div>
+      <div class="phead"><div class="ix">
+        <div class="med num" id="le-num">1</div>
+        <div><div class="lab" id="le-lab">Раздел · Тема 1</div><h2 id="le-title" tabindex="-1">Заголовок</h2></div>
+        <div class="step num" id="le-step">1 / 5</div>
       </div></div>
-      <div class="panel-body">
-        <div class="lstep-bar"><i id="lstep-prog"></i></div>
-        <div id="lstep-host"></div>
+      <div class="pbody">
+        <div class="lbar"><i id="lprog"></i></div>
+        <div id="lhost"></div>
         <div class="lnav">
-          <button id="lprev" class="bigbtn ghost" onclick="lessonPrev()">← Назад</button>
-          <button id="lnext" class="bigbtn" onclick="lessonNext()">Далее →</button>
+          <button id="lprev" class="btn ghost block" onclick="lessonPrev()">← Назад</button>
+          <button id="lnext" class="btn teal block" onclick="lessonNext()">Далее →</button>
         </div>
       </div>
     </div>
@@ -301,42 +441,41 @@ body::after{
 
   <!-- QUIZ -->
   <section class="view" id="view-quiz">
-    <button class="backbtn" onclick="openModule(curMod)">← К уроку</button>
-    <div class="panel"><div class="panel-body">
-      <div class="checkbanner">✅ Урок пройден — закрепим за 3 вопроса</div>
-      <div class="qmeta"><span class="qn" id="q-n">Вопрос 1/3</span><div class="qprog"><i id="q-prog"></i></div><span class="qtype" id="q-type">Выбор</span></div>
+    <button class="backbtn" id="quizBack" onclick="openModule(curMod)">← К началу урока</button>
+    <div class="panel"><div class="pbody">
+      <div class="qbanner" id="qbanner"><span class="ic check" aria-hidden="true"></span> Урок пройден — закрепим за 3 вопроса</div>
+      <div class="qmeta"><span class="qn" id="q-n">Вопрос 1 / 3</span><div class="qprog"><i id="q-prog"></i></div><span class="qtype" id="q-type">Выбор</span></div>
       <div id="q-host"></div>
     </div></div>
   </section>
 
   <!-- RESULT -->
   <section class="view" id="view-result">
-    <div class="panel"><div class="panel-body"><div class="result">
+    <div class="panel"><div class="pbody"><div class="result">
       <div class="ring">
-        <svg width="120" height="120"><circle cx="60" cy="60" r="52" fill="none" stroke="#e6ecf2" stroke-width="10"/>
-          <circle id="r-arc" cx="60" cy="60" r="52" fill="none" stroke="url(#rg)" stroke-width="10" stroke-linecap="round" stroke-dasharray="327" stroke-dashoffset="327"/>
-          <defs><linearGradient id="rg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#13a3a3"/><stop offset="1" stop-color="#d9a441"/></linearGradient></defs>
-        </svg><span class="pct" id="r-pct">0%</span>
+        <svg width="124" height="124" aria-hidden="true"><circle cx="62" cy="62" r="54" fill="none" stroke="#e6ddc8" stroke-width="9"/>
+          <circle id="r-arc" cx="62" cy="62" r="54" fill="none" stroke="url(#rg)" stroke-width="9" stroke-linecap="round" stroke-dasharray="339" stroke-dashoffset="339"/>
+          <defs><linearGradient id="rg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#007484"/><stop offset="1" stop-color="#CFB372"/></linearGradient></defs>
+        </svg><span class="pct num" id="r-pct">0%</span>
       </div>
-      <h3 id="r-title">Готово!</h3><p id="r-sub">Миссия пройдена</p>
-      <div class="rewardrow" id="r-rewards"></div>
-      <button class="bigbtn" id="r-next" onclick="go('home')">Вернуться на карту пути →</button>
-      <button class="bigbtn ghost" id="r-retry" style="display:none" onclick="startQuiz(curMod)">Пересдать</button>
+      <h3 id="r-title" tabindex="-1">Готово!</h3><p id="r-sub">Навык освоен</p>
+      <div id="r-recap"></div>
+      <div class="rewards" id="r-rewards"></div>
+      <button class="btn teal block" id="r-next" style="margin-top:12px" onclick="go('home')">Вернуться на маршрут →</button>
+      <button class="btn ghost block" id="r-retry" style="display:none; margin-top:10px" onclick="startQuiz(curMod)">Пересдать вопросы</button>
+      <button class="btn ghost block" id="r-review" style="display:none; margin-top:10px" onclick="openModule(curMod)">Вернуться к уроку</button>
     </div></div></div>
   </section>
 
   <!-- FINAL GATE -->
   <section class="view" id="view-gate">
-    <button class="backbtn" onclick="go('home')">← На карту пути</button>
+    <button class="backbtn" onclick="go('home')">← К маршруту</button>
     <div class="panel">
-      <div class="panel-head"><div class="ix"><div class="ic">🎓</div><div><div class="lab">Финальный гейт</div><h2>Сертификация продавца</h2></div></div></div>
-      <div class="panel-body">
-        <p style="margin:0 0 14px; font-size:14.5px; color:#33485e">Два слоя проверки. Первый — итоговый тест по всему треку. Второй — практика: отработанный звонок.</p>
-        <div class="gate-grid">
-          <div class="gatecard"><h4>🧠 Слой 1 — Итоговый тест</h4><p style="margin:0; font-size:13.5px; color:#33485e">5 вопросов из всех миссий. Нужно ≥80% (4 из 5).</p><button class="bigbtn" style="margin-top:14px" id="gate-start">Начать итоговый тест →</button></div>
-          <div class="gatecard"><h4>🎧 Слой 2 — Чек-лист звонка</h4><p style="margin:2px 0 6px; font-size:13.5px; color:#33485e">Наставник / РОП слушает твой звонок и отмечает:</p><ul><li>Установлен контакт + рамка разговора</li><li>Проведена квалификация ABC</li><li>Закрытие на показ (КЭВ)</li><li>Отработано хотя бы одно возражение</li><li>Договорённость о следующем шаге</li></ul></div>
-          <div class="gatecard soon"><span class="tagsoon">Скоро</span><h4>🤖 AI-тренажёр звонка</h4><p>Отыграешь звонок с виртуальным клиентом — система оценит по чек-листу Гребенюка и даст разбор. Встанет на место ручной проверки без переделки академии.</p></div>
-        </div>
+      <div class="phead"><div class="ix"><div class="med" aria-hidden="true">A</div><div><div class="lab">Финал</div><h2 tabindex="-1">Допуск к клиентам</h2></div></div></div>
+      <div class="pbody">
+        <p style="margin:0 0 14px; font-size:14.5px; color:var(--ink-2)">Два замка. Первый — итоговый тест по всему треку. Второй — <b>разбор реального звонка с наставником</b>. Допуск открывает <b>человек</b> (РОП / наставник), а не тест автоматически.</p>
+        <div class="gatename" id="gateNameWrap"><label for="nameIn2">Имя для допуска</label><input id="nameIn2" type="text" placeholder="Как впишем в сертификат" maxlength="32" autocomplete="off"></div>
+        <div class="gate-grid" id="gateGrid"></div>
       </div>
     </div>
   </section>
@@ -344,280 +483,407 @@ body::after{
   <!-- CERT -->
   <section class="view" id="view-cert">
     <div class="cert" id="certCard">
-      <div class="seal">A</div>
-      <div class="ck">Сертификат · ATAMURA GROUP</div><h2>Продавец-консультант</h2>
-      <div class="who">Настоящим подтверждается, что<br><u id="cert-name">Менеджер</u></div>
-      <div class="desc">прошёл(ла) трек «Входящий контакт» Академии ATAMURA по методу Гребенюка и допущен(а) к работе с клиентами.</div>
+      <div class="seal" aria-hidden="true">A</div>
+      <div class="ck">Допуск · ATAMŪRA</div><h2 tabindex="-1">Телемаркетолог</h2>
+      <div class="who">Подтверждает, что<br><u id="cert-name">Менеджер</u></div>
+      <div class="desc">освоил(а) трек «Телемаркетинг» Академии ATAMŪRA по методу Гребенюка и <b>готов(а) к работе с клиентами под наставником</b>. Разбор звонка принят наставником; кадровое решение — за РОП / HR.</div>
       <div class="badges" id="cert-badges"></div>
-      <div class="foot"><span>Трек 1 · Телемаркетинг</span><span id="cert-date">2026</span></div>
+      <div class="stamped">● Печать поставлена наставником</div>
+      <div class="foot"><span>Трек I · Телемаркетинг</span><span id="cert-date">2026</span></div>
+    </div>
+    <div class="cheat">
+      <h4>Возьми в первый звонок</h4>
+      <ul id="cheat-list"></ul>
     </div>
     <div class="handoff">
-      <p>🚀 Доступ открыт. Дальше — твой рабочий кабинет: мой день, очередь звонков, калькулятор бонуса и KPI.</p>
-      <a href="https://dakeshisan.github.io/sales-companion-mockup/" target="_blank" rel="noopener"><button class="bigbtn gold">Перейти в рабочий кабинет →</button></a>
+      <p>Допуск открыт. Дальше — рабочий кабинет: мой день, очередь звонков, калькулятор бонуса и KPI.</p>
+      <a href="https://dakeshisan.github.io/sales-companion-mockup/" target="_blank" rel="noopener"><button class="btn block">Перейти в рабочий кабинет →</button></a>
     </div>
-    <div class="foot-note" style="margin-top:22px">Концепт-прототип · данные демонстрационные · <button onclick="resetAll()">сбросить прогресс</button></div>
+    <div class="note" style="margin-top:22px">Демо-прототип · данные демонстрационные · <button onclick="resetAll()">сбросить прогресс</button></div>
   </section>
 
-  <div class="foot-note" id="globalReset">Концепт-прототип Академии ATAMURA · v1 · трек телемаркетинга · контент по корпусу «Аномалии» · <button onclick="resetAll()">сбросить прогресс</button></div>
 </div>
 
 <script>
-/* ===== ВИДЕО =====
-   Реальные ролики из корпуса «Аномалии» (projects/anomaly_analysis/videos).
-   Публиковать их на публичном сайте нельзя — поэтому src берётся с приватного VPS.
-   Когда дашь адрес VPS — впиши его в VPS_BASE, и плеер начнёт играть настоящие видео.
-   Пока VPS_BASE пустой — играет нейтральный демо-ролик (заглушка). */
-const VPS_BASE = ''; // напр. 'https://<твой-vps>/anomaly/videos/'
+/* ===== ВИДЕО ===== */
+const VPS_BASE = ''; // адрес приватного VPS; пусто → демо-заглушка
 const VIDEO_DEMO = 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4';
 function vid(file){ return VPS_BASE ? VPS_BASE + encodeURIComponent(file) : VIDEO_DEMO; }
 
-/* ===== КОНТЕНТ (по корпусу «Аномалии») =====
-   Шаги урока: cover / media / point / script / compare / key — легко добавлять/менять. */
+/* ===== РАЗДЕЛЫ (словесные, без нумерации) ===== */
+const SECTIONS = [
+  {key:'prep',  name:'Подготовка', sub:'Настрой и клиент'},
+  {key:'call',  name:'Звонок',     sub:'Контакт → показ'},
+  {key:'close', name:'Доведение',  sub:'Возражения и дисциплина'}
+];
+
+/* ===== СТАРТ (вводный — о компании и продукте) ===== */
+const INTRO = { id:'mi', title:'О компании и продукте', intro:true,
+  lesson:[
+    {t:'cover', goal:'Понимать, что ты продаёшь, и говорить о компании уверенно — до первого звонка.', learn:['Кто такая ATAMŪRA и в чём её обещание','Линейка ЖК — где смотреть актуальное','Две главные тревоги клиента и честные ответы']},
+    {t:'point', h:'«Наследие, которое можно потрогать на стройке»', b:'Главное обещание ATAMŪRA клиенту — не картинка в рекламе, а дом, который реально строится и который можно увидеть на площадке. Это и есть наш аргумент доверия в звонке.', ex:'<b>В разговоре:</b> «Приезжайте на стройку — покажу, как идёт работа вживую». Доказательство сильнее обещаний.'},
+    {t:'point', h:'Линейка ЖК — знай, но не выдумывай', b:'У компании несколько жилых комплексов под разные задачи клиента. Точный список, статусы и условия — в рабочих материалах РОП и на сайте; на звонке ты ориентируешь, а конкретику (цены, сроки, наличие) подтверждает РОП.', norm:true},
+    {t:'point', h:'Две тревоги клиента — и честный ответ', b:'Клиент чаще всего боится двух вещей: <b>«заберут деньги и не достроят»</b> и <b>«будет не как на рендере»</b>. Ответ — не уговоры, а факты: как защищены деньги покупателя (точную формулировку даёт юрист компании) и приглашение увидеть стройку и готовые дома своими глазами.', norm:true},
+    {t:'key', items:['Обещание ATAMŪRA — «наследие, которое можно потрогать на стройке»','Конкретику (цены/сроки/наличие, защита денег) подтверждает РОП','Лучший ответ на страх — показать стройку и готовые ЖК']}
+  ]
+};
+
+/* ===== КОНТЕНТ (метод Гребенюка) ===== */
 const MODULES = [
- { id:'m0', ic:'🚀', title:'Добро пожаловать', badge:'Старт', xp:80,
+ { id:'m0', sec:'prep', skill:'Настрой', title:'Настрой решает', tease:'Состояние влияет на результат ещё до первого слова', proof:'в звонке: говоришь уверенно, без «дорого/проблема»',
    lesson:[
      {t:'cover', goal:'Понять, как твой настрой влияет на результат ещё до первого слова клиента.', learn:['Настрой решает больше, чем продукт','Язык формирует результат','Зачем сначала просто копировать стандарт']},
-     {t:'media', title:'Победа без цепи: про несдачу', file:'2025-11-14_Михаил_Гребенюк_7039.mp4', cap:'Ролик из корпуса «Аномалии». Сейчас демо-заглушка — заменится на видео с твоего VPS.'},
+     {t:'media', title:'Победа без цепи: про несдачу', file:'2025-11-14_Михаил_Гребенюк_7039.mp4', cap:'Ролик из корпуса «Аномалии». Сейчас демо-заглушка — заменится на видео с VPS.'},
      {t:'point', h:'Настрой решает больше, чем продукт', b:'В одинаковых условиях один менеджер ноет «рынок плохой, лиды холодные», другой берёт и доводит до сделки. Разница — в голове, а не в прайсе.', ex:'<b>Пример (Гребенюк):</b> гонщик Арон Гвин выиграл заезд, когда на старте слетела цепь — «победа на чистой воле».'},
-     {t:'point', h:'Язык формирует результат', b:'Кто весь день проговаривает «всё плохо, спроса нет» — так и работает. С клиентом то же: уверенная, позитивная лексика продаёт лучше виноватой. Гребенюк противопоставляет «нытьё» и «думать и действовать».'},
+     {t:'point', h:'Язык формирует результат', b:'Кто весь день проговаривает «всё плохо, спроса нет» — так и работает. С клиентом то же: уверенная, позитивная лексика продаёт лучше виноватой.'},
      {t:'compare', h:'Позитивная лексика', bad:['«Дорого»','«Не знаю»','«Предоплата»','«Проблема»'], good:['«Стоимость», «инвестиция»','«Уточню для вас сейчас»','«Фиксация условий»','«Вопрос», «ситуация»']},
-     {t:'key', items:['Настрой важнее продукта и скрипта','Уверенный язык продаёт, нытьё — отталкивает','Сначала копируем стандарт — понимание придёт в работе']}
+     {t:'key', items:['Настрой важнее продукта и скрипта','Уверенный язык продаёт, нытьё — отталкивает','Сначала копируем стандарт — понимание придёт в работе']},
+     {t:'practice', h:'Скажи уверенно', task:'Проговори вслух три замены: «дорого» → «стоимость», «проблема» → «вопрос», «не знаю» → «уточню для вас» — и поздоровайся так, будто рад(а) звонку.', check:['Голос ровный, без извинений','Все три замены прозвучали','Приветствие энергичное, не дежурное']}
    ],
    quiz:[
-     {type:'tf', q:'По Гребенюку, при равных условиях результат больше зависит от настроя менеджера, чем от продукта?', a:true, e:'Он противопоставляет тех, кто «думает и действует», тем, кто ноет на рынок при тех же вводных.'},
-     {type:'single', q:'Какой вывод делает Гребенюк из истории гонщика, у которого слетела цепь?', o:['Надо беречь технику','Побеждает тот, кто не сдаётся даже при сбое','Без оборудования побеждать нельзя','Везение решает всё'], a:1, e:'«Победа без цепи, на чистой воле» — метафора про несдачу.'},
-     {type:'single', q:'Как Гребенюк советует относиться к новым приёмам в начале обучения?', o:['Сразу спорить','Сначала копировать — понимание придёт позже','Внедрять только то, что понятно','Ждать идеального момента'], a:1, e:'«Не всё лежит на поверхности» — сначала отрабатываем стандарт.'}
+     {type:'tf', q:'При равных условиях результат больше зависит от настроя менеджера, чем от продукта?', a:true, e:'Гребенюк противопоставляет тех, кто «думает и действует», тем, кто ноет на рынок при тех же вводных.'},
+     {type:'single', q:'Клиент говорит «у вас дорого». Какая реакция в духе урока?', o:['«Да, дорого, но что поделать — рынок такой»','Сразу предложить скидку, чтобы не ушёл','Спокойно перевести на стоимость и ценность','Извиниться и предложить подумать самому'], a:2, e:'Уверенный язык: «стоимость/инвестиция» и ценность вместо виноватого «дорого».'},
+     {type:'single', q:'Как относиться к новым приёмам в начале обучения?', o:['Сначала копировать — понимание придёт позже','Спорить, пока не объяснят каждую деталь','Внедрять только то, что сразу понятно','Ждать более удобного момента в работе'], a:0, e:'«Не всё лежит на поверхности» — сначала отрабатываем стандарт.'}
    ]},
 
- { id:'m1', ic:'🎯', title:'Наш клиент и «5 единичек»', badge:'Знаю ЦА', xp:100,
+ { id:'m1', sec:'prep', skill:'ЦА · фокус', title:'Наш клиент и «5 единичек»', tease:'Увидеть, кто перед тобой, и сфокусироваться', proof:'в звонке: за 1–2 фразы понимаешь, чей это запрос',
    lesson:[
      {t:'cover', goal:'Научиться видеть, кто перед тобой, и сфокусироваться на одном клиенте.', learn:['Что такое «5 единичек»','Почему фокус = прибыль','Отказ от лишних аудиторий']},
      {t:'media', title:'«Выбор Миши»: фокус и рычаги роста', file:'2026-05-08_Михаил_Гребенюк_7461.mp4', cap:'Ролик из корпуса «Аномалии». Демо-заглушка — заменится на видео с VPS.'},
      {t:'point', h:'5 единичек = один фокус', b:'<b>1 ЦА · 1 боль · 1 продукт/сценарий · 1 источник трафика · 1 конвертер.</b> Кто угождает всем — «размазывает продукт, он становится беззубым» (Гребенюк).'},
      {t:'point', h:'Чтобы привлечь одних — откажись от других', b:'Дословно: «чтобы стать очень привлекательным для одних — нужно полностью отказаться от других». Один чёткий портрет покупателя ЖК — и под него скрипт и оффер.'},
-     {t:'point', h:'Нет фокуса — нет большой прибыли', b:'Почти все, кто пробил 1 млн+ чистыми в месяц, сделали это на узком фокусе. Кто делает 200–300к — «пытается урвать все аудитории».', ex:'<b>Пример:</b> Вячеслав, протезы — 1 ЦА (стоматологи из регионов), 1 боль, 1 продукт под ключ → 3,5 млн/мес.'},
-     {t:'key', items:['Фокус: 1 ЦА / боль / сценарий / источник / конвертер','Привлекателен для одних = осознанно отказался от других','Большая прибыль — из узкого фокуса, а не «всем подряд»']}
+     {t:'point', h:'Узкий фокус даёт прибыль', b:'Наблюдение Гребенюка: те, кто вышел на большую чистую прибыль, как правило, сделали это на узком фокусе, а не «всем подряд».', ex:'<b>Пример Гребенюка (не норматив ATAMŪRA):</b> Вячеслав, протезы — 1 ЦА (стоматологи из регионов), 1 боль, 1 продукт под ключ.'},
+     {t:'key', items:['Фокус: 1 ЦА / боль / сценарий / источник / конвертер','Привлекателен для одних = осознанно отказался от других','Большая прибыль — из узкого фокуса, а не «всем подряд»']},
+     {t:'practice', h:'Сфокусируй предложение', task:'Опиши вслух одного клиента: кто он, какая у него боль и почему ему нужен именно показ.', check:['Один портрет, не «все сразу»','Названа конкретная боль','Есть переход к показу']}
    ],
    quiz:[
-     {type:'single', q:'Сколько «единичек» в технике фокуса по Гребенюку?', o:['3','5','7','9'], a:1, e:'1 ЦА, 1 боль, 1 продукт, 1 источник трафика, 1 конвертер.'},
-     {type:'tf', q:'По Гребенюку, чтобы стать привлекательным для одной аудитории, нужно отказаться от других?', a:true, e:'Прямая цитата: «чтобы стать привлекательным для одних — нужно полностью отказаться от других».'},
-     {type:'single', q:'Что объединяет компании, пробившие 1 млн+ чистой прибыли в месяц?', o:['Большой рекламный бюджет','Узкий фокус в «5 единичек»','Много менеджеров','Низкие цены'], a:1, e:'Наблюдение Гребенюка: почти все вышли на 1 млн+ через узкий фокус.'}
+     {type:'single', q:'Сколько «единичек» в технике фокуса по Гребенюку?', o:['3','7','5','9'], a:2, e:'1 ЦА, 1 боль, 1 продукт, 1 источник трафика, 1 конвертер.'},
+     {type:'tf', q:'Чтобы стать привлекательным для одной аудитории, нужно отказаться от других?', a:true, e:'Прямая цитата: «чтобы стать привлекательным для одних — нужно полностью отказаться от других».'},
+     {type:'single', q:'Клиент звонит «просто узнать про все ваши ЖК сразу». Что в духе фокуса?', o:['Перечислить по порядку все наши ЖК','Отправить весь каталог в WhatsApp и ждать','Предложить клиенту изучить сайт самому','Уточнить задачу и дать 2–3 подходящих варианта'], a:3, e:'Фокус: сузить под задачу клиента, а не «размазать» весь каталог.'}
    ]},
 
- { id:'m2', ic:'📞', title:'Первый контакт', badge:'Контакт', xp:100,
+ { id:'m2', sec:'call', skill:'Контакт', title:'Первый контакт', tease:'Взять инициативу и не опускать руки после молчания', proof:'в звонке: берёшь инициативу, ставишь следующий шаг с датой',
    lesson:[
      {t:'cover', goal:'Взять инициативу и не опускать руки после первого молчания клиента.', learn:['Лид — начало воронки, не конец','Настойчивость как навык','Скорость, попытки, следующий шаг']},
      {t:'media', title:'Сотрудник банка и клиент-«кря» (Точка Банк)', file:'2025-09-26_Михаил_Гребенюк_6736.mp4', cap:'Ролик из корпуса «Аномалии». Демо-заглушка — заменится на видео с VPS.'},
      {t:'point', h:'Лид — это начало воронки', b:'Путь клиента: источник → заявка → квалификация → показ → бронь → договор. Один звонок ≠ продажа. Задача каждого контакта — довести до следующего шага.'},
-     {t:'point', h:'Не сдавайся после «странного» ответа', b:'Клиент отвечал на все вопросы только «кря» — а сотрудник Точка Банка всё равно довёл его до открытия счёта. Гребенюк: «а ты даже смс отправить откладываешь, и если не отвечают сразу — руки опускаешь».', ex:'<b>Контекст:</b> Точка Банк выросла до 50 млрд выручки именно на культуре «дожима».'},
-     {t:'point', h:'Скорость и количество попыток', b:'Стандарт работы: первый контакт за <b>≤5 минут</b>, минимум <b>5 попыток</b> связи, разные каналы — звонок + WhatsApp + SMS. После каждого контакта — конкретный следующий шаг с датой.'},
+     {t:'point', h:'Не сдавайся после «странного» ответа', b:'Клиент отвечал на все вопросы только «кря» — а сотрудник Точка Банка всё равно довёл его до открытия счёта. Гребенюк высмеивает тех, кто «даже смс отправить откладывает».'},
+     {t:'point', h:'Скорость и количество попыток', b:'Стандарт работы: быстрый первый контакт, несколько попыток связи, разные каналы — звонок + WhatsApp + SMS. После каждого контакта — конкретный следующий шаг с датой.', norm:true},
      {t:'script', h:'Закрытие контакта на следующий шаг', s:'<span class="who">—</span> Предлагаю так: отправлю 2–3 подходящих варианта в WhatsApp, и в среду в 18:00 покажу двор и квартиру вживую. Договорились?'},
-     {t:'key', items:['Продажа = доведение до следующего шага','Не опускать руки после первого молчания («кря»)','≤5 мин, ≥5 попыток, всегда — следующий шаг']}
+     {t:'key', items:['Продажа = доведение до следующего шага','Не опускать руки после первого молчания («кря»)','Быстро, несколько попыток, всегда — следующий шаг (нормативы задаёт РОП)']},
+     {t:'practice', h:'Закрой на следующий шаг', task:'Проговори закрытие звонка: вариант в WhatsApp + конкретный день и время показа.', check:['Есть конкретная дата и время','Предложение-выбор, а не «когда удобно?»','Финал — «Договорились?»']}
    ],
    quiz:[
-     {type:'single', q:'Чем закончилась история сотрудника Точка Банка и клиента, отвечавшего «кря»?', o:['Менеджер сдался','Менеджер всё равно открыл клиенту счёт','Клиент пожаловался','Звонок прервался'], a:1, e:'Сотрудник довёл абсурдный диалог до открытия счёта — образец несдачи.'},
-     {type:'tf', q:'Если клиент не ответил с первого раза — по логике Гребенюка нормально опустить руки?', a:false, e:'Он прямо высмеивает тех, кто «если не отвечают сразу — руки опускает».'},
-     {type:'single', q:'Что обязательно должно остаться после каждого контакта с лидом?', o:['Скидка','Назначенный следующий шаг','Договор','Жалоба'], a:1, e:'Стандарт обработки лида: обязательный следующий шаг в CRM.'}
+     {type:'single', q:'Клиент дважды не взял трубку и молчит в WhatsApp. Что делаешь?', o:['Пробую другой канал и время, ставлю попытку с датой','Закрываю заявку — клиент не заинтересован','Жду пару дней: захочет — сам выйдет на связь','Передаю лид РОПу как несостоявшийся'], a:0, e:'Культура несдачи (кейс «кря»): несколько попыток разными каналами, следующий шаг всегда с датой.'},
+     {type:'tf', q:'Если клиент не ответил с первого раза — нормально опустить руки?', a:false, e:'Гребенюк прямо высмеивает тех, кто «если не отвечают сразу — руки опускает».'},
+     {type:'single', q:'Что обязательно должно остаться после каждого контакта с лидом?', o:['Отправленный каталог планировок','Подписанный договор брони','Отметка «клиент перезвонит сам»','Назначенный следующий шаг с датой'], a:3, e:'Стандарт обработки лида: обязательный следующий шаг в CRM.'}
    ]},
 
- { id:'m3', ic:'🔤', title:'Квалификация ABC', badge:'ABC', xp:120,
+ { id:'m3', sec:'call', skill:'ABC', title:'Квалификация ABC', tease:'Понять, кто перед тобой, и не тратить силы поровну', proof:'в звонке: задаёшь 2–3 квалиф-вопроса до презентации',
    lesson:[
      {t:'cover', goal:'Понять, кто перед тобой, и не тратить силы одинаково на всех.', learn:['Качество лида важнее цены','2–3 проверочных вопроса','A / B / C — кто это']},
      {t:'point', h:'Качество лида важнее его цены', b:'Рекламу оценивают не по дешевизне заявки (CPL), а по тому, доходит ли лид до брони. Дешёвый, но мёртвый лид дороже дорогого, но горячего.'},
      {t:'point', h:'Квалифицируй до того, как тратить время', b:'Сильный продавец быстро задаёт несколько проверочных вопросов и понимает, с кем имеет дело — а не презентует всем одинаково.'},
-     {t:'point', h:'A / B / C — кто перед тобой', b:'<b>A (горячий):</b> бюджет + близкие сроки + выбирает сейчас → на показ немедленно. <b>B (тёплый):</b> интерес есть, решение отложено → греем, держим в воронке. <b>C (холодный):</b> только смотрит / нет бюджета → недорогой контакт и follow-up.'},
+     {t:'point', h:'A / B / C — кто перед тобой', b:'<b>A (горячий):</b> бюджет + близкие сроки + выбирает сейчас → на показ немедленно. <b>B (тёплый):</b> интерес есть, решение отложено → греем. <b>C (холодный):</b> только смотрит / нет бюджета → недорогой контакт и follow-up.'},
      {t:'script', h:'Быстрая квалификация в первом разговоре', s:'<span class="who">—</span> Чтобы подобрать точно: вы рассматриваете покупку в ближайшие месяцы или присматриваетесь на перспективу? Для себя или как инвестицию? Какой бюджет ориентировочно держите?'},
-     {t:'key', items:['Качество лида важнее цены (не гнаться за дешёвым CPL)','2–3 вопроса решают, сколько вложить сил','A — на показ, B — греть, C — недорогой контакт']}
+     {t:'key', items:['Качество лида важнее цены (не гнаться за дешёвым CPL)','2–3 вопроса решают, сколько вложить сил','A — на показ, B — греть, C — недорогой контакт']},
+     {t:'practice', h:'Три вопроса — своими словами', task:'Задай вслух три квалифицирующих вопроса: сроки, для кого, бюджет — как спросил(а) бы живого клиента.', check:['Звучит как разговор, не анкета','Есть вопрос про сроки','Про бюджет — спокойно, без извинений']}
    ],
    quiz:[
-     {type:'classify', q:'Определи категорию клиента', item:'«Бюджет есть, сроки близкие, выбираю квартиру прямо сейчас»', a:'A', e:'Горячий лид с деньгами и сроками двигается на показ немедленно.'},
-     {type:'single', q:'По чему правильнее оценивать рекламу?', o:['По цене заявки (CPL)','По качеству лида и движению до брони','По числу показов','По кликам'], a:1, e:'Рекламу мерят по качеству лида и продвижению в CRM, не по дешевизне CPL.'},
+     {type:'classify', q:'Определи категорию клиента', item:'«Планировки нравятся, банк бюджет уже одобрил, хотим заехать до осени»', a:'A', e:'Бюджет подтверждён и сроки близкие — горячий (A): договариваемся о показе сразу.'},
+     {type:'single', q:'Какая заявка ценнее всего для твоей работы?', o:['Самая дешёвая по рекламе','Та, что пришла быстрее всех','Та, что реально двигается к показу и брони','Любая — все заявки одинаковы'], a:2, e:'Качество важнее цены: лид мерим по движению к показу и брони, а не по стоимости заявки.'},
      {type:'tf', q:'Квалификация нужна, чтобы понять, сколько усилий вложить, а не просто «отсеять»?', a:true, e:'Это управленческая диагностика, а не наказание/отсев.'}
    ]},
 
- { id:'m4', ic:'🏡', title:'КЭВ — продаём показ', badge:'КЭВ', xp:120,
+ { id:'m4', sec:'call', skill:'КЭВ · показ', title:'КЭВ — продаём показ', tease:'Перестать «звать посмотреть» и продавать опыт', proof:'в звонке: закрываешь на конкретную дату показа',
    lesson:[
      {t:'cover', goal:'Перестать «звать посмотреть» и продавать показ как опыт.', learn:['Дать прожить опыт, а не описать','Дегустация → покупка','Показ под боль клиента']},
      {t:'media', title:'Разведка в Simple Wine: дегустация как воронка', file:'2025-10-10_Михаил_Гребенюк_6823.mp4', cap:'Ролик из корпуса «Аномалии». Демо-заглушка — заменится на видео с VPS.'},
      {t:'point', h:'Дать прожить опыт, а не показать товар', b:'Клиенту мало рассказать про продукт — нужно его прожить. В Simple Wine консультант прямо называет дегустацию «мощнейшим помощником» продаж.'},
      {t:'point', h:'Дегустация ведёт к покупке', b:'Механика из видео: человек пробует → понимает, что нравится → возвращается покупать осознанно.', ex:'<b>В недвижимости:</b> дегустация = показ. Её роль играют экскурсия, двор, район, сценарий жизни в квартире.'},
-     {t:'script', h:'Оффер на показ для семьи', s:'<span class="who">—</span> Лучше один раз увидеть, чем десять раз обсудить по телефону. Приходите на экскурсию — покажу двор, площадку и школу в двух минутах, и вы почувствуете, как тут будет жить семья. Когда удобнее — в будни вечером или в выходной?'},
+     {t:'script', h:'Оффер на показ для семьи', norm:true, s:'<span class="who">—</span> Лучше один раз увидеть, чем десять раз обсудить по телефону. Приходите на экскурсию — покажу двор, детскую площадку и то, как здесь живёт семья. Когда удобнее — в будни вечером или в выходной?'},
      {t:'compare', h:'Слышишь разницу?', bad:['«Приходите как-нибудь, посмотрите»','«Скину адрес в WhatsApp»','«Когда вам удобно?» (открыто)'], good:['«Организуем визит под вашу задачу»','«Подберу 2–3 варианта к показу»','«В будни или в выходные?» (выбор)']},
-     {t:'key', items:['Клиенту нужно прожить опыт, а не выслушать','Цель контакта — продать показ, а не квартиру','Показ = дегустация: маршрут под боль клиента']}
+     {t:'key', items:['Клиенту нужно прожить опыт, а не выслушать','Цель контакта — продать показ, а не квартиру','Показ = дегустация: маршрут под боль клиента']},
+     {t:'practice', h:'Продай показ, не квартиру', task:'Проговори оффер на показ для семьи с детьми: что они увидят и почувствуют + выбор «в будни или в выходные».', check:['Продаёшь опыт (двор, школа, жизнь), не метры','Есть выбор из двух времён','Нет «приходите как-нибудь»']}
    ],
    quiz:[
-     {type:'single', q:'Какую роль играет дегустация в воронке Simple Wine?', o:['Развлечение без продаж','Способ дать клиенту прожить опыт и привести к покупке','Скидочная акция','Обучение сомелье'], a:1, e:'Консультант называет дегустацию «мощнейшим помощником» продаж.'},
-     {type:'single', q:'Что в недвижимости играет роль «дегустации» по аналогии Гребенюка?', o:['Рекламный баннер','Показ-экскурсия (двор, район, сценарий жизни)','Прайс-лист','Холодный звонок'], a:1, e:'Программа прямо переносит дегустацию на показ/экскурсию.'},
+     {type:'single', q:'Клиент: «Расскажите всё по телефону — решу, стоит ли ехать». Что делаешь?', o:['Подробно презентую квартиру по телефону','Коротко отвечаю и продаю показ: «вживую увидите двор и планировку — в будни или в выходные?»','Отправляю прайс и жду решения','Говорю, что по телефону консультаций нет'], a:1, e:'Показ = дегустация: цель звонка — продать живой опыт, а не пересказать каталог.'},
+     {type:'single', q:'Что в недвижимости играет роль «дегустации»?', o:['Показ-экскурсия (двор, район, сценарий жизни)','Рекламный баннер','Прайс-лист','Холодный звонок'], a:0, e:'Программа прямо переносит дегустацию на показ/экскурсию.'},
      {type:'tf', q:'Главная цель первого звонка телемаркетолога — продать квартиру прямо по телефону?', a:false, e:'Цель — довести до показа (КЭВ), как дегустация доводит до покупки.'}
    ]},
 
- { id:'m5', ic:'🛡️', title:'Работа с возражениями', badge:'Возражения', xp:140,
+ { id:'m5', sec:'close', skill:'Возражения', title:'Работа с возражениями', tease:'Спокойно отрабатывать и возвращать к шагу', proof:'в звонке: на «дорого/подумаю» возвращаешь к показу, без спора',
    lesson:[
-     {t:'cover', goal:'Спокойно отрабатывать возражения и возвращать клиента к следующему шагу.', learn:['Возражение — сигнал продолжать','4 шага','«Дорого» и «я подумаю»']},
+     {t:'cover', goal:'Спокойно отрабатывать возражения и возвращать клиента к следующему шагу.', learn:['Возражение — сигнал продолжать','5 шагов','«Дорого» и «я подумаю»']},
      {t:'point', h:'Возражение — не отказ, а сигнал', b:'Ключевая установка корпуса — не опускать руки после первого «нет»/сомнения (кейс «кря»). Возражение значит, что человек ещё в диалоге.'},
-     {t:'point', h:'4 шага на любое возражение', b:'<b>Принять → уточнить → локализовать → вернуть к следующему шагу.</b> Сначала согласись с правом клиента так думать, потом разберись, что стоит за фразой.'},
-     {t:'script', h:'«Дорого»', s:'<span class="who">—</span> Понимаю. Дорого по сравнению с каким вариантом? Давайте честно сравним: в эту цену входит закрытый двор, школа рядом и сдача в срок — и будет видно, где вы выигрываете.'},
-     {t:'script', h:'«Я подумаю»', s:'<span class="who">—</span> Это правильно, решение серьёзное. Что важно ещё взвесить — планировку, оплату или сроки? Подготовлю расчёт, и в четверг в 18:00 встретимся на объекте — вживую решать проще.'},
-     {t:'key', items:['Возражение = «я ещё в диалоге», а не «нет»','Принять → уточнить → локализовать → вернуть к шагу','«Дорого» — ценностью; «подумаю» — конкретной датой']}
+     {t:'point', h:'5 шагов на любое возражение', b:'<b>Принять → уточнить → локализовать → аргументировать фактами → вернуть к следующему шагу.</b> Связка через «именно поэтому», без «но»: сначала согласись с правом клиента так думать, потом разберись, что стоит за фразой.'},
+     {t:'point', h:'Дожим — это не давление', b:'Ведём к показу, только если продукт реально подходит клиенту. Не обещаем сроков, условий и цен, которых нет, — конкретику подтверждает РОП. Честность здесь сильнее напора.', norm:true},
+     {t:'script', h:'«Дорого» — все 5 шагов', norm:true, s:'<span class="who">—</span> Понимаю вас <i>(принять)</i>. Дорого по сравнению с каким вариантом? <i>(уточнить)</i> По самой квартире всё нравится, вопрос только в цене? <i>(локализовать)</i> В эту стоимость входит закрытый двор и отделка <i>(аргумент фактом — свои факты уточни у РОП)</i>. Именно поэтому предлагаю увидеть всё вживую: в будни или в выходные? <i>(вернуть к показу)</i>'},
+     {t:'script', h:'«Я подумаю» — все 5 шагов', norm:true, s:'<span class="who">—</span> Это правильно, решение серьёзное <i>(принять)</i>. Что хотите взвесить — планировку, оплату или район? <i>(уточнить)</i> Если по оплате сойдёмся, остальное подходит? <i>(локализовать)</i> Подготовлю точный расчёт по вашей квартире <i>(аргумент фактом)</i>. Именно поэтому предлагаю четверг, 18:00, на объекте — вживую решать проще <i>(вернуть к показу)</i>'},
+     {t:'key', items:['Возражение = «я ещё в диалоге», а не «нет»','Принять → уточнить → локализовать → аргументировать → вернуть','«Дорого» — ценностью; «подумаю» — конкретной датой; без давления']},
+     {t:'practice', h:'«Дорого» — по пяти шагам', task:'Ответь вслух на «дорого»: прими → уточни → локализуй → аргументируй фактом → верни к показу. Связка — «именно поэтому», без «но».', check:['Начал(а) с принятия, не со спора','Есть «именно поэтому», нет «но»','Финал — конкретный следующий шаг']}
    ],
    quiz:[
-     {type:'single', q:'Какой первый шаг в работе с возражением?', o:['Сразу спорить','Принять право клиента так думать','Дать скидку','Положить трубку'], a:1, e:'Схема начинается с принятия, потом — уточнение и локализация.'},
-     {type:'single', q:'Как правильно реагировать на «я подумаю»?', o:['Согласиться и отпустить без даты','Уточнить, что взвесить, и назначить конкретный следующий шаг','Сразу сбросить цену','Перестать звонить'], a:1, e:'Правило «обязательный следующий шаг» не даёт лиду раствориться.'},
-     {type:'tf', q:'По духу корпуса, первое возражение клиента — повод закончить разговор?', a:false, e:'Культура несдачи (кейс «кря») — не сдаваться после первого сомнения.'}
+     {type:'single', q:'Какой первый шаг в работе с возражением?', o:['Сразу привести сильный контраргумент','Принять право клиента так думать','Предложить скидку, чтобы смягчить','Свернуть разговор до следующего раза'], a:1, e:'Схема начинается с принятия, потом — уточнение и локализация.'},
+     {type:'single', q:'Клиент: «я подумаю». Как ответить?', o:['Уточнить, что взвесить, и назначить конкретный следующий шаг','Согласиться и отпустить без даты','Сразу сбросить цену','Перестать звонить'], a:0, e:'Правило «обязательный следующий шаг» не даёт лиду раствориться.'},
+     {type:'tf', q:'Дожим — это давить на клиента, пока не согласится?', a:false, e:'Нет: ведём к показу, если продукт подходит, без обещаний того, чего нет.'}
    ]},
 
- { id:'m6', ic:'🔁', title:'Follow-up и дисциплина CRM', badge:'Дисциплина', xp:140,
+ { id:'m6', sec:'close', skill:'Дисциплина', title:'Follow-up и дисциплина CRM', tease:'Доводить до сделки касаниями и держать порядок', proof:'после звонка: следующий шаг и попытки зафиксированы в CRM',
    lesson:[
-     {t:'cover', goal:'Доводить клиента до сделки касаниями и держать порядок в CRM.', learn:['Вся воронка, а не один звонок','Доводить до финала','5 попыток + следующий шаг в CRM']},
+     {t:'cover', goal:'Доводить клиента до сделки касаниями и держать порядок в CRM.', learn:['Вся воронка, а не один звонок','Доводить до финала','Попытки + следующий шаг в CRM']},
      {t:'point', h:'Знай всю воронку', b:'Источник → заявка → квалификация → показ → бронь → договор. Менеджер ведёт клиента по всей цепочке, а не «отзвонился и забыл».'},
      {t:'point', h:'Главный навык — доводить до конца', b:'Гребенюк: ценнее всего те, кто «доводят принятые решения до финала: получил проблему — ушёл, сделал, пришёл, показал». В продажах это и есть follow-up.'},
-     {t:'point', h:'5 попыток и фиксация в CRM', b:'Минимум 5 попыток связи разными каналами; после каждого контакта — следующий шаг с датой в CRM. Без записи в системе клиент теряется.'},
+     {t:'point', h:'Попытки и фиксация в CRM', b:'Несколько попыток связи разными каналами; после каждого контакта — следующий шаг с датой в CRM. Без записи в системе клиент теряется. Конкретные нормативы (сколько попыток, за какое время) задаёт РОП.', norm:true},
      {t:'point', h:'Не будь «справочной службой»', b:'Менеджер не просто отвечает на вопросы и ждёт — он сам ведёт к следующему шагу. Пассивная «справка» = потерянный лид.'},
-     {t:'key', items:['Ведём по всей воронке: заявка → показ → бронь → договор','Ценно — доводить до финала: «ушёл, сделал, пришёл, показал»','5 попыток + следующий шаг в CRM; не быть пассивной справкой']}
+     {t:'key', items:['Ведём по всей воронке: заявка → показ → бронь → договор','Ценно — доводить до финала: «ушёл, сделал, пришёл, показал»','Попытки + следующий шаг в CRM; не быть пассивной справкой']},
+     {t:'practice', h:'Что уйдёт в CRM', task:'Проговори, что запишешь в CRM после звонка: категория клиента, договорённость и следующий шаг с датой.', check:['Следующий шаг с датой','Категория A/B/C названа','Понятен канал следующего касания']}
    ],
    quiz:[
-     {type:'single', q:'Кого, по словам Гребенюка, он двигает в карьере?', o:['Самых опытных','Тех, кто умеет дожимать и доводить до финала','Самых умных','Самых громких'], a:1, e:'«В карьере двигаю тех, кто умеет дожимать».'},
-     {type:'single', q:'Сколько минимум попыток связи задаёт стандарт обработки лида?', o:['1','2','5','10'], a:2, e:'Стандарт: минимум 5 попыток разными каналами.'},
+     {type:'single', q:'После показа клиент перестал отвечать. Что делаешь?', o:['Помечаю как отказ','Жду месяц — вдруг сам вернётся','Серия касаний разными каналами + следующий шаг с датой в CRM','Удаляю из базы'], a:2, e:'Доводить до финала: касания по плану, каждое — с фиксацией в CRM.'},
+     {type:'single', q:'Что делает менеджер сразу после контакта с лидом?', o:['Ждёт, пока клиент сам перезвонит','Держит договорённость в голове','Откладывает запись до конца дня','Фиксирует в CRM следующий шаг с датой'], a:3, e:'Дисциплина CRM: следующий шаг с датой после каждого касания.'},
      {type:'tf', q:'Хороший менеджер просто отвечает на вопросы клиента и ждёт его решения?', a:false, e:'Нельзя быть «справочной службой» — менеджер сам ведёт к следующему шагу.'}
    ]}
 ];
 
 const FINAL = [
-  {type:'single', q:'Сколько «единичек» в технике фокуса?', o:['3','5','7','9'], a:1, e:'1 ЦА / боль / продукт / источник / конвертер.'},
-  {type:'single', q:'Чем закончилась история клиента-«кря» в Точка Банке?', o:['Менеджер сдался','Менеджер всё равно довёл до открытия счёта','Клиент ушёл','Звонок сорвался'], a:1, e:'Образец несдачи: довёл абсурдный диалог до результата.'},
-  {type:'single', q:'Что в недвижимости играет роль «дегустации»?', o:['Прайс-лист','Показ-экскурсия','Баннер','Холодный звонок'], a:1, e:'Показ = дегустация (Simple Wine → экскурсия).'},
-  {type:'tf', q:'Первое возражение клиента — повод закончить разговор?', a:false, e:'Нет — принять, уточнить и вернуть к следующему шагу.'},
-  {type:'single', q:'Минимум попыток связи по стандарту?', o:['1','2','5','10'], a:2, e:'Минимум 5 попыток разными каналами.'}
+  {type:'single', q:'Клиент: «У вас всё так сложно с оплатой…». Ответ в духе уверенной лексики?', o:['«Да, у нас правда сложновато, извините»','«Не знаю, это не ко мне — спросите в офисе»','«Это рабочий вопрос, сейчас решим: расскажу варианты оплаты»','«Предоплата обязательна, таковы правила»'], a:2, e:'Лексика темы 1: «вопрос / решим / расскажу» вместо извинений и «не знаю».'},
+  {type:'single', q:'Твой скрипт пытается зацепить сразу студентов, инвесторов и семьи. По «5 единичкам» что не так?', o:['Предложение размазано: нужен один портрет и одна боль','Мало каналов трафика — надо добавить ещё','Слишком узкая линейка ЖК для такого охвата','В оффере не хватает скидки для каждой группы'], a:0, e:'Фокус (тема 2): 1 ЦА · 1 боль · 1 сценарий — «для всех» значит ни для кого.'},
+  {type:'single', q:'Новая заявка пришла 40 минут назад, ты был(а) на звонке. Что теперь?', o:['Позвоню завтра утром, по свежей голове','Наберу прямо сейчас и закончу следующим шагом с датой','Отправлю каталог в WhatsApp и подожду реакции','Поставлю напоминание на конец недели'], a:1, e:'Скорость и инициатива (тема 3): быстрый контакт + следующий шаг с датой.'},
+  {type:'classify', q:'Определи категорию клиента', item:'«Интересно, но покупать буду не раньше следующего года — бюджет ещё собираю»', a:'B', e:'Интерес есть, решение отложено — тёплый (B): греем касаниями, держим в воронке.'},
+  {type:'single', q:'Клиент: «Просто скажите цену по телефону, я решу». Твоя цель?', o:['Назвать вилку цен и закончить разговор','Выслать весь прайс и ждать решения','Перевести на показ: «цифры и планировки — на месте; в будни или в выходные?»','Узнать бюджет и отсеять, если не подходит'], a:2, e:'КЭВ (тема 5): продаём показ-опыт, а не цифры по телефону.'},
+  {type:'single', q:'Возражение «дорого». Правильный порядок действий?', o:['Принять → уточнить → локализовать → аргументировать фактом → вернуть к показу','Уточнить → привести аргумент → поспорить → предложить скидку → закончить','Аргументировать → принять → локализовать → дать скидку → ждать ответа','Вернуть к показу → принять → уточнить → согласиться → попрощаться'], a:0, e:'5 шагов (тема 6), связка «именно поэтому», без «но».'},
+  {type:'single', q:'Поговорил(а) с тёплым клиентом (B). Что делаешь в CRM?', o:['Ничего — напишет сам, когда созреет','Отмечу «думает», дату поставлю позже','Переведу в отказ, чтобы не висел в воронке','Поставлю следующий шаг с датой и каналом касания'], a:3, e:'Дисциплина (тема 7): каждое касание заканчивается шагом с датой.'},
+  {type:'single', q:'Клиент: «Боюсь, заберёте деньги и не достроите». Что отвечаешь?', o:['«Гарантирую: задержек у нас не бывает»','«Дам точную формулировку компании про защиту денег и позову на стройку»','«Это вопрос к юристам, я продажами занимаюсь»','«Могу предложить скидку за раннюю бронь»'], a:1, e:'Старт: страх закрываем фактами (формулировка юриста) и приглашением увидеть стройку.'}
 ];
 
 /* ===== STATE ===== */
-const KEY='atamura_academy_v3';
+const KEY='atamura_academy_redesign_v2';
 let S = load();
 let curMod=null, quizState=null, lessonState=null;
-function load(){ try{return JSON.parse(localStorage.getItem(KEY))||fresh()}catch(e){return fresh()} }
-function fresh(){ return {name:'', done:[], xp:0, badges:[], certified:false, streak:3} }
+function load(){ try{return Object.assign(fresh(), JSON.parse(localStorage.getItem(KEY))||{})}catch(e){return fresh()} }
+function fresh(){ return {name:'', done:[], badges:[], introDone:false, testPassed:false, mentorOK:false, certified:false} }
 function save(){ localStorage.setItem(KEY, JSON.stringify(S)) }
-function resetAll(){ S=fresh(); save(); go('home'); renderHeader(); renderPath(); document.getElementById('nameIn').value=''; }
-const TOTAL_XP = MODULES.reduce((s,m)=>s+m.xp,0)+200;
-function levelOf(){ if(S.certified) return 'Сертифицирован'; const n=S.done.filter(d=>d!=='final').length; if(n>=5) return 'Боец'; if(n>=2) return 'Стажёр'; return 'Новичок'; }
+function resetAll(){ if(!confirm('Сбросить весь прогресс Академии? Действие необратимо.')) return; S=fresh(); save(); go('home'); renderAll(); var n=document.getElementById('nameIn'); if(n)n.value=''; }
 
-/* ===== HEADER / PATH ===== */
+function doneCount(){ return MODULES.filter(m=>S.done.includes(m.id)).length; }
+const RANKS=[{n:'I',t:'Ученик'},{n:'II',t:'Подмастерье'},{n:'III',t:'Мастер'},{n:'★',t:'Допущен'}];
+/* ранг привязан к завершению разделов: Подготовка(2) и Звонок(до 5) */
+function rankIdx(){ if(S.certified) return 3; const n=doneCount(); if(n>=5) return 2; if(n>=2) return 1; return 0; }
+function nextRankNeed(){ const n=doneCount(); if(S.certified) return null; if(n<2) return {to:'Подмастерье', left:2-n}; if(n<5) return {to:'Мастер', left:5-n}; return {to:'Допущен', left:null}; }
+
+/* ===== HEADER ===== */
 function renderHeader(){
-  document.getElementById('lvlLabel').textContent=levelOf();
-  document.getElementById('streakN').textContent=S.streak;
-  document.getElementById('xpNum').textContent=S.xp+' / '+TOTAL_XP;
-  document.getElementById('xpFill').style.width=Math.min(100,Math.round(S.xp/TOTAL_XP*100))+'%';
+  const r=RANKS[rankIdx()];
+  document.getElementById('rk').textContent=r.n;
+  document.getElementById('lvlLabel').textContent=r.t;
+  const n=doneCount();
+  document.getElementById('mNum').textContent=n+' / '+MODULES.length;
+  document.getElementById('pnMob').textContent='· '+n+'/'+MODULES.length;
+  document.getElementById('mFill').style.width=Math.round(n/MODULES.length*100)+'%';
 }
+
+/* ===== HELPERS ===== */
 function isUnlocked(i){ return i===0 || S.done.includes(MODULES[i-1].id); }
 function hasVideo(m){ return m.lesson.some(s=>s.t==='media'); }
-function renderPath(){
-  const host=document.getElementById('path'); host.innerHTML='';
-  MODULES.forEach((m,i)=>{
-    const done=S.done.includes(m.id), unlocked=isUnlocked(i), current=!done&&unlocked;
-    const st=document.createElement('div');
-    st.className='station '+(done?'done':current?'current':'locked'); st.style.animationDelay=(i*0.06)+'s';
-    st.innerHTML=`
-      <div class="node">${done?'✓':(i+1)}</div>
-      <div class="scard" ${unlocked?`onclick="openModule('${m.id}')"`:''}>
-        <div class="ic">${m.ic}</div>
-        <div class="body"><h3>${m.title}</h3>
-          <div class="sub">${hasVideo(m)?'<span class="vid">🎬 видео</span>':''}<span class="les">📚 ${m.lesson.length} шагов</span><span class="rew">＋${m.xp} XP</span></div></div>
-        ${done?'<span class="pill-done">Пройдено</span>':unlocked?'<span class="go">Начать →</span>':'<span class="lockico">🔒</span>'}
-      </div>`;
-    host.appendChild(st);
+function currentIndex(){ for(let i=0;i<MODULES.length;i++){ if(!S.done.includes(MODULES[i].id)) return i; } return -1; }
+function allDone(){ return MODULES.every(m=>S.done.includes(m.id)); }
+function prefersReduce(){ return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches; }
+
+/* ===== "СЕГОДНЯ" ===== */
+function renderToday(){
+  const host=document.getElementById('today');
+  if(!S.introDone){
+    host.innerHTML=tHTML('Начни здесь · Старт', 'О компании и продукте', 'Прежде чем звонить — пойми, что продаёшь и как отвечать на страх клиента.', 'A', `openIntro()`, 'Пройти старт →');
+    return;
+  }
+  const ci=currentIndex();
+  if(ci>=0){
+    const m=MODULES[ci]; const sc=SECTIONS.find(s=>s.key===m.sec);
+    host.innerHTML=tHTML('Продолжай · '+sc.name, m.title, m.tease+'.', (ci+1), `openModule('${m.id}')`, 'Продолжить →');
+  } else if(!S.certified){
+    host.innerHTML=tHTML('Финал · последний шаг', 'Допуск к клиентам', S.testPassed?'Тест сдан. Осталось — разбор звонка с наставником.':'Все 7 тем пройдены. Сдай итоговый тест и пройди разбор звонка.', 'A', `go('gate')`, 'К допуску →', 'teal');
+  } else {
+    host.innerHTML=tHTML('Трек пройден', 'Ты допущен(а) к клиентам', 'Загляни в рабочий кабинет — мой день, очередь звонков, бонус и KPI.', '✓', `window.open('https://dakeshisan.github.io/sales-companion-mockup/','_blank')`, 'В кабинет →', 'teal');
+  }
+}
+function tHTML(k,h,p,med,onclick,cta,variant){
+  const medInner = med==='✓' ? '<span class="ic check" style="width:22px;height:22px"></span>' : med;
+  return `<div class="ix">
+    <div class="med num">${medInner}</div>
+    <div class="tx"><div class="k">${k}</div><h3>${h}</h3><p>${p}</p></div>
+    <div class="cta"><button class="btn ${variant||''}" onclick="${onclick}">${cta}</button></div>
+  </div>`;
+}
+
+/* ===== СТАРТ slot ===== */
+function renderStart(){
+  const host=document.getElementById('startSlot'); const done=S.introDone;
+  host.innerHTML=`<div class="startcard" role="button" tabindex="0" data-act="openIntro">
+    <div class="bk" aria-hidden="true">A</div>
+    <div class="body"><div class="lab">Старт · перед маршрутом</div><h4>О компании и продукте ЖК</h4><p>Что продаёшь и как отвечать на страх клиента</p></div>
+    <div class="end">${done?'<span class="ic check"></span> Пройдено':'Открыть →'}</div>
+  </div>`;
+}
+
+/* ===== JOURNEY ===== */
+function renderJourney(){
+  const host=document.getElementById('journey'); host.innerHTML='';
+  SECTIONS.forEach((sec,si)=>{
+    const mods=MODULES.map((m,i)=>({m,i})).filter(x=>x.m.sec===sec.key);
+    const doneN=mods.filter(x=>S.done.includes(x.m.id)).length;
+    const full=doneN===mods.length;
+    const section=document.createElement('div'); section.className='section'; section.style.animationDelay=(si*0.08)+'s';
+    let rows='';
+    mods.forEach(({m,i})=>{
+      const done=S.done.includes(m.id), unlocked=isUnlocked(i), current=!done&&unlocked;
+      rows+=`<div class="mrow ${done?'done':current?'current':'locked'}">
+        <div class="node num" aria-hidden="true">${done?'<span class="ic check"></span>':(i+1)}</div>
+        <div class="mcard" ${unlocked?`role="button" tabindex="0" data-act="openModule:${m.id}" aria-label="Тема ${i+1}: ${m.title}"`:`aria-label="Тема ${i+1}: ${m.title} — заблокировано"`}>
+          <div class="body"><h4>${m.title}</h4>
+            <div class="sub">${hasVideo(m)?'видео-урок · ':''}${m.lesson.length} шагов</div>
+            <div class="proof">${m.proof}</div></div>
+          <div class="end">
+            <span class="skill">${m.skill}</span>
+            ${done?'<span class="dn"><span class="ic check"></span> Пройдено</span>':unlocked?'<span class="go">Начать →</span>':'<span class="lk"><span class="ic lock"></span> позже</span>'}
+          </div>
+        </div></div>`;
+    });
+    section.innerHTML=`<div class="sec-h">
+        <div class="dot" aria-hidden="true"></div>
+        <div class="st"><div class="lab">Раздел</div><h3>${sec.name} <span style="font-weight:400;color:var(--mut);font-size:14px">· ${sec.sub}</span></h3></div>
+        <div class="pr ${full?'full':''}">${doneN}/${mods.length}</div>
+      </div><div class="mlist">${rows}</div>`;
+    host.appendChild(section);
   });
-  const allDone = MODULES.every(m=>S.done.includes(m.id));
-  const fst=document.createElement('div'); const fdone=S.certified;
-  fst.className='station final '+(fdone?'done':allDone?'current':'locked'); fst.style.animationDelay=(MODULES.length*0.06)+'s';
-  fst.innerHTML=`
-    <div class="node">${fdone?'★':'🎓'}</div>
-    <div class="scard" ${allDone?`onclick="go('gate')"`:''}>
-      <div class="ic">🏅</div>
-      <div class="body"><h3>Сертификация продавца</h3><div class="sub"><span>Итоговый тест ≥80%</span><span class="rew">＋200 XP</span><span>🎓 Сертификат</span></div></div>
-      ${fdone?'<span class="pill-done">Получен</span>':allDone?'<span class="go">Сдать →</span>':'<span class="lockico">🔒</span>'}
-    </div>`;
-  host.appendChild(fst);
-  document.getElementById('doneCount').textContent=S.done.filter(d=>d!=='final').length+' из '+MODULES.length+' миссий пройдено';
+}
+
+/* ===== FINALE ===== */
+function renderFinale(){
+  const host=document.getElementById('finale'); const open=allDone(); const got=S.certified;
+  const l1 = S.testPassed, l2 = S.mentorOK;
+  let endTxt = got?'Получен':open?'Открыть →':'<span class="ic lock"></span> после 7 тем';
+  host.innerHTML=`<div class="fcard ${open?'':'locked'}">
+    <div class="ftop" ${open?`role="button" tabindex="0" data-act="gate"`:''}>
+      <div class="fs" aria-hidden="true">${got?'<span class="ic check" style="width:22px;height:22px"></span>':'A'}</div>
+      <div class="body"><div class="lab">Финал</div><h3>Допуск к клиентам</h3>
+        <p>Итоговый тест + разбор звонка с наставником. Допуск открывает человек, не тест.</p></div>
+      <div class="end ${open?'':'lk'}">${endTxt}</div>
+    </div>
+    ${open?`<div class="locks">
+      <div class="flock ${l1?'ok':''}"><span class="b">${l1?'<span class="ic check"></span>':'1'}</span> Итоговый тест ${l1?'— сдан':'— ждёт'}</div>
+      <div class="flock ${l2?'ok':''}"><span class="b">${l2?'<span class="ic check"></span>':'2'}</span> Разбор с <span class="who">наставником</span> ${l2?'— принят':'— ждёт'}</div>
+    </div>`:''}
+  </div>`;
+  document.getElementById('doneCount').textContent=doneCount()+' из '+MODULES.length+' тем пройдено';
   document.getElementById('globalReset').style.display = S.certified?'none':'block';
 }
-function go(v){ document.querySelectorAll('.view').forEach(s=>s.classList.remove('active')); document.getElementById('view-'+v).classList.add('active'); window.scrollTo({top:0,behavior:'smooth'}); }
+
+function renderAll(){ renderHeader(); renderToday(); renderStart(); renderJourney(); renderFinale(); }
+function go(v){
+  document.querySelectorAll('.view').forEach(s=>s.classList.remove('active'));
+  const view=document.getElementById('view-'+v); view.classList.add('active');
+  window.scrollTo({top:0, behavior: prefersReduce()?'auto':'smooth'});
+  const h=view.querySelector('h1,h2,h3'); if(h){ try{h.focus({preventScroll:true})}catch(e){h.focus()} }
+}
+
+/* ===== keyboard activation for role=button ===== */
+document.addEventListener('keydown',e=>{
+  if((e.key==='Enter'||e.key===' ')){ const t=e.target; if(t&&t.getAttribute&&t.getAttribute('role')==='button'){ e.preventDefault(); t.click(); } }
+});
+document.addEventListener('click',e=>{
+  const el=e.target.closest('[data-act]'); if(!el) return; const act=el.dataset.act;
+  if(act==='openIntro') openIntro();
+  else if(act==='gate') go('gate');
+  else if(act.startsWith('openModule:')) openModule(act.split(':')[1]);
+});
 
 /* ===== LESSON STEPPER ===== */
+function openIntro(){ curMod='mi'; document.getElementById('le-num').textContent='A'; document.getElementById('le-lab').textContent='Старт · о компании'; document.getElementById('le-title').textContent=INTRO.title; lessonState={id:'mi', steps:INTRO.lesson, i:0, intro:true}; go('lesson'); renderLessonStep(); }
 function openModule(id){
-  curMod=id; const m=MODULES.find(x=>x.id===id);
-  document.getElementById('le-ic').textContent=m.ic;
-  document.getElementById('le-lab').textContent='Миссия '+(MODULES.indexOf(m)+1);
+  curMod=id; const m=MODULES.find(x=>x.id===id); const idx=MODULES.indexOf(m); const sc=SECTIONS.find(s=>s.key===m.sec);
+  document.getElementById('le-num').textContent=idx+1;
+  document.getElementById('le-lab').textContent='Раздел «'+sc.name+'» · Тема '+(idx+1);
   document.getElementById('le-title').textContent=m.title;
   lessonState={id, steps:m.lesson, i:0};
   go('lesson'); renderLessonStep();
 }
+function lessonObj(){ return lessonState.id==='mi'?INTRO:MODULES.find(x=>x.id===lessonState.id); }
 function cardHTML(step){
-  if(step.t==='cover') return `<div class="lc lc-cover">
-      <div class="cic">${MODULES.find(x=>x.id===lessonState.id).ic}</div>
-      <span class="lc-tag learn">📚 Урок</span>
-      <h3>${MODULES.find(x=>x.id===lessonState.id).title}</h3>
-      <div class="lc-goal"><b>🎯 Цель:</b> ${step.goal}</div>
-      <ul class="lc-learn">${step.learn.map(x=>`<li>${x}</li>`).join('')}</ul></div>`;
-  if(step.t==='media') return `<div class="lc"><span class="lc-tag learn">▶ Видео-урок</span>
+  const m=lessonObj(); const idx=lessonState.id==='mi'?'A':(MODULES.indexOf(m)+1);
+  if(step.t==='cover') return `<div class="lc lcover">
+      <div class="cn">${idx}</div>
+      <span class="lct learn">${lessonState.id==='mi'?'Старт':'Урок'}</span>
+      <h3>${m.title}</h3>
+      <div class="goal"><b>Цель:</b> ${step.goal}</div>
+      <ul class="learnl">${step.learn.map(x=>`<li>${x}</li>`).join('')}</ul></div>`;
+  if(step.t==='media') return `<div class="lc"><span class="lct learn">Видео-урок</span>
       <div class="vidwrap"><div class="player" data-src="${vid(step.file)}" data-title="${step.title}"><span class="slot">слот под материал</span>
-        <div class="play" onclick="playVideo(this)">▶</div><div class="ptitle">${step.title}</div>
-        <div class="pmeta"><span class="d">🎬 Гребенюк · Аномалия</span><span class="d">демо</span></div>
+        <button class="play" onclick="playVideo(this)" aria-label="Смотреть видео"><span class="tri"></span></button><div class="ptitle">${step.title}</div>
+        <div class="pmeta"><span class="d">Гребенюк · Аномалия</span><span class="d">демо</span></div>
         <div class="pcap">${step.cap}</div></div></div></div>`;
-  if(step.t==='point') return `<div class="lc"><span class="lc-tag learn">📖 Разбор</span>
-      <h3 class="ph">${step.h}</h3><p>${step.b}</p>${step.ex?`<div class="ex">${step.ex}</div>`:''}</div>`;
-  if(step.t==='script') return `<div class="lc"><span class="lc-tag script">🗣 Скрипт · ${step.h}</span>
-      <div class="scriptbox">${step.s}</div></div>`;
-  if(step.t==='compare') return `<div class="lc"><span class="lc-tag compare">⚖ ${step.h}</span>
-      <div class="cmp"><div class="col bad"><h5>❌ Не так</h5><ul>${step.bad.map(x=>`<li>${x}</li>`).join('')}</ul></div>
-      <div class="col good"><h5>✅ А так</h5><ul>${step.good.map(x=>`<li>${x}</li>`).join('')}</ul></div></div></div>`;
-  if(step.t==='key') return `<div class="lc"><span class="lc-tag key">🧠 Конспект</span>
-      <div class="lc-key"><h4>🧠 Запомни</h4><ul>${step.items.map(x=>`<li>${x}</li>`).join('')}</ul></div></div>`;
+  if(step.t==='point') return `<div class="lc"><span class="lct learn">Разбор</span>
+      <h3 class="ph">${step.h}</h3><p>${step.b}</p>${step.ex?`<div class="ex">${step.ex}</div>`:''}${step.norm?'<div class="norm">Конкретику (цифры, цены, защита денег) подтверждает РОП / юрист ATAMŪRA.</div>':''}</div>`;
+  if(step.t==='script') return `<div class="lc"><span class="lct script">Скрипт · ${step.h}</span>
+      <div class="scriptbox">${step.s}</div>${step.norm?'<div class="norm">Факты в примере — образец структуры. Реальные факты и цифры по своему ЖК бери у РОП.</div>':''}</div>`;
+  if(step.t==='compare') return `<div class="lc"><span class="lct compare">${step.h}</span>
+      <div class="cmp"><div class="col bad"><h5><span class="ic cross"></span> Не так</h5><ul>${step.bad.map(x=>`<li>${x}</li>`).join('')}</ul></div>
+      <div class="col good"><h5><span class="ic check"></span> А так</h5><ul>${step.good.map(x=>`<li>${x}</li>`).join('')}</ul></div></div></div>`;
+  if(step.t==='practice') return `<div class="lc"><span class="lct practice">Тренировка · 1 минута</span>
+      <div class="practicebox"><h4>${step.h}</h4><p class="task">${step.task}</p>
+      <div class="chk">Сам(а) себя проверь</div><ul class="learnl">${step.check.map(x=>`<li>${x}</li>`).join('')}</ul>
+      <div class="note">Вслух, не про себя. Академия ничего не записывает — это твоя тренировка перед проверкой.</div></div></div>`;
+  if(step.t==='key') return `<div class="lc"><span class="lct key">Конспект</span>
+      <div class="keybox"><h4>Запомни</h4><ul>${step.items.map(x=>`<li>${x}</li>`).join('')}</ul></div></div>`;
   return '';
 }
 function playVideo(btn){
   const wrap=btn.closest('.vidwrap'); const p=btn.closest('.player');
   const src=p.dataset.src, title=p.dataset.title; if(!src) return;
-  wrap.innerHTML='<video class="vid" controls autoplay playsinline src="'+src+'"></video><div class="pcap2">▶ '+title+' · '+(VPS_BASE?'видео из корпуса «Аномалии»':'демо-ролик — реальное видео подключится с VPS')+'</div>';
+  wrap.innerHTML='<video class="vid" controls muted playsinline preload="metadata" src="'+src+'"></video><div class="pcap2">'+title+' · '+(VPS_BASE?'видео из корпуса «Аномалии»':'технический демо-ролик (без звука) — настоящее видео подключится с VPS')+'</div>';
 }
 function renderLessonStep(){
-  const {steps,i}=lessonState;
-  document.getElementById('lstep-host').innerHTML=cardHTML(steps[i]);
-  document.getElementById('lstep-host').style.animation='none'; void document.getElementById('lstep-host').offsetWidth; document.getElementById('lstep-host').style.animation='rise .35s both';
-  document.getElementById('lstep-prog').style.width=Math.round((i+1)/steps.length*100)+'%';
+  const {steps,i}=lessonState; const host=document.getElementById('lhost');
+  host.innerHTML=cardHTML(steps[i]);
+  host.style.animation='none'; void host.offsetWidth; host.style.animation='rise .35s both';
+  document.getElementById('lprog').style.width=Math.round((i+1)/steps.length*100)+'%';
   document.getElementById('le-step').textContent=(i+1)+' / '+steps.length;
   document.getElementById('lprev').disabled = i===0;
-  document.getElementById('lnext').textContent = (i+1<steps.length)?'Далее →':'К проверке →';
+  const last=(i+1>=steps.length);
+  document.getElementById('lnext').textContent = last?(lessonState.intro?'Старт пройден ✓':'К проверке →'):'Далее →';
 }
-function lessonNext(){ if(lessonState.i+1<lessonState.steps.length){ lessonState.i++; renderLessonStep(); } else { startQuiz(lessonState.id); } }
+function lessonNext(){ if(lessonState.i+1<lessonState.steps.length){ lessonState.i++; renderLessonStep(); } else { if(lessonState.intro){ finishIntro(); } else { startQuiz(lessonState.id); } } }
 function lessonPrev(){ if(lessonState.i>0){ lessonState.i--; renderLessonStep(); } }
+function finishIntro(){ S.introDone=true; save(); renderAll(); go('home'); }
 
 /* ===== QUIZ ENGINE ===== */
-function startQuiz(id){ curMod=id; const set = id==='final'? FINAL : MODULES.find(x=>x.id===id).quiz; quizState={id, set, i:0, correct:0}; go('quiz'); document.querySelector('#view-quiz .checkbanner').style.display = id==='final'?'none':'flex'; renderQ(); }
+function startQuiz(id){ curMod=id; const set = id==='final'? FINAL : MODULES.find(x=>x.id===id).quiz; quizState={id, set, i:0, correct:0}; go('quiz'); document.getElementById('qbanner').style.display = id==='final'?'none':'flex'; const qb=document.getElementById('quizBack'); if(id==='final'){ qb.textContent='← К допуску'; qb.onclick=()=>go('gate'); } else { qb.textContent='← К началу урока'; qb.onclick=()=>openModule(id); } renderQ(); }
 function renderQ(){
   const {set,i}=quizState; const q=set[i];
-  document.getElementById('q-n').textContent='Вопрос '+(i+1)+'/'+set.length;
-  document.getElementById('q-prog').style.width=Math.round(i/set.length*100)+'%';
+  document.getElementById('q-n').textContent='Вопрос '+(i+1)+' / '+set.length;
+  document.getElementById('q-prog').style.width=Math.round((i+1)/set.length*100)+'%';
   const types={single:'Выбор', tf:'Верно / Неверно', classify:'Классификация'};
   document.getElementById('q-type').textContent=types[q.type]||'Выбор';
   const host=document.getElementById('q-host');
   if(q.type==='classify'){
     host.innerHTML=`<div class="qtext">${q.q}</div><div class="cl-item">${q.item}</div>
-      <div class="cl-buckets">${['A','B','C'].map(L=>`<button class="cl-b" data-l="${L}" onclick="answerClassify('${L}')"><div class="L">${L}</div><div class="d">${L==='A'?'горячий':L==='B'?'тёплый':'холодный'}</div></button>`).join('')}</div>
-      <div class="explain" id="explain"></div>`;
+      <div class="cl-buckets">${['A','B','C'].map(L=>`<button class="cl-b" data-l="${L}" onclick="answerClassify('${L}')"><div class="L">${L}</div></button>`).join('')}</div>
+      <div class="explain" id="explain" role="status" aria-live="polite"></div>`;
   } else {
     const opts = q.type==='tf' ? ['Верно','Неверно'] : q.o;
-    host.innerHTML=`<div class="qtext">${q.q}</div><div class="opts">${opts.map((o,idx)=>`<button class="opt" data-i="${idx}" onclick="answer(${idx})"><span class="key">${q.type==='tf'?(idx===0?'✓':'✕'):String.fromCharCode(65+idx)}</span><span>${o}</span></button>`).join('')}</div><div class="explain" id="explain"></div>`;
+    host.innerHTML=`<div class="qtext">${q.q}</div><div class="opts">${opts.map((o,idx)=>`<button class="opt" data-i="${idx}" onclick="answer(${idx})"><span class="key num">${q.type==='tf'?(idx===0?'+':'−'):String.fromCharCode(65+idx)}</span><span>${o}</span></button>`).join('')}</div><div class="explain" id="explain" role="status" aria-live="polite"></div>`;
   }
 }
 function lockOpts(sel){ document.querySelectorAll(sel).forEach(b=>b.disabled=true); }
+function markKey(btn, ok){ const k=btn.querySelector('.key'); if(k){ k.innerHTML='<span class="ic '+(ok?'check':'cross')+'"></span>'; } }
 function showExplain(ok,text){
   const ex=document.getElementById('explain'); ex.className='explain show '+(ok?'good':'bad');
-  ex.innerHTML=(ok?'<b>Верно. </b>':'<b>Почти. </b>')+text+`<div style="margin-top:12px"><button class="bigbtn" style="margin:0" onclick="nextQ()">${quizState.i+1<quizState.set.length?'Дальше →':'Завершить →'}</button></div>`;
+  ex.innerHTML=(ok?'<b>Верно. </b>':'<b>Неверно. </b>')+text+`<div style="margin-top:12px"><button class="btn teal block" onclick="nextQ()">${quizState.i+1<quizState.set.length?'Дальше →':'Завершить →'}</button></div>`;
 }
 function answer(idx){
   const q=quizState.set[quizState.i]; const correct = q.type==='tf' ? ((idx===0)===q.a) : (idx===q.a);
   const ai = q.type==='tf' ? (q.a?0:1) : q.a; lockOpts('.opt');
-  document.querySelectorAll('.opt').forEach(b=>{ const bi=+b.dataset.i; if(bi===ai)b.classList.add('correct'); if(bi===idx&&!correct)b.classList.add('wrong'); });
+  document.querySelectorAll('.opt').forEach(b=>{ const bi=+b.dataset.i; if(bi===ai){b.classList.add('correct'); markKey(b,true);} if(bi===idx&&!correct){b.classList.add('wrong'); markKey(b,false);} });
   if(correct)quizState.correct++; showExplain(correct,q.e);
 }
 function answerClassify(L){
@@ -627,48 +893,93 @@ function answerClassify(L){
 }
 function nextQ(){ if(quizState.i+1<quizState.set.length){ quizState.i++; renderQ(); } else finishQuiz(); }
 
-/* ===== RESULT / AWARD ===== */
+/* ===== RESULT ===== */
 function finishQuiz(){
   const {set,correct,id}=quizState; const pct=Math.round(correct/set.length*100);
-  const pass = id==='final' ? pct>=80 : pct>=60; let rewards=[];
+  const isFinal = id==='final';
+  const pass = isFinal ? pct>=80 : pct>=60; let rewards=[];
   if(pass){
-    if(id==='final'){ if(!S.certified){ S.certified=true; S.xp+=200; if(!S.done.includes('final'))S.done.push('final'); } rewards=['＋200 XP','🎓 Сертификат получен']; }
-    else if(!S.done.includes(id)){ const m=MODULES.find(x=>x.id===id); S.done.push(id); S.xp+=m.xp; if(!S.badges.includes(m.badge))S.badges.push(m.badge); rewards=['＋'+m.xp+' XP','🏅 Бейдж «'+m.badge+'»']; if(S.done.length===2||S.done.length===5) rewards.push('⬆ Уровень: '+levelOf()); }
-    else { rewards=['Уже пройдено ✓']; }
+    if(isFinal){ if(!S.testPassed){ S.testPassed=true; } rewards=['Теория сдана']; }
+    else if(!S.done.includes(id)){ const m=MODULES.find(x=>x.id===id); S.done.push(id); if(!S.badges.includes(m.skill))S.badges.push(m.skill); rewards=['Навык «'+m.skill+'» освоен']; const nr=nextRankNeed(); const before=doneCount()-1; if((doneCount()===2)||(doneCount()===5)) rewards.push('Новый ранг: '+RANKS[rankIdx()].t); }
+    else { rewards=['Уже пройдено']; }
     save();
   }
-  renderHeader(); renderPath(); go('result');
-  const arc=327, off=arc-arc*pct/100; const a=document.getElementById('r-arc');
+  renderAll(); go('result');
+  // ring
+  const arc=339, off=arc-arc*pct/100; const a=document.getElementById('r-arc');
   a.style.transition='none'; a.style.strokeDashoffset=arc;
-  setTimeout(()=>{a.style.transition='stroke-dashoffset 1s cubic-bezier(.22,1,.36,1)'; a.style.strokeDashoffset=off;},60);
-  let cnt=0; const t=setInterval(()=>{cnt+=Math.ceil(pct/24)||1; if(cnt>=pct){cnt=pct;clearInterval(t)} document.getElementById('r-pct').textContent=cnt+'%';},35);
-  document.getElementById('r-title').textContent = pass?(id==='final'?'Сертификация пройдена!':'Миссия пройдена!'):'Чуть-чуть не хватило';
-  document.getElementById('r-sub').textContent = pass? (correct+' из '+set.length+' верно') : ('Нужно '+(id==='final'?'80%':'60%')+'. У тебя '+pct+'% — вернись к уроку и попробуй ещё');
+  if(prefersReduce()){ a.style.strokeDashoffset=off; document.getElementById('r-pct').textContent=pct+'%'; }
+  else { setTimeout(()=>{a.style.transition='stroke-dashoffset 1s cubic-bezier(.22,1,.36,1)'; a.style.strokeDashoffset=off;},60);
+    let cnt=0; const t=setInterval(()=>{cnt+=Math.ceil(pct/24)||1; if(cnt>=pct){cnt=pct;clearInterval(t)} document.getElementById('r-pct').textContent=cnt+'%';},35); }
+  // copy
+  document.getElementById('r-title').textContent = pass?(isFinal?'Теория сдана!':'Тема пройдена!'):'Ещё один заход';
+  document.getElementById('r-sub').textContent = pass? (correct+' из '+set.length+' верно') : ('Закрепим и вернёмся — '+correct+' из '+set.length+'. Посмотри разбор и попробуй снова.');
+  // recap (module only, on pass)
+  const recap=document.getElementById('r-recap'); recap.innerHTML='';
+  if(pass && !isFinal){ const m=MODULES.find(x=>x.id===id); recap.innerHTML=`<div class="recap"><div class="rt">Что ты теперь умеешь</div><ul><li><span class="ic check"></span>${m.proof}</li></ul></div>`; }
+  // rewards
   const rr=document.getElementById('r-rewards'); rr.innerHTML='';
-  if(pass) rewards.forEach((r,k)=>{const d=document.createElement('div');d.className='rb';d.style.animationDelay=(k*.12)+'s';d.textContent=r;rr.appendChild(d);});
-  const nextBtn=document.getElementById('r-next'), retry=document.getElementById('r-retry');
-  if(pass){ retry.style.display='none'; nextBtn.style.display='block';
-    if(id==='final'){ nextBtn.textContent='Получить сертификат →'; nextBtn.onclick=showCert; } else { nextBtn.textContent='Вернуться на карту пути →'; nextBtn.onclick=()=>go('home'); } }
-  else { nextBtn.style.display='none'; retry.style.display='block'; retry.onclick=()=> id==='final'?startQuiz('final'):openModule(id); retry.textContent = id==='final'?'Пересдать':'Вернуться к уроку'; }
+  if(pass) rewards.forEach((r,k)=>{const d=document.createElement('div');d.className='rb';d.style.animationDelay=(k*.12)+'s';d.innerHTML='<span class="em"><span class="ic check" style="width:12px;height:12px"></span></span>'+r;rr.appendChild(d);});
+  // buttons
+  const nextBtn=document.getElementById('r-next'), retry=document.getElementById('r-retry'), review=document.getElementById('r-review');
+  nextBtn.style.display='none'; retry.style.display='none'; review.style.display='none';
+  if(pass){ nextBtn.style.display='flex';
+    if(isFinal){ nextBtn.textContent='К допуску →'; nextBtn.onclick=()=>go('gate'); }
+    else { nextBtn.textContent='Вернуться на маршрут →'; nextBtn.onclick=()=>go('home'); } }
+  else { retry.style.display='flex'; review.style.display='flex';
+    retry.textContent = isFinal?'Пересдать тест':'Пересдать вопросы'; retry.onclick=()=>startQuiz(id);
+    if(isFinal){ review.style.display='none'; } else { review.textContent='Вернуться к уроку'; review.onclick=()=>openModule(id); } }
+}
+
+/* ===== GATE (two locks, human decision) ===== */
+function renderGate(){
+  const l1=S.testPassed, l2=S.mentorOK;
+  const grid=document.getElementById('gateGrid');
+  grid.innerHTML=`
+    <div class="gatecard">
+      <h4><span class="n ${l1?'ok':''}">${l1?'<span class="ic check"></span>':'1'}</span> Итоговый тест</h4>
+      <p style="margin:0; font-size:13.5px; color:var(--ink-2)">Вопросы из всех тем. Порог высокий: проверка не на «галочку», а на готовность к звонку.</p>
+      <div class="st ${l1?'ok':'wait'}">${l1?'Сдан':'Ещё не сдан'}</div>
+      <button class="btn teal block" style="margin-top:12px" onclick="startQuiz('final')">${l1?'Пересдать тест':'Начать итоговый тест →'}</button>
+    </div>
+    <div class="gatecard">
+      <h4><span class="n ${l2?'ok':''}">${l2?'<span class="ic check"></span>':'2'}</span> Разбор звонка с наставником</h4>
+      <p style="margin:2px 0 6px; font-size:13.5px; color:var(--ink-2)">РОП / наставник слушает реальный звонок и подтверждает:</p>
+      <ul><li>Контакт установлен, цель звонка названа</li><li>Квалификация ABC</li><li>Закрытие на показ (КЭВ)</li><li>Отработано возражение</li><li>Договорённость о следующем шаге</li></ul>
+      <div class="st ${l2?'ok':'wait'}">${l2?'Принят наставником':(l1?'Ждёт разбора с наставником':'Сначала сдай тест')}</div>
+      <button class="btn ${l2?'ghost':'teal'} block" style="margin-top:12px" ${(!l1||l2)?'disabled':''} onclick="mentorConfirm()">${l2?'Подтверждено наставником ✓':'Наставник подтвердил разбор'}</button>
+      <div class="mentor-note">Демо: в реальной Академии эту отметку ставит РОП/наставник, не сам сотрудник. Допуск — решение человека по компетенции, не автомат.</div>
+    </div>
+    <div class="gatecard soon"><span class="tag">Скоро</span><h4>AI-тренажёр звонка</h4><p>Отыграешь звонок с виртуальным клиентом — система оценит по чек-листу Гребенюка и даст разбор. Встанет рядом с разбором наставника без переделки Академии.</p></div>
+    ${(l1&&l2)?`<button class="btn block" style="margin-top:4px" onclick="showCert()">Получить сертификат-допуск →</button>`:''}`;
+}
+function mentorConfirm(){
+  if(!S.testPassed) return;
+  if(!confirm('Демо-действие за наставника: подтвердить, что разбор звонка принят? В проде это делает РОП/наставник.')) return;
+  S.mentorOK=true; S.certified=true; if(!S.done.includes('final'))S.done.push('final'); save(); renderAll(); renderGate();
 }
 
 /* ===== CERT ===== */
 function showCert(){
-  document.getElementById('cert-name').textContent = S.name || (document.getElementById('nameIn').value.trim()) || 'Менеджер';
+  if(!(S.testPassed&&S.mentorOK)){ go('gate'); renderGate(); return; }
+  document.getElementById('cert-name').textContent = S.name || 'Менеджер';
   document.getElementById('cert-date').textContent = new Date().toLocaleDateString('ru-RU',{day:'2-digit',month:'long',year:'numeric'});
   const bh=document.getElementById('cert-badges'); bh.innerHTML='';
-  S.badges.forEach(b=>{const d=document.createElement('span');d.className='b';d.innerHTML='<span class="emb">★</span>'+b;bh.appendChild(d);});
-  go('cert'); confetti();
-}
-function confetti(){
-  const card=document.getElementById('certCard'); const cols=['#13a3a3','#d9a441','#0e2a40','#ffd98a','#3f6fb0'];
-  for(let k=0;k<40;k++){const c=document.createElement('div');c.className='confetti';c.style.left=Math.random()*100+'%';c.style.background=cols[k%cols.length];c.style.animationDuration=(1.6+Math.random()*1.6)+'s';c.style.animationDelay=(Math.random()*0.5)+'s';c.style.transform='rotate('+Math.random()*360+'deg)';card.appendChild(c);setTimeout(()=>c.remove(),3600);}
+  S.badges.forEach(b=>{const d=document.createElement('span');d.className='b';d.innerHTML='<span class="d"></span>'+b;bh.appendChild(d);});
+  const cl=document.getElementById('cheat-list'); cl.innerHTML='';
+  MODULES.forEach(m=>{ if(S.badges.includes(m.skill)){ const li=document.createElement('li'); li.innerHTML='<span class="ic check"></span>'+m.proof; cl.appendChild(li);} });
+  go('cert');
 }
 
+/* ===== NAME SYNC ===== */
+function syncName(v){ S.name=v.trim(); save(); const a=document.getElementById('nameIn'),b=document.getElementById('nameIn2'); if(a&&a.value!==S.name)a.value=S.name; if(b&&b.value!==S.name)b.value=S.name; }
+
 /* ===== WIRES ===== */
-document.getElementById('nameIn').addEventListener('input',e=>{S.name=e.target.value.trim();save();});
-document.getElementById('gate-start').onclick=()=>startQuiz('final');
-(function(){ if(S.name)document.getElementById('nameIn').value=S.name; renderHeader(); renderPath(); })();
+document.getElementById('nameIn').addEventListener('input',e=>syncName(e.target.value));
+document.getElementById('nameIn2').addEventListener('input',e=>syncName(e.target.value));
+/* re-render gate whenever opened */
+const _go=go; go=function(v){ _go(v); if(v==='gate') renderGate(); };
+(function(){ if(S.name){document.getElementById('nameIn').value=S.name; document.getElementById('nameIn2').value=S.name;} renderAll(); })();
 </script>
 </body>
 </html>
